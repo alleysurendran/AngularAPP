@@ -1,0 +1,88 @@
+﻿<div style="margin:20px 20px 20px 20px">
+    <h4>Request Vacation</h4>
+    <div class="vacation_table" style="padding:20px 20px 20px 20px">
+
+
+        <!--<p>{{datePicker || "00/00/0000"}}</p>
+        <input type="text" ng-model="datePicker" datepicker />-->
+
+        <table>
+            <tr>
+                <td class="vaction_remain_text">
+                    <label>No of Vacation Remaining</label>
+                    <label ng-model="remainingVacationCount"></label>
+                </td>
+                <td class="vaction_remain_text">
+                    <label>No of Loss of Pay Taken</label>
+                    <label ng-model="noOfLossOfPayTaken"></label>
+                </td>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <td class="vacation_table_cell ">No. of Days</td>
+                <td class="vacation_table_cell">Vacation From</td>
+                <td class="vacation_table_cell">To</td>
+                <td class="vacation_table_cell">Type of Vacation</td>
+                <td class="vacation_table_cell">Send Request To</td>
+            </tr>
+            <tr>
+                <td><input type="text" ng-model="noOfDays" class="vacation_days" /></td>
+                <td><input type="date" ng-model="vacationFrom" data-date="" data-date-format="DD MMMM YYYY" value="2015-08-09" /></td>
+                <td><input type="date" ng-model="vacationTo" data-date-format="DD MMMM YYYY" /></td>
+                <td>
+                    <select name="vacationType" class="vacation_dropdown" data-ng-model="vacationType" ng-options="c.VacationTypeID as c.VacationType for c in vacationTypes" id="vacationType">
+                        <option value="">Select...</option>
+                    </select>
+                </td>
+                <td>
+                    <select name="requestTo" data-ng-model="requestTo" class="vacation_dropdown" ng-options="c.EmployeeID as c.Name for c in employees" id="requestTo">
+                        <option value="">Select...</option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+        <table class="MT_Twenty">
+            <tr>
+                <td>Send Copy To</td>
+            </tr>
+            <tr>
+                <td><input type="text" ng-model="sendCopyTo" class="send_copyTo" /></td>
+            </tr>
+        </table>
+        <table class="MT_Twenty">
+            <tr><td>Comments</td></tr>
+            <tr>
+                <td><textarea ng-model="comments" class="vacation_comments"></textarea></td>
+            </tr>
+        </table>
+        <div class="MT_Twenty">
+            <button type="button" class="vacation_submitbtn" ng-click="">Submit</button>
+        </div>
+    </div>
+
+
+    <h4>My History</h4>
+    <table class="gridtable">
+        <thead>
+            <tr>
+                <th>Date Range</th>
+                <th>No of Days</th>
+                <th>Type of Vacation</th>
+                <th>Approver</th>
+                <th>Status</th>
+                <th>Remarks</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="vacation in vacations">
+                <td>{{vacation.VacationFrom}} - {{vacation.VacationTo}}</td>
+                <td>{{vacation.Noofdays}}</td>
+                <td>{{vacation.VacationType}}</td>
+                <td>{{vacation.SendRequestTo}}</td>
+                <td>{{vacation.Status}}</td>
+                <td>{{vacation.Remarks}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>nh
