@@ -8,7 +8,7 @@
 #nav {
     line-height:30px;
     background-color:#81A2C4;
-    height:300px;
+    height:auto;
     width:200px;
     float:left;
     padding:5px; 
@@ -40,3 +40,7 @@ ul {
 .menu li{
     padding-bottom:10px;
 }
+
+.menu li a{text-decoration:none;color:white}
+
+.menu li a:hover{text-decoration:underline}
