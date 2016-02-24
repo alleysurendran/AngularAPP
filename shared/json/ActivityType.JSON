@@ -1,0 +1,26 @@
+﻿[
+  {
+    "ActivityTypeID": 1,
+    "ActivityType": "Coding"
+  },
+  {
+    "ActivityTypeID": 2,
+    "ActivityType": "ProjectManagement"
+  },
+  {
+    "ActivityTypeID": 3,
+    "ActivityType": "Training"
+  },
+  {
+    "ActivityTypeID": 4,
+    "ActivityType": "Marketing"
+  },
+  {
+    "ActivityTypeID": 5,
+    "ActivityType": "Testing"
+  },
+  {
+    "ActivityTypeID": 6,
+    "ActivityType": "Other"
+  }
+]
