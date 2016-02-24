@@ -1,15 +1,26 @@
-﻿#header {
+﻿html, body
+{
+    height: 100%;
+    margin-top:0px;
+    margin-bottom:0px;
+}
+#header {
     background-color: #97C9DD;
     color: white;
     /*background-image: url('../../images/header.jpg');*/
     text-align: center;
-    padding: 50px;
+    height:100px;
+}
+#header h1 {
+    margin:0px;
+    padding: 30px;
+
 }
 
 #nav {
 
     background-color:#81A2C4;
-    height:auto;
+    height:100%;
     width:200px;
     float:left;
     padding:5px; 
@@ -31,8 +42,13 @@
     clear: both;
     text-align: center;
     padding: 5px;
+    height: 30px;
 }
 
+#footer p {
+    margin:0px;
+    padding-top:7px;
+}
 ul {
     list-style-type: none;
     margin: 0;
@@ -56,7 +72,43 @@ a, a:visited, a.hover, a:active {
     padding-bottom:10px;
 }
 
- .menu li a:hover {
+
+.Table
+    {
+        display: table;
+    }
+    .Title
+    {
+        display: table-caption;
+        text-align: center;
+        font-weight: bold;
+        font-size: larger;
+    }
+    .Heading
+    {
+        display: table-row;
+        font-weight: bold;
+        text-align: center;
+        background-color:#97C9DD;
+    }
+    .Row
+    {
+        display: table-row;
+    }
+    .Cell
+    {
+        display: table-cell;
+        border: solid;
+        border-width: thin;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+   
+#middle {
+    height: 80%;
+}
+    .menu li a:hover {
+
         text-decoration:underline;
     }
 
