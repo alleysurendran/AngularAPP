@@ -6,7 +6,7 @@
 
     <link rel="stylesheet" href="shared/styles/style.css" type="text/css">
     <link rel="stylesheet" href="shared/styles/vacation.css" type="text/css">
-
+    <link href="shared/styles/daily_status.css" rel="stylesheet" />
 </head>
 <body ng-app="angularApp">
 
@@ -19,12 +19,12 @@
                 <ul>
 
                     <li><a ui-sref="#">Dashboard</a></li>
-                    <li><a ui-sref="#">Customer</a></li>
-                    <li><a ui-sref="#">Daily Status</a></li>
+                    <li><a ui-sref="customer">Customer</a></li>
+                    <li><a ui-sref="dailystatus">Daily Status</a></li>
                     <li><a ui-sref="vacation">Vacation</a></li>
                 </ul>
             </div>
-
+    
         </div>
 
         <div id="section">
@@ -43,7 +43,7 @@
     <script src="config.js"></script>
     <!-- Controllers -->
     <script src="/controllers/VacationController.js"></script>
-
-
+    <script src="controllers/Customer.js"></script>
+    <script src="controllers/DailyStatusController.js"></script>
 </body>
 </html>

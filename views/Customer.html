@@ -1,0 +1,47 @@
+﻿<div class="form-wrapper">
+    <input type="text" id="search" placeholder="Search for CSS3, HTML5, jQuery ..." required>
+    <input type="submit" value="go" id="submit">
+</div>
+<div class="Table" ng-controller="CustomerController">
+    <div class="Heading">
+        <div class="Cell">
+            <p>Customer Name</p>
+        </div>
+        <div class="Cell">
+            <p>Address</p>
+        </div>
+        <div class="Cell">
+            <p>Country</p>
+        </div>
+        <div class="Cell">
+            <p>Account Manager</p>
+        </div>
+        <div class="Cell">
+            <p>Account Email</p>
+        </div>
+        <div class="Cell">
+            <p>Action</p>
+        </div>
+    </div>
+    <div class="Row" ng-repeat="customer in customerDetails">
+        <div class="Cell">
+            <p>{{customer.CustomerName}}</p>
+        </div>
+        <div class="Cell">
+            <p>{{customer.Address}}</p>
+        </div>
+        <div class="Cell">
+            <p>{{customer.Country}}</p>
+        </div>
+        <div class="Cell">
+            <p>{{customer.AccountManager}}</p>
+        </div>
+        <div class="Cell">
+            <p>{{customer.AccountEmail}}</p>
+        </div>
+        <div class="Cell">
+            <p><a href="#" ng-click="EditCustomer()">Edit</a>
+            <a href="#" ng-click="DeleteCustomer()" style="margin-left:3px;">Delete</a></p>
+        </div>
+    </div>
+</div>

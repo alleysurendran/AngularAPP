@@ -1,0 +1,89 @@
+﻿/*.daily_status_label {
+    padding-left: 20px;
+    margin-left: 20px;
+}*/
+
+
+label {
+    display: inline-block;
+    width: 100px;
+    padding-right: 100px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 25px;
+}
+
+.daily_status_label1 {
+    display: inline-grid;
+    width: 200px;
+    padding-top: 30px;
+}
+
+#dailystatuscontainer {
+    margin-left: 20px;
+    margin-top: 20px;
+    background-color: aliceblue;
+    padding-bottom: 25px;
+    padding-top: 25px;
+    padding-left: 25px;
+    border: solid;
+    padding-right: 25px;
+    margin-right: -3px;
+}
+
+#daily_status_list {
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.buttondiv {
+    width: 100%;
+    text-align: center;
+    padding-top: 20px;
+}
+
+select {
+    width: 173px;
+    margin-right: 28px;
+    margin-left: 25px;
+}
+#hour{
+    width:50px;
+    margin-right: 10px;
+}
+#min{
+    width:50px;
+    margin-left: 6px;
+    margin-right: 10px;
+}
+textarea{
+    margin-right: 28px;
+    margin-left: 25px;
+}
+/******************** Table Style **********************/
+.Table {
+    display: table;
+    border: solid;
+    width: 100%;
+    border-width: 2px;
+    background-color: aliceblue;
+}
+
+.Heading {
+    display: table-row;
+    font-weight: bold;
+    text-align: center;
+}
+
+.Row {
+    display: table-row;
+}
+
+.Cell {
+    display: table-cell;
+    border: solid;
+    border-width: thin;
+    padding-left: 5px;
+    padding-right: 5px;
+    width: auto;
+}
