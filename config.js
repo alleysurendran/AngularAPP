@@ -24,5 +24,3 @@ angularApp.config(function ($stateProvider, $urlRouterProvider) {
         
 });
 
-
-

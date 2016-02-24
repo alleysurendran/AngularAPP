@@ -3,7 +3,9 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
     <title>Angular Training App</title>
-    <link rel="STYLESHEET" href="shared/styles/style.css" type="text/css">
+
+    <link rel="stylesheet" href="shared/styles/style.css" type="text/css">
+    <link rel="stylesheet" href="shared/styles/vacation.css" type="text/css">
     <link href="shared/styles/daily_status.css" rel="stylesheet" />
 </head>
 <body ng-app="angularApp">
@@ -11,21 +13,17 @@
     <div id="header">
         <h1>Angular Training App</h1>
     </div>
+
     <div id="middle">
         <div id="nav">
             <div class="menu">
                 <ul>
-
                     <li><a ui-sref="#">Dashboard</a></li>
                     <li><a ui-sref="customer">Customer</a></li>
                     <li><a ui-sref="dailystatus">Daily Status</a></li>
-                    <li><a ui-sref="#">Vacation</a></li>
+                    <li><a ui-sref="vacation">Vacation</a></li>
                 </ul>
             </div>
-            <!--<a ui-sref="#">Dashboard</a>
-            <a ui-sref="#">Customer</a>
-            <a ui-sref="#">Daily Status</a>
-            <a ui-sref="#">Vacation</a>-->
         </div>
 
         <div id="section">
@@ -44,6 +42,7 @@
     <script src="app.js"></script>
     <script src="config.js"></script>
     <!-- Controllers -->
+    <script src="/controllers/VacationController.js"></script>
     <script src="controllers/Customer.js"></script>
     <script src="controllers/DailyStatusController.js"></script>
 </body>

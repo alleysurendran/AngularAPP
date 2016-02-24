@@ -1,0 +1,27 @@
+[{
+		  "EmployeeID":1,
+          "Name": "Manoj",
+          "Email": "manoj@burst.com",
+          "Password": "asdf",
+          "IsAdmin": "True",
+          "Total Vacation Allowed": 20
+		}
+		,
+		{
+		  "EmployeeID":2,
+          "Name": "Deepak",
+          "Email": "deepak@burst.com",
+          "Password": "asdf",
+          "IsAdmin": "True",
+          "Total Vacation Allowed": 20
+		}
+		,
+		
+		{
+		  "EmployeeID":3,
+          "Name": "Bindhu",
+          "Email": "bindhu@burst.com",
+          "Password": "asdf",
+          "IsAdmin": "True",
+          "Total Vacation Allowed": 20
+		}]

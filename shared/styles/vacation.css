@@ -1,0 +1,82 @@
+﻿
+
+table.gridtable {
+	width:917px;
+	color:#333333;
+	border-width: 1px;
+	border-color: #AAA;
+	border-collapse: collapse;
+}
+table.gridtable th {
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #AAA;
+	background-color:#0066A6;
+    color: white;
+}
+table.gridtable td {
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #AAA;
+	background-color: #ffffff;
+}
+.vacation_Outterdiv {
+    margin:20px 20px 20px 20px;
+}
+
+.vacation_table {
+    width:875px;
+    border:1px solid #AAA;
+    background-color:#EFF4F9;
+}
+
+.PL_twenty{padding-left:20px}
+
+.vacation_table_cell {
+    width:150px;height:50px;
+}
+
+.vaction_remain_text{
+
+    height:50px;width:200px;
+}
+.vacation_dropdown {
+    width:130px
+}
+
+.vacation_days {
+    width:50px;
+}
+
+.send_copyTo{
+
+    width:450px;
+}
+
+.vacation_comments{ width:450px;height:140px !important }
+
+.MT_Twenty{margin-top:20px;}
+
+.vacation_submitbtn{
+    
+
+    background-color: #0066A6; 
+    border: none;
+    color: white;
+    padding: 8px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    border-radius: 8px;
+
+}
+
+
+#wrapper {
+  font: 20px Calibri;
+  width: 100px;
+  margin: 0 auto;
+}
