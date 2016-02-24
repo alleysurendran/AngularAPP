@@ -1,0 +1,86 @@
+﻿<div id="dailystatuscontainer">
+    <div>
+        <label>Date</label>
+        <label>Project</label>
+        <label>Activity Type</label>
+        <label>Time Spend</label>
+    </div>
+    <div>
+        <select ng-model="date"></select>
+        <select ng-model="project"></select>
+        <select ng-model="activitytype">
+            <option ng-repeat="option in activitytype" value="{{option.ActivityTypeID}}">{{option.ActivityType}}</option>
+
+        </select>
+        <select id="hour" ng-model="hour"></select><span>hr</span>
+        <select id="min" ng-model="min"></select><span>min</span>
+        <!--<input class="daily_status_input" type="text" ng-model="date" />
+        <input class="daily_status_input" type="text" ng-model="project" />
+        <input class="daily_status_input" type="text" ng-model="activitytype" />
+        <input class="daily_status_input" type="text" ng-model="timespend" />-->
+    </div>
+    <div>
+        <label class="daily_status_label1">Activity Description</label>
+    </div>
+    <div>
+        <textarea class="daily_status_input" type="text" ng-model="activitydescription" rows="4" cols="50"></textarea>
+    </div>
+    <div class="buttondiv"><input class="daily_status_input" type="button" value="Save" /></div>
+</div>
+
+
+<div id="daily_status_list">
+    <div class="Table">
+        <div class="Heading">
+            <div class="Cell">
+                <p>Activity Date</p>
+            </div>
+            <div class="Cell">
+                <p>Project Name</p>
+            </div>
+            <div class="Cell">
+                <p>Activity Type</p>
+            </div>
+            <div class="Cell">
+                <p>Time Spend</p>
+            </div>
+            <div class="Cell">
+                <p>Activity Description</p>
+            </div>
+        </div>
+        <div class="Row">
+            <div class="Cell">
+                <p>Row 1 Column 1</p>
+            </div>
+            <div class="Cell">
+                <p>Row 1 Column 2</p>
+            </div>
+            <div class="Cell">
+                <p>Row 1 Column 3</p>
+            </div>
+            <div class="Cell">
+                <p>Row 1 Column 3</p>
+            </div>
+            <div class="Cell">
+                <p>Row 1 Column 3</p>
+            </div>
+        </div>
+        <!--<div class="Row">
+            <div class="Cell">
+                <p>Row 2 Column 1</p>
+            </div>
+            <div class="Cell">
+                <p>Row 2 Column 2</p>
+            </div>
+            <div class="Cell">
+                <p>Row 2 Column 3</p>
+            </div>
+            <div class="Cell">
+                <p>Row 1 Column 3</p>
+            </div>
+            <div class="Cell">
+                <p>Row 1 Column 3</p>
+            </div>
+        </div>-->
+    </div>
+</div>

@@ -4,7 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
     <title>Green Blue Site</title>
     <link rel="STYLESHEET" href="shared/styles/style.css" type="text/css">
-
+    <link href="shared/styles/daily_status.css" rel="stylesheet" />
 </head>
 <body ng-app="angularApp">
 
@@ -18,7 +18,7 @@
 
                 <li><a ui-sref="#">Dashboard</a></li>
                 <li><a ui-sref="#">Customer</a></li>
-                <li><a ui-sref="#">Daily Status</a></li>
+                <li><a ui-sref="dailystatus">Daily Status</a></li>
                 <li><a ui-sref="#">Vacation</a></li>
             </ul>
         </div>
@@ -43,8 +43,6 @@
     <script src="app.js"></script>
     <script src="config.js"></script>
     <!-- Controllers -->
-
-   
-
+    <script src="controllers/DailyStatusController.js"></script>
 </body>
 </html>
