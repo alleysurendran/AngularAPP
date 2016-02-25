@@ -1,0 +1,42 @@
+﻿[
+  {
+    "DailyStatusID": 1,
+    "EmployeeID": 1,
+    "ActivityDate": "13/11/2016",
+    "ProjectName": "Takamol",
+    "ActivityType": "Coding",
+    "Hour": "8",
+    "Min": "00",
+    "Description": "Created funtion to get details."
+  },
+  {
+    "DailyStatusID": 2,
+    "EmployeeID": 1,
+    "ActivityDate": "12/11/2016",
+    "ProjectName": "Takamol",
+    "ActivityType": "Bug Fixing",
+    "Hour": "7",
+    "Min": "45",
+    "Description": "Fixed bug #24."
+  },
+  {
+    "DailyStatusID": 3,
+    "EmployeeID": 1,
+    "ActivityDate": "11/11/2016",
+    "ProjectName": "Takamol",
+    "ActivityType": "Testing",
+    "Hour": "8",
+    "Min": "00",
+    "Description": "Doing developer testing."
+  },
+  {
+    "DailyStatusID": 4,
+    "EmployeeID": 1,
+    "ActivityDate": "10/11/2016",
+    "ProjectName": "Takamol",
+    "ActivityType": "Coding",
+    "Hour": "8",
+    "Min": "45",
+    "Description": "Created funtion to get details."
+  }
+]

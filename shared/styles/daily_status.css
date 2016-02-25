@@ -22,11 +22,11 @@ label {
 #dailystatuscontainer {
     margin-left: 20px;
     margin-top: 20px;
-    background-color: aliceblue;
+    background-color: #EFF4F9;
     padding-bottom: 25px;
     padding-top: 25px;
     padding-left: 25px;
-    border: solid;
+    border: groove;
     padding-right: 25px;
     margin-right: -3px;
 }
@@ -41,7 +41,17 @@ label {
     text-align: center;
     padding-top: 20px;
 }
-
+.savebutton{
+    background-color: #0066A6;
+    border: none;
+    color: white;
+    padding: 6px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    border-radius: 8px;
+}
 select {
     width: 173px;
     margin-right: 28px;
@@ -73,6 +83,12 @@ textarea{
     display: table-row;
     font-weight: bold;
     text-align: center;
+    border-width: 1px;
+    padding: 8px;
+    border-style: solid;
+    border-color: #AAA;
+    background-color: #0066A6;
+    
 }
 
 .Row {
@@ -86,4 +102,7 @@ textarea{
     padding-left: 5px;
     padding-right: 5px;
     width: auto;
+}
+.Heading .Cell p{
+    color: white;
 }
