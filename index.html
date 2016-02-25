@@ -5,39 +5,45 @@
     <title>Angular Training App</title>
 
     <link rel="stylesheet" href="shared/styles/style.css" type="text/css">
+
     <link rel="stylesheet" href="shared/styles/vacation.css" type="text/css">
-    <<!--link href="shared/styles/daily_status.css" rel="stylesheet" />-->
+    <link rel="stylesheet" href="shared/styles/datepicker.css" type="text/css">
+    <script src="/libraries/jquery-1.11.2.min.js"></script>
+    <script src="/libraries/moment.min.js"></script>
+    <script src="/libraries/Angular.min.js"></script>
+    <script src="/libraries/datepicker.js"></script>
 </head>
 <body ng-app="angularApp">
 
     <div id="header">
         <h1>Angular Training App</h1>
     </div>
-    
+    <div id="middle">
         <div id="nav" ng-show="sidebar">
             <div class="menu">
                 <ul>
-
-                    <li><a ui-sref="dashboard">Dashboard</a></li>
+                    <li><a ui-sref="#">Dashboard</a></li>
                     <li><a ui-sref="customer">Customer</a></li>
                     <li><a ui-sref="dailystatus">Daily Status</a></li>
                     <li><a ui-sref="vacation">Vacation</a></li>
                 </ul>
             </div>
-    
         </div>
 
         <div id="section">
             <div ui-view></div>
 
         </div>
-    
-    <div id="footer">
-        Copyright © AngularTraning
     </div>
-    <script src="libraries/Angular.min.js"></script>
-    <!--<script src="/libraries/angular-route.min.js"></script>-->
-    <script src="libraries/angular-ui-router.min.js"></script>
+    <div id="footer">
+        <p> Copyright © AngularTraning</p>
+       
+    </div>
+
+    
+    
+    <script src="/libraries/angular-ui-router.min.js"></script>
+
     <!-- Modules -->
     <script src="app.js"></script>
     <script src="config.js"></script>
