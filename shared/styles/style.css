@@ -1,1 +1,313 @@
-﻿
+﻿﻿#header {
+    background-color: #97C9DD;
+    color: white;
+    /*background-image: url('../../images/header.jpg');*/
+    text-align: center;
+    height:100px;
+}
+#header h1 {
+    margin:0px;
+    padding: 30px;
+
+}
+
+#nav {
+    background-color: #81A2C4;
+    width: 200px;
+    float: left;
+    padding: 5px;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    height:100%;
+    line-height: 30px;
+}
+
+#section {
+    width: 78%;
+    float: left;
+    padding: 10px;
+}
+
+#footer {
+    background-color: #97C9DD;
+    color: white;
+    clear: both;
+    text-align: center;
+    padding: 5px;
+    height: 30px;
+}
+
+#footer p {
+    margin:0px;
+    padding-top:7px;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+
+.menu {
+    margin-left: 30px;
+    padding-top: 50px;
+}
+
+    .menu li {
+        padding-bottom: 10px;
+    }
+
+a, a:visited, a.hover, a:active {
+    text-decoration: none;
+    color: inherit;
+}
+
+.menu li {
+    padding-bottom: 10px;
+}
+#middle {
+    height: 80%;
+}
+
+    .menu li a:hover {
+        text-decoration: underline;
+    }
+/***********************************Daily Status Style********************************/
+#dailystatuscontainer label {
+    display: inline-block;
+    width: 92px;
+    padding-right: 100px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 25px;
+}
+
+#dailystatuscontainer .daily_status_label1 {
+    display: inline-grid;
+    width: 200px;
+    padding-top: 30px;
+}
+
+#dailystatuscontainer {
+    margin-left: 20px;
+    margin-top: 20px;
+    background-color: #EFF4F9;
+    padding-bottom: 25px;
+    padding-top: 25px;
+    padding-left: 25px;
+    border: groove;
+    padding-right: 25px;
+    margin-right: -3px;
+}
+
+#daily_status_list {
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+#dailystatuscontainer .buttondiv {
+    width: 100%;
+    text-align: center;
+    padding-top: 20px;
+}
+
+#dailystatuscontainer .savebutton {
+    background-color: #0066A6;
+    border: none;
+    color: white;
+    padding: 6px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    border-radius: 8px;
+}
+
+#dailystatuscontainer .daily_status_dropdown {
+    width: 165px;
+    margin-right: 28px;
+    margin-left: 25px;
+}
+
+#dailystatuscontainer #hour {
+    width: 50px;
+    margin-right: 10px;
+}
+
+#dailystatuscontainer #min {
+    width: 50px;
+    margin-left: 6px;
+    margin-right: 10px;
+}
+
+#dailystatuscontainer textarea {
+    margin-right: 28px;
+    margin-left: 25px;
+}
+/***************************** Daily Status Table Style *******************************/
+.Table {
+    display: table;
+    border: solid;
+    width: 100%;
+    border-width: 2px;
+    background-color: #EFF4F9;
+}
+
+.Heading {
+    display: table-row;
+    font-weight: bold;
+    text-align: center;
+    border-width: 1px;
+    padding: 8px;
+    border-style: solid;
+    border-color: #AAA;
+    background-color: #0066A6;
+}
+
+.Row {
+    display: table-row;
+}
+
+.Cell {
+    display: table-cell;
+    border: solid;
+    border-width: thin;
+    padding-left: 5px;
+    padding-right: 5px;
+    width: auto;
+}
+
+.Heading .Cell p {
+    color: white;
+}
+/**********************************Daily Status style End*****************************/
+
+#login {
+    padding-left: 35%;
+    padding-right: 40%;
+    padding-bottom: 8%;
+    padding-top: 6%;
+    width: 100px;
+}
+#username{
+    /*background-color:aliceblue;*/
+    padding-left: 5px;
+    margin-top:15%;
+    margin-bottom: 10%;
+    margin-left: 25%;
+    border-radius: 8px;
+    height: 23px;
+
+}
+#password{
+    /*background-color:aliceblue;*/
+    padding-left: 5px;
+    margin-bottom: 10%;
+    margin-left: 25%;
+    border-radius: 8px;
+    height: 23px;
+}
+#loginsubmit {
+    
+    margin-left: 35%;
+    background-color: #0066A6;
+    color: white;
+    padding: 5px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    border-radius: 8px;
+}
+     table.gridtable {
+	width:990px;
+	color:#333333;
+	border-width: 1px;
+	border-color: #AAA;
+	border-collapse: collapse;
+}
+table.gridtable th {
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #AAA;
+	background-color:#81A2C4;
+    color: white;
+}
+table.gridtable td {
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #AAA;
+	background-color: #ffffff;
+}
+.vacation_Outterdiv {
+    margin:20px 20px 20px 20px;
+}
+
+.vacation_sendRequest{padding:20px 20px 20px 20px}
+
+.vacation_DateFormat {
+    font-size:13px;
+}
+
+.vacation_table {
+    width:950px;
+    border:1px solid #AAA;
+    background-color:#EFF4F9;
+}
+
+.PL_twenty{padding-left:20px}
+
+.vacation_table_cell {
+    width:220px;height:50px;
+}
+
+.vaction_remain_text{
+
+    height:50px;width:200px;
+}
+.vacation_dropdown {
+    width:130px
+}
+
+.vacation_days {
+    width:50px;
+}
+
+.send_copyTo{
+
+    width:450px;
+}
+
+.vacation_comments{ width:450px;height:140px !important }
+
+.MT_Twenty{margin-top:20px;}
+
+.vacation_submitbtn{
+    
+
+    background-color: #81A2C4; 
+    border: none;
+    color: white;
+    padding: 8px 15px;
+text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    border-radius: 8px;
+}
+
+#loginContent{
+    margin-left: 111%;
+    width: 327px;
+    height: 290px;
+    background-color: aliceblue;
+}
+
+.error{
+    padding-top: 31px;
+    text-align: center;
+    color: red;
+}

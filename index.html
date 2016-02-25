@@ -5,17 +5,21 @@
     <title>Angular Training App</title>
 
     <link rel="stylesheet" href="shared/styles/style.css" type="text/css">
+
     <link rel="stylesheet" href="shared/styles/vacation.css" type="text/css">
-    <link href="shared/styles/daily_status.css" rel="stylesheet" />
+    <link rel="stylesheet" href="shared/styles/datepicker.css" type="text/css">
+    <script src="/libraries/jquery-1.11.2.min.js"></script>
+    <script src="/libraries/moment.min.js"></script>
+    <script src="/libraries/Angular.min.js"></script>
+    <script src="/libraries/datepicker.js"></script>
 </head>
 <body ng-app="angularApp">
 
     <div id="header">
         <h1>Angular Training App</h1>
     </div>
-
     <div id="middle">
-        <div id="nav">
+        <div id="nav" ng-show="sidebar">
             <div class="menu">
                 <ul>
                     <li><a ui-sref="#">Dashboard</a></li>
@@ -35,9 +39,11 @@
         <p> Copyright © AngularTraning</p>
        
     </div>
-    <script src="libraries/Angular.min.js"></script>
-    <!--<script src="/libraries/angular-route.min.js"></script>-->
-    <script src="libraries/angular-ui-router.min.js"></script>
+
+    
+    
+    <script src="/libraries/angular-ui-router.min.js"></script>
+
     <!-- Modules -->
     <script src="app.js"></script>
     <script src="config.js"></script>
@@ -45,5 +51,8 @@
     <script src="/controllers/VacationController.js"></script>
     <script src="controllers/Customer.js"></script>
     <script src="controllers/DailyStatusController.js"></script>
+    <script src="controllers/LoginController.js"></script>
+    <!-- Services -->
+    <script src="services/LoginService.js"></script>
 </body>
 </html>

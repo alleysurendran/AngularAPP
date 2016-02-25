@@ -1,0 +1,10 @@
+﻿<form name="loginform">
+    <div id="login">
+        <div id="loginContent">
+            <div class="error" ng-show="showerror" >Invalid UserName or Password.</div>
+            <input ng-model="username" type="text" id="username" placeholder="User Name" ng-required="true" />
+            <input ng-model="password" type="password" id="password" placeholder="Password" ng-required="true" />
+            <button ng-click="loginform.$valid && validateUser()" id="loginsubmit">Login</button>
+        </div>
+    </div>
+</form>
