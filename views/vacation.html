@@ -1,7 +1,7 @@
 ﻿<div class="vacation_Outterdiv">
     <h2>Request Vacation</h2>
-    <div class="vacation_table" style="padding:20px 20px 20px 20px">
-            
+    <div class="vacation_table vacation_sendRequest">
+
         <table>
             <tr>
                 <td class="vaction_remain_text">
@@ -13,12 +13,14 @@
                     <label ng-model="noOfLossOfPayTaken"></label>
                 </td>
             </tr>
+
+
         </table>
         <table>
             <tr>
                 <td class="vacation_table_cell">No. of Days</td>
-                <td class="vacation_table_cell">Vacation From [DD/MM/YYYY]</td>
-                <td class="vacation_table_cell">To [DD/MM/YYYY]</td>
+                <td class="vacation_table_cell">Vacation From <span class="vacation_DateFormat">[DD/MM/YYYY]</span></td>
+                <td class="vacation_table_cell">To <span class="vacation_DateFormat">[DD/MM/YYYY]</span></td>
                 <td class="vacation_table_cell">Type of Vacation</td>
                 <td class="vacation_table_cell">Send Request To</td>
             </tr>

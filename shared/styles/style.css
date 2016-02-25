@@ -139,6 +139,12 @@ table.gridtable td {
     margin:20px 20px 20px 20px;
 }
 
+.vacation_sendRequest{padding:20px 20px 20px 20px}
+
+.vacation_DateFormat {
+    font-size:13px;
+}
+
 .vacation_table {
     width:950px;
     border:1px solid #AAA;
