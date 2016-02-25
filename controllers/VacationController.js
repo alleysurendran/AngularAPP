@@ -1,6 +1,6 @@
 ﻿
 angularApp.controller('VacationController', function ($scope, $http) {
-   debugger
+   
     $http.get('./shared/json/VacationTypes.JSON')
      .then(function (response) {
          $scope.vacationTypes = response.data;

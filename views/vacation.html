@@ -1,10 +1,7 @@
 ﻿<div class="vacation_Outterdiv">
     <h2>Request Vacation</h2>
     <div class="vacation_table" style="padding:20px 20px 20px 20px">
-
-
-
-
+            
         <table>
             <tr>
                 <td class="vaction_remain_text">
@@ -19,16 +16,16 @@
         </table>
         <table>
             <tr>
-                <td>No. of Days</td>
-                <td class="vacation_table_cell">Vacation From</td>
-                <td class="vacation_table_cell">To</td>
+                <td class="vacation_table_cell">No. of Days</td>
+                <td class="vacation_table_cell">Vacation From [DD/MM/YYYY]</td>
+                <td class="vacation_table_cell">To [DD/MM/YYYY]</td>
                 <td class="vacation_table_cell">Type of Vacation</td>
                 <td class="vacation_table_cell">Send Request To</td>
             </tr>
             <tr>
                 <td><input type="text" ng-model="noOfDays" class="vacation_days" /></td>
-                <td><input type="date" ng-model="vacationFrom" data-date="" data-date-format="DD MMMM YYYY" value="2015-08-09" /></td>
-                <td><input type="date" ng-model="vacationTo" data-date-format="DD MMMM YYYY" /></td>
+                <td><input type="text" data-datepicker="{theme: 'flat'}" data-ng-model="vacationFrom" /></td>
+                <td><input type="text" data-datepicker="{theme: 'flat'}" data-ng-model="vacationTo" /></td>
                 <td>
                     <select name="vacationType" class="vacation_dropdown" data-ng-model="vacationType" ng-options="c.VacationTypeID as c.VacationType for c in vacationTypes" id="vacationType">
                         <option value="">Select...</option>
