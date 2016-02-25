@@ -125,7 +125,7 @@ table.gridtable th {
 	padding: 8px;
 	border-style: solid;
 	border-color: #AAA;
-	background-color:#0066A6;
+	background-color:#81A2C4;
     color: white;
 }
 table.gridtable td {
@@ -181,7 +181,7 @@ table.gridtable td {
 .vacation_submitbtn{
     
 
-    background-color: #0066A6; 
+    background-color: #81A2C4; 
     border: none;
     color: white;
     padding: 8px 15px;
