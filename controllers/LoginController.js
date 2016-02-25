@@ -12,8 +12,8 @@
                 $state.go('dashboard');
                 $rootScope.sidebar = true;
                 User.isLogged = true;
-                User.username = data.username;
-                User.isadmin = data.IsAdmin;
+                User.username = data[i].Name;
+                User.isadmin = data[i].IsAdmin;
                 isValidUser = true;
                 break;
             }
