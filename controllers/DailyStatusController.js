@@ -11,17 +11,6 @@
         $scope.activity = response.data;
     });
 
-
-    //alert(userSession.username);
-    //$rootScope.logout =Exit();
-    
-    //function Exit() {
-    //    userLogout.clearData();
-    //    if (!userSession.isLogged) {
-    //        $state.go('login');
-    //    }
-    //};
-
     $scope.hourList = hourList();
 
     function hourList() {
