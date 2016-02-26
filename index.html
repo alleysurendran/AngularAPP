@@ -15,10 +15,10 @@
 </head>
 <body ng-app="angularApp" >
 
-    <div id="header" >
+    <div id="header" ng-controller="HeaderController">
         <h1>Angular Training App</h1>
         <div class="welcome" ng-show="showUser"><span >Welcome&nbsp;{{userName}}!</span>
-        <a href="#" >Sign Out</a></div>
+        <a href="#" ng-click="logout()">Sign Out</a></div>
     </div>
     <div id="middle">
         <div id="nav" ng-show="sidebar">
@@ -55,6 +55,7 @@
     <script src="controllers/Customer.js"></script>
     <script src="controllers/DailyStatusController.js"></script>
     <script src="controllers/LoginController.js"></script>
+    <script src="controllers/HeaderController.js"></script>
     <!-- Services -->
     <script src="services/LoginService.js"></script>
     <script src="services/LogoutService.js"></script>
