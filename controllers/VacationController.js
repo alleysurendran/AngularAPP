@@ -1,4 +1,5 @@
 ﻿
+
 angularApp.controller('VacationController', function ($scope, $http, $rootScope) {
    
     $rootScope.sidebar = true;

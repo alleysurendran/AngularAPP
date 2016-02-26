@@ -1,14 +1,33 @@
 ﻿#header {
-    background-color: #97C9DD;
+    /*background-color: #97C9DD;*/
     color: white;
-    /*background-image: url('../../images/header.jpg');*/
     text-align: center;
-    height:100px;
+    height: 100px;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#97c9dd+27,b3dde5+60,b3dde5+60 */
+    background: rgb(151,201,221); /* Old browsers */
+    background: -moz-linear-gradient(top, rgba(151,201,221,1) 27%, rgba(179,221,229,1) 60%, rgba(179,221,229,1) 60%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(151,201,221,1) 27%,rgba(179,221,229,1) 60%,rgba(179,221,229,1) 60%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(151,201,221,1) 27%,rgba(179,221,229,1) 60%,rgba(179,221,229,1) 60%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#97c9dd', endColorstr='#b3dde5',GradientType=0 ); /* IE6-9 */
 }
-#header h1 {
-    margin:0px;
-    padding: 30px;
 
+    #header h1 {
+        margin: 0px;
+        padding-top: 30px;
+    }
+
+.welcome{
+    float: right;
+    padding-right: 30px;
+}
+.welcome span{
+    margin-right:35px;
+    font-size: 16px;
+    font-weight: bold;
+}
+.welcome a{
+    font-size: 18px;
+    font-weight: bold;
 }
 
 #nav {
@@ -19,8 +38,15 @@
     color: white;
     font-size: 20px;
     font-weight: bold;
-    height:100%;
+    height: 100%;
     line-height: 30px;
+    background-color: #0066A6;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#1e5799+0,2989d8+45,207cca+95,7db9e8+100 */
+    background: rgb(30,87,153); /* Old browsers */
+    background: -moz-linear-gradient(top, rgba(30,87,153,1) 0%, rgba(41,137,216,1) 45%, rgba(32,124,202,1) 95%, rgba(125,185,232,1) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(30,87,153,1) 0%,rgba(41,137,216,1) 45%,rgba(32,124,202,1) 95%,rgba(125,185,232,1) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(30,87,153,1) 0%,rgba(41,137,216,1) 45%,rgba(32,124,202,1) 95%,rgba(125,185,232,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#7db9e8',GradientType=0 ); /* IE6-9 */
 }
 
 #section {
@@ -36,12 +62,19 @@
     text-align: center;
     padding: 5px;
     height: 30px;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#97c9dd+27,b3dde5+60,b3dde5+60 */
+    background: rgb(151,201,221); /* Old browsers */
+    background: -moz-linear-gradient(top, rgba(151,201,221,1) 27%, rgba(179,221,229,1) 60%, rgba(179,221,229,1) 60%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(151,201,221,1) 27%,rgba(179,221,229,1) 60%,rgba(179,221,229,1) 60%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(151,201,221,1) 27%,rgba(179,221,229,1) 60%,rgba(179,221,229,1) 60%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#97c9dd', endColorstr='#b3dde5',GradientType=0 ); /* IE6-9 */
 }
 
-#footer p {
-    margin:0px;
-    padding-top:7px;
-}
+    #footer p {
+        margin: 0px;
+        padding-top: 7px;
+    }
+
 ul {
     list-style-type: none;
     margin: 0;
@@ -66,13 +99,14 @@ a, a:visited, a.hover, a:active {
 .menu li {
     padding-bottom: 10px;
 }
+
 #middle {
     height: 80%;
 }
 
-    .menu li a:hover {
-        text-decoration: underline;
-    }
+.menu li a:hover {
+    text-decoration: underline;
+}
 /***********************************Daily Status Style********************************/
 #dailystatuscontainer label {
     display: inline-block;
@@ -104,6 +138,7 @@ a, a:visited, a.hover, a:active {
 #daily_status_list {
     margin-top: 20px;
     margin-left: 20px;
+    margin-bottom: 17px;
 }
 
 #dailystatuscontainer .buttondiv {
@@ -145,24 +180,32 @@ a, a:visited, a.hover, a:active {
     margin-right: 28px;
     margin-left: 25px;
 }
-/***************************** Daily Status Table Style *******************************/
+/***************************** Table Style *******************************/
 .Table {
     display: table;
-    border: solid;
+    /*border: solid;*/
     width: 100%;
     border-width: 2px;
     background-color: #EFF4F9;
+    border: groove;
+    border-collapse: collapse;
 }
 
 .Heading {
     display: table-row;
     font-weight: bold;
     text-align: center;
-    border-width: 1px;
-    padding: 8px;
-    border-style: solid;
-    border-color: #AAA;
+    border-width: 0px;
+    /*padding: 8px;*/
+    /*border-style: solid;*/
+    /*border-color: #AAA;*/
     background-color: #0066A6;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#1e5799+0,2989d8+45,207cca+95,7db9e8+100 */
+    background: rgb(30,87,153); /* Old browsers */
+    background: -moz-linear-gradient(top, rgba(30,87,153,1) 0%, rgba(41,137,216,1) 45%, rgba(32,124,202,1) 95%, rgba(125,185,232,1) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(30,87,153,1) 0%,rgba(41,137,216,1) 45%,rgba(32,124,202,1) 95%,rgba(125,185,232,1) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(30,87,153,1) 0%,rgba(41,137,216,1) 45%,rgba(32,124,202,1) 95%,rgba(125,185,232,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#7db9e8',GradientType=0 ); /* IE6-9 */
 }
 
 .Row {
@@ -176,6 +219,8 @@ a, a:visited, a.hover, a:active {
     padding-left: 5px;
     padding-right: 5px;
     width: auto;
+    border-color: gainsboro;
+    border-collapse: collapse;
 }
 
 .Heading .Cell p {
@@ -183,6 +228,8 @@ a, a:visited, a.hover, a:active {
 }
 /**********************************Daily Status style End*****************************/
 
+
+/***************************************Login page************************************/
 #login {
     padding-left: 35%;
     padding-right: 40%;
@@ -190,27 +237,26 @@ a, a:visited, a.hover, a:active {
     padding-top: 6%;
     width: 100px;
 }
-#username{
-    /*background-color:aliceblue;*/
-    padding-left: 5px;
-    margin-top:15%;
-    margin-bottom: 10%;
-    margin-left: 25%;
-    border-radius: 8px;
-    height: 23px;
 
+#username {
+    padding-left: 5px;
+    margin-top: 15%;
+    margin-bottom: 10%;
+    margin-left: 25%;
+    border-radius: 8px;
+    height: 23px;
 }
-#password{
-    /*background-color:aliceblue;*/
+
+#password {
     padding-left: 5px;
     margin-bottom: 10%;
     margin-left: 25%;
     border-radius: 8px;
     height: 23px;
 }
+
 #loginsubmit {
-    
-    margin-left: 35%;
+    margin-left: 36%;
     background-color: #0066A6;
     color: white;
     padding: 5px 25px;
@@ -220,94 +266,160 @@ a, a:visited, a.hover, a:active {
     font-size: 14px;
     border-radius: 8px;
 }
-     table.gridtable {
-	width:990px;
-	color:#333333;
-	border-width: 1px;
-	border-color: #AAA;
-	border-collapse: collapse;
-}
-table.gridtable th {
-	border-width: 1px;
-	padding: 8px;
-	border-style: solid;
-	border-color: #AAA;
-	background-color:#81A2C4;
-    color: white;
-}
-table.gridtable td {
-	border-width: 1px;
-	padding: 8px;
-	border-style: solid;
-	border-color: #AAA;
-	background-color: #ffffff;
-}
-.vacation_Outterdiv {
-    margin:20px 20px 20px 20px;
+
+#loginContent {
+    margin-left: 111%;
+    width: 327px;
+    height: 290px;
+    background-color: aliceblue;
+    border: groove;
 }
 
-.vacation_sendRequest{padding:20px 20px 20px 20px}
+.error {
+    padding-top: 31px;
+    text-align: center;
+    color: red;
+}
+
+
+/*********************************Login page End*******************************************/
+table.gridtable {
+    width: 990px;
+    color: #333333;
+    border-width: 1px;
+    border-color: #AAA;
+    border-collapse: collapse;
+}
+
+    table.gridtable th {
+        border-width: 1px;
+        padding: 8px;
+        border-style: solid;
+        border-color: #AAA;
+        background-color: #81A2C4;
+        color: white;
+    }
+
+    table.gridtable td {
+        border-width: 1px;
+        padding: 8px;
+        border-style: solid;
+        border-color: #AAA;
+        background-color: #ffffff;
+    }
+
+.vacation_Outterdiv {
+    margin: 20px 20px 20px 20px;
+}
+
+.vacation_sendRequest {
+    padding: 20px 20px 20px 20px;
+}
 
 .vacation_DateFormat {
-    font-size:13px;
+    font-size: 13px;
 }
 
 .vacation_table {
-    width:950px;
-    border:1px solid #AAA;
-    background-color:#EFF4F9;
+    width: 950px;
+    border: 1px solid #AAA;
+    background-color: #EFF4F9;
 }
 
-.PL_twenty{padding-left:20px}
+.PL_twenty {
+    padding-left: 20px;
+}
 
 .vacation_table_cell {
-    width:220px;height:50px;
+    width: 220px;
+    height: 50px;
 }
 
-.vaction_remain_text{
-
-    height:50px;width:200px;
+.vaction_remain_text {
+    height: 50px;
+    width: 200px;
 }
+
 .vacation_dropdown {
-    width:130px
+    width: 130px;
 }
 
 .vacation_days {
-    width:50px;
+    width: 50px;
 }
 
-.send_copyTo{
-
-    width:450px;
+.send_copyTo {
+    width: 450px;
 }
 
-.vacation_comments{ width:450px;height:140px !important }
+.vacation_comments {
+    width: 450px;
+    height: 140px !important;
+}
 
-.MT_Twenty{margin-top:20px;}
+.MT_Twenty {
+    margin-top: 20px;
+}
 
-.vacation_submitbtn{
-    
-
-    background-color: #81A2C4; 
+.vacation_submitbtn {
+    background-color: #81A2C4;
     border: none;
     color: white;
     padding: 8px 15px;
-text-align: center;
+    text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 14px;
     border-radius: 8px;
 }
 
-#loginContent{
-    margin-left: 111%;
-    width: 327px;
-    height: 290px;
-    background-color: aliceblue;
+ /* Search panel style starts*/
+    .form-wrapper {
+    width: 344px;
+    padding: 8px;
+    margin: 20px auto;
+    overflow: hidden;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #dedede #bababa #aaa #bababa;
+    box-shadow: 0 3px 3px rgba(255,255,255,.1), 0 3px 0 #bbb, 0 4px 0 #aaa, 0 5px 5px #444;
+    border-radius: 10px;    
+    background-color: #f6f6f6;
+    background-image: linear-gradient(top, #f6f6f6, #eae8e8);
+    float:left;
 }
 
-.error{
-    padding-top: 31px;
-    text-align: center;
-    color: red;
+.form-wrapper #search {
+    width: 330px;
+    height: 20px;
+    padding: 10px 5px;
+    float: left;    
+    font: bold 16px 'lucida sans', 'trebuchet MS', 'Tahoma';
+    border: 1px solid #ccc;
+    box-shadow: 0 1px 1px #ddd inset, 0 1px 0 #fff;
+    border-radius: 3px;      
 }
+
+.form-wrapper #search:focus {
+    outline: 0; 
+    border-color: #aaa;
+    box-shadow: 0 1px 1px #bbb inset;  
+}
+
+.form-wrapper #search::-webkit-input-placeholder {
+   color: #999;
+   font-weight: normal;
+}
+
+.form-wrapper #search:-moz-placeholder {
+    color: #999;
+    font-weight: normal;
+}
+
+.form-wrapper #search:-ms-input-placeholder {
+    color: #999;
+    font-weight: normal;
+} 
+
+
+    /* Search panel style ends*/
