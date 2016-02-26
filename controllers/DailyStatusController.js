@@ -1,8 +1,26 @@
-﻿angularApp.controller('DailyStatusController', function ($scope, $http) {
+﻿angularApp.controller('DailyStatusController', ['$state', '$scope', '$http', '$rootScope', 'LoginVaildationService', 'LogoutService', function ($state,$scope, $http, $rootScope, userSession, userLogout) {
+    $rootScope.sidebar = true;
+        if (userSession.isLogged) {
+        $rootScope.showUser = true;
+        $rootScope.userName = userSession.username;
+        }
+        
+
     $http.get('./shared/json/ActivityType.JSON')
     .then(function (response) {
         $scope.activity = response.data;
     });
+
+
+    //alert(userSession.username);
+    //$rootScope.logout =Exit();
+    
+    //function Exit() {
+    //    userLogout.clearData();
+    //    if (!userSession.isLogged) {
+    //        $state.go('login');
+    //    }
+    //};
 
     $scope.hourList = hourList();
 
@@ -47,4 +65,4 @@
     .then(function (response) {
         $scope.dailystatuslist = response.data;
     });
-});
+}]);

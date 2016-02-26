@@ -6,7 +6,7 @@ angularApp.config(function ($stateProvider, $urlRouterProvider) {
         .state('dashboard', {
             url: '/dashboard',
             templateUrl: 'views/Dashboard.html',
-            controller: ''
+            controller: 'DashboardController'
         })
         .state('login', {
             url: '/login',

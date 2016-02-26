@@ -13,10 +13,12 @@
     <script src="/libraries/Angular.min.js"></script>
     <script src="/libraries/datepicker.js"></script>
 </head>
-<body ng-app="angularApp">
+<body ng-app="angularApp" >
 
-    <div id="header">
+    <div id="header" >
         <h1>Angular Training App</h1>
+        <div class="welcome" ng-show="showUser"><span >Welcome&nbsp;{{userName}}!</span>
+        <a href="#" >Sign Out</a></div>
     </div>
     <div id="middle">
         <div id="nav" ng-show="sidebar">
@@ -48,11 +50,13 @@
     <script src="app.js"></script>
     <script src="config.js"></script>
     <!-- Controllers -->
+    <script src="controllers/DashboardController.js"></script>   
     <script src="/controllers/VacationController.js"></script>
     <script src="controllers/Customer.js"></script>
     <script src="controllers/DailyStatusController.js"></script>
     <script src="controllers/LoginController.js"></script>
     <!-- Services -->
     <script src="services/LoginService.js"></script>
+    <script src="services/LogoutService.js"></script>
 </body>
 </html>
