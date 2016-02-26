@@ -59,7 +59,7 @@ background: white;
     float: right;
     padding: 10px;
     background:white;
-    padding-left:57px;
+    padding-left:54px;
     min-height:500px;
 }
 
@@ -137,6 +137,7 @@ a, a:visited, a.hover, a:active {
     display: inline-grid;
     width: 200px;
     padding-top: 30px;
+
 }
 
 #dailystatuscontainer {
@@ -148,13 +149,15 @@ a, a:visited, a.hover, a:active {
     padding-left: 25px;
     border: groove;
     padding-right: 25px;
-    margin-right: -3px;
+    margin-right: 24px;
+    margin-left: -5px;
 }
 
 #daily_status_list {
     margin-top: 20px;
-    margin-left: 20px;
+    margin-left: -8px;
     margin-bottom: 17px;
+    margin-right: 27px;
 }
 
 #vacation_list {
