@@ -1,21 +1,21 @@
 ﻿<div class="vacation_Outterdiv">
     <h2>Request Vacation</h2>
-    <div class="vacation_table vacation_sendRequest">
+    <div class="vacation_table">
 
-        <table>
-            <tr>
-                <td class="vaction_remain_text">
+        <div>
+          
+                <div class="vaction_remain_text">
                     <label>No of Vacation Remaining</label>
                     <label ng-model="remainingVacationCount"></label>
-                </td>
-                <td class="vaction_remain_text">
+                </div>
+                <div class="vaction_remain_text">
                     <label>No of Loss of Pay Taken</label>
                     <label ng-model="noOfLossOfPayTaken"></label>
-                </td>
-            </tr>
+                </div>
+            
 
 
-        </table>
+        </div>
         <table>
             <tr>
                 <td class="vacation_table_cell">No. of Days</td>
@@ -40,20 +40,20 @@
                 </td>
             </tr>
         </table>
-        <table class="MT_Twenty">
-            <tr>
-                <td>Send Copy To</td>
-            </tr>
-            <tr>
-                <td><input type="text" ng-model="sendCopyTo" class="send_copyTo" /></td>
-            </tr>
-        </table>
-        <table class="MT_Twenty">
-            <tr><td>Comments</td></tr>
-            <tr>
-                <td><textarea ng-model="comments" class="vacation_comments"></textarea></td>
-            </tr>
-        </table>
+        <div class="MT_Twenty">
+            
+                <div>Send Copy To</div>
+           
+            <div class="MT_Ten">
+                <input type="text" ng-model="sendCopyTo" class="send_copyTo" />
+            </div>
+        </div>
+        <div class="MT_Twenty">
+            <div>Comments</div>
+            <div class="MT_Ten">
+                <textarea ng-model="comments" class="vacation_comments"></textarea>
+            </div>
+        </div>
         <div class="MT_Twenty">
             <button type="button" class="vacation_submitbtn" ng-click="">Submit</button>
         </div>
@@ -61,28 +61,51 @@
 
 
     <h2>My History</h2>
-    <table class="gridtable">
-        <thead>
-            <tr>
-                <th>Date Range</th>
-                <th>No of Days</th>
-                <th>Type of Vacation</th>
-                <th>Approver</th>
-                <th>Status</th>
-                <th>Remarks</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr ng-repeat="vacation in vacations">
-                <td>{{vacation.VacationFrom}} - {{vacation.VacationTo}}</td>
-                <td>{{vacation.Noofdays}}</td>
-                <td>{{vacation.VacationType}}</td>
-                <td>{{vacation.SendRequestTo}}</td>
-                <td>{{vacation.Status}}</td>
-                <td>{{vacation.Remarks}}</td>
-            </tr>
-        </tbody>
-    </table>
+
+    <div id="vacation_list">
+        <div class="Table">
+            <div class="Heading">
+                <div class="Cell">
+                    <p>Date Range</p>
+                </div>
+                <div class="Cell">
+                    <p>No of Days</p>
+                </div>
+                <div class="Cell">
+                    <p>Type of Vacation</p>
+                </div>
+                <div class="Cell">
+                    <p>Approver</p>
+                </div>
+                <div class="Cell">
+                    <p>Status</p>
+                </div>
+                <div class="Cell">
+                    <p>Remarks</p>
+                </div>
+            </div>
+            <div class="Row" ng-repeat="vacation in vacations">
+                <div class="Cell">
+                    <p>{{vacation.VacationFrom}} - {{vacation.VacationTo}}</p>
+                </div>
+                <div class="Cell">
+                    <p>{{vacation.Noofdays}}</p>
+                </div>
+                <div class="Cell">
+                    <p>{{vacation.VacationType}}</p>
+                </div>
+                <div class="Cell">
+                    <p>{{vacation.SendRequestTo}}</p>
+                </div>
+                <div class="Cell">
+                    <p>{{vacation.Status}}</p>
+                </div>
+                <div class="Cell">
+                    <p>{{vacation.Remarks}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
      
 
 </div>

@@ -85,7 +85,7 @@
     font: normal normal 14px/20px sans-serif;
 }
 .datepicker.flat .picker .header {
-    background: #337E9D;
+    background: rgba(41,137,216,1);
     color: #fafafa;
     font-size: 85%;
     line-height: 40px;

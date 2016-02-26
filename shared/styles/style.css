@@ -16,6 +16,11 @@
         padding-top: 30px;
     }
 
+    #container {
+width: 100%;
+background: white;
+ }
+
 .welcome{
     float: right;
     padding-right: 30px;
@@ -31,7 +36,7 @@
 }
 
 #nav {
-    background-color: #81A2C4;
+    /*background-color: #81A2C4;*/
     width: 200px;
     float: left;
     padding: 5px;
@@ -40,19 +45,22 @@
     font-weight: bold;
     height: 100%;
     line-height: 30px;
-    background-color: #0066A6;
+    /*background-color: #0066A6;*/
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#1e5799+0,2989d8+45,207cca+95,7db9e8+100 */
-    background: rgb(30,87,153); /* Old browsers */
-    background: -moz-linear-gradient(top, rgba(30,87,153,1) 0%, rgba(41,137,216,1) 45%, rgba(32,124,202,1) 95%, rgba(125,185,232,1) 100%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(top, rgba(30,87,153,1) 0%,rgba(41,137,216,1) 45%,rgba(32,124,202,1) 95%,rgba(125,185,232,1) 100%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to bottom, rgba(30,87,153,1) 0%,rgba(41,137,216,1) 45%,rgba(32,124,202,1) 95%,rgba(125,185,232,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#7db9e8',GradientType=0 ); /* IE6-9 */
+    /*background: rgb(30,87,153);*/ /*Old browsers */
+    /*background: -moz-linear-gradient(top, rgba(30,87,153,1) 0%, rgba(41,137,216,1) 45%, rgba(32,124,202,1) 95%, rgba(125,185,232,1) 100%);  FF3.6-15*/ 
+    /*background: -webkit-linear-gradient(top, rgba(30,87,153,1) 0%,rgba(41,137,216,1) 45%,rgba(32,124,202,1) 95%,rgba(125,185,232,1) 100%);  Chrome10-25,Safari5.1-6*/ 
+    /*background: linear-gradient(to bottom, rgba(30,87,153,1) 0%,rgba(41,137,216,1) 45%,rgba(32,124,202,1) 95%,rgba(125,185,232,1) 100%);  W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+*/ 
+    /*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#7db9e8',GradientType=0 );  IE6-9*/ 
 }
 
 #section {
     width: 78%;
-    float: left;
+    float: right;
     padding: 10px;
+    background:white;
+    padding-left:57px;
+    min-height:500px;
 }
 
 #footer {
@@ -62,7 +70,7 @@
     text-align: center;
     padding: 5px;
     height: 30px;
-    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#97c9dd+27,b3dde5+60,b3dde5+60 */
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#97c9dd+27,b3dde5+60,b3dde5+60 
     background: rgb(151,201,221); /* Old browsers */
     background: -moz-linear-gradient(top, rgba(151,201,221,1) 27%, rgba(179,221,229,1) 60%, rgba(179,221,229,1) 60%); /* FF3.6-15 */
     background: -webkit-linear-gradient(top, rgba(151,201,221,1) 27%,rgba(179,221,229,1) 60%,rgba(179,221,229,1) 60%); /* Chrome10-25,Safari5.1-6 */
@@ -101,7 +109,15 @@ a, a:visited, a.hover, a:active {
 }
 
 #middle {
-    height: 80%;
+    width:100%;
+    background-color: #81A2C4;
+    background-color: #0066A6;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#1e5799+0,2989d8+45,207cca+95,7db9e8+100 */
+    background: rgb(30,87,153); /* Old browsers */
+    background: -moz-linear-gradient(top, rgba(30,87,153,1) 0%, rgba(41,137,216,1) 45%, rgba(32,124,202,1) 95%, rgba(125,185,232,1) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(30,87,153,1) 0%,rgba(41,137,216,1) 45%,rgba(32,124,202,1) 95%,rgba(125,185,232,1) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(30,87,153,1) 0%,rgba(41,137,216,1) 45%,rgba(32,124,202,1) 95%,rgba(125,185,232,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#7db9e8',GradientType=0 );  IE6-9*
 }
 
 .menu li a:hover {
@@ -138,6 +154,11 @@ a, a:visited, a.hover, a:active {
 #daily_status_list {
     margin-top: 20px;
     margin-left: 20px;
+    margin-bottom: 17px;
+}
+
+#vacation_list {
+    margin-top: 20px;
     margin-bottom: 17px;
 }
 
@@ -268,7 +289,7 @@ a, a:visited, a.hover, a:active {
 }
 
 #loginContent {
-    margin-left: 111%;
+    /*margin-left: 111%;*/
     width: 327px;
     height: 290px;
     background-color: aliceblue;
@@ -312,18 +333,17 @@ table.gridtable {
     margin: 20px 20px 20px 20px;
 }
 
-.vacation_sendRequest {
-    padding: 20px 20px 20px 20px;
-}
+
 
 .vacation_DateFormat {
     font-size: 13px;
 }
 
 .vacation_table {
-    width: 950px;
+    width: 960px;
     border: 1px solid #AAA;
     background-color: #EFF4F9;
+    padding: 20px 20px 20px 20px;
 }
 
 .PL_twenty {
@@ -331,13 +351,23 @@ table.gridtable {
 }
 
 .vacation_table_cell {
-    width: 220px;
+    width: 210px;
     height: 50px;
+    
 }
+
+.vacation_table_cell_daysNo {
+    width: 150px;
+    height: 50px;
+    
+}
+
+
 
 .vaction_remain_text {
     height: 50px;
-    width: 200px;
+    width: 400px;
+    float:left;
 }
 
 .vacation_dropdown {
@@ -361,8 +391,12 @@ table.gridtable {
     margin-top: 20px;
 }
 
+.MT_Ten {
+    margin-top: 10px;
+}
+
 .vacation_submitbtn {
-    background-color: #81A2C4;
+    background-color: #0066A6;
     border: none;
     color: white;
     padding: 8px 15px;

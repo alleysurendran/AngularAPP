@@ -6,7 +6,7 @@ angularApp.controller('CustomerController', ['$scope','$filter', '$http','$rootS
         $rootScope.userName = userSession.username;
     }
 
-        
+    $rootScope.sidebar = true;
         BindCustomer();
         function BindCustomer() {
             $http.get("shared/json/Customer.JSON")
