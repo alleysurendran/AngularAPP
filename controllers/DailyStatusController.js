@@ -61,4 +61,14 @@
     .then(function (response) {
         $scope.dailystatuslist = response.data;
     });
+
+    //**********************************Button click event*********************************//
+    $scope.saveDailyStatus=function()
+    {
+        $scope.submitted = true;
+        if ($scope.dailystatusform.$valid) {
+
+            //code
+        }
+    }
 }]);
