@@ -1,7 +1,7 @@
 ﻿
-
 angularApp.controller('VacationController',['$scope', '$http', '$rootScope', '$state','LoginVaildationService', function ($scope, $http, $rootScope, $state,userSession) {
 
+    //To show sidemenu
     $rootScope.sidebar = true;
 
     //******************Redirect to login page if the user is not logged in*******************//
@@ -9,6 +9,7 @@ angularApp.controller('VacationController',['$scope', '$http', '$rootScope', '$s
         $state.go('login');
     }
 
+    //To populate VacationTypes Dropdown
     $http.get('./shared/json/VacationTypes.JSON')
      .then(function (response) {
          $scope.vacationTypes = response.data;
@@ -16,6 +17,7 @@ angularApp.controller('VacationController',['$scope', '$http', '$rootScope', '$s
 
      });
 
+    //To populate Employee Dropdown
     $http.get('./shared/json/Employee.JSON')
      .then(function (response) {
          $scope.employees = response.data;
@@ -23,6 +25,7 @@ angularApp.controller('VacationController',['$scope', '$http', '$rootScope', '$s
 
      });
 
+    //Gets all Vacation details
     $http.get('./shared/json/Vacation.JSON')
     .then(function (response) {
         $scope.vacations = response.data;
