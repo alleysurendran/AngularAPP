@@ -12,7 +12,7 @@ angularApp.controller('CustomerController', ['$scope', '$filter', '$http', '$roo
     //********************************To populate customer details****************************//
     BindCustomer();
     function BindCustomer() {
-        $http.get("shared/json/Customer.JSON")
+        $http.get("./shared/json/Customer.json")
         .then(function (response) {
             $scope.customerDetails = response.data;
         });
