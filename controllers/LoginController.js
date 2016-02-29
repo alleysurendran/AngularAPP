@@ -4,7 +4,9 @@
     if (!User.isLogged) {
         $rootScope.showUser = { 'visibility': 'hidden' };
     }
+
     $rootScope.bodybackground = { 'background': 'none' };
+
     $scope.validateUser = function () {
         $http.get('./shared/json/Employee.JSON')
     .then(function (response) {
@@ -33,6 +35,7 @@
 
     });
     };
+
     $rootScope.sidebar = false;
     $scope.showerror = false;
 }]);
