@@ -1,4 +1,5 @@
-﻿<form name="dailystatussave">
+﻿<h2 class="daily_status_heading">Daily Status</h2>
+<form name="dailystatussave">
     <div id="dailystatuscontainer">
         <div>
             <label>Date</label>
@@ -35,7 +36,7 @@
     </div>
 </form>
 
-
+<h2 class="daily_status_heading">My History</h2>
 <div id="daily_status_list">
     <div class="Table">
         <div class="Heading">
@@ -56,7 +57,7 @@
             </div>
         </div>
         <div class="Row" ng-repeat="dailystatus in dailystatuslist">
-            <div class="Cell" >
+            <div class="Cell">
                 <p>{{dailystatus.ActivityDate}}</p>
             </div>
             <div class="Cell">
