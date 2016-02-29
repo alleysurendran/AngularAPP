@@ -1,0 +1,115 @@
+﻿<form name="frmVacationRequest">
+    <div class="vacation_Outterdiv">
+        <h2>Request Vacation</h2>
+        <div class="vacation_table">
+
+            <div>
+
+                <div class="vaction_remain_text">
+                    <label>No of Vacation Remaining</label>
+                    <span>{{remainingVacationCount}}</span>
+
+                </div>
+                <div class="vaction_remain_text">
+                    <label>No of Loss of Pay Taken</label>
+                    <span>{{noOfLossOfPayTaken}}</span>
+
+                </div>
+
+
+
+            </div>
+            <table>
+                <tr>
+                    <td class="vacation_table_cell">No. of Days</td>
+                    <td class="vacation_table_cell">Vacation From <span class="vacation_DateFormat">[DD/MM/YYYY]</span></td>
+                    <td class="vacation_table_cell">To <span class="vacation_DateFormat">[DD/MM/YYYY]</span></td>
+                    <td class="vacation_table_cell">Type of Vacation</td>
+                    <td class="vacation_table_cell">Send Request To</td>
+                </tr>
+                <tr>
+                    <td><input type="text" ng-model="noOfDays" class="vacation_days" /></td>
+                    <td><input type="text" data-datepicker="{theme: 'flat'}" data-ng-model="vacationFrom" /></td>
+                    <td><input type="text" data-datepicker="{theme: 'flat'}" data-ng-model="vacationTo" /></td>
+                    <td>
+                        <select name="vacationType" class="vacation_dropdown" data-ng-model="vacationType" ng-options="c.VacationTypeID as c.VacationType for c in vacationTypes" id="vacationType">
+                            <option value="">Select...</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select name="requestTo" data-ng-model="requestTo" class="vacation_dropdown" ng-options="c.EmployeeID as c.Name for c in employees" id="requestTo">
+                            <option value="">Select...</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+            <div class="MT_Twenty">
+
+                <div>Send Copy To</div>
+
+                <div class="MT_Ten">
+                    <input type="text" ng-model="sendCopyTo" class="send_copyTo" />
+                </div>
+            </div>
+            <div class="MT_Twenty">
+                <div>Comments</div>
+                <div class="MT_Ten">
+                    <textarea ng-model="comments" class="vacation_comments"></textarea>
+                </div>
+            </div>
+            <div class="MT_Twenty">
+                <button type="button" class="vacation_submitbtn" ng-click="">Submit</button>
+            </div>
+        </div>
+
+
+        <h2>My History</h2>
+
+        <div id="vacation_list">
+            <div class="Table">
+                <div class="Heading">
+                    <div class="Cell">
+                        <p>Date Range</p>
+                    </div>
+                    <div class="Cell">
+                        <p>No of Days</p>
+                    </div>
+                    <div class="Cell">
+                        <p>Type of Vacation</p>
+                    </div>
+                    <div class="Cell">
+                        <p>Approver</p>
+                    </div>
+                    <div class="Cell">
+                        <p>Status</p>
+                    </div>
+                    <div class="Cell">
+                        <p>Remarks</p>
+                    </div>
+                </div>
+                <div class="Row" ng-repeat="vacation in vacations">
+                    <div class="Cell">
+                        <p>{{vacation.VacationFrom}} - {{vacation.VacationTo}}</p>
+                    </div>
+                    <div class="Cell">
+                        <p>{{vacation.Noofdays}}</p>
+                    </div>
+                    <div class="Cell">
+                        <p>{{vacation.VacationType}}</p>
+                    </div>
+                    <div class="Cell">
+                        <p>{{vacation.SendRequestTo}}</p>
+                    </div>
+                    <div class="Cell">
+                        <p>{{vacation.Status}}</p>
+                    </div>
+                    <div class="Cell">
+                        <p>{{vacation.Remarks}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</form>

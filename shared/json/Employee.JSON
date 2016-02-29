@@ -1,0 +1,27 @@
+[{
+		  "EmployeeID":1,
+          "Name": "Alley",
+          "Email": "alley@qburst.com",
+          "Password": "qburst",
+          "IsAdmin": true,
+          "Total Vacation Allowed": 20
+		}
+		,
+		{
+		  "EmployeeID":2,
+          "Name": "Remya",
+          "Email": "remya@qburst.com",
+          "Password": "qburst@123",
+          "IsAdmin": false,
+          "Total Vacation Allowed": 20
+		}
+		,
+		
+		{
+		  "EmployeeID":3,
+          "Name": "Divya",
+          "Email": "divya@qburst.com",
+          "Password": "qbtech",
+          "IsAdmin": false,
+          "Total Vacation Allowed": 20
+		}]

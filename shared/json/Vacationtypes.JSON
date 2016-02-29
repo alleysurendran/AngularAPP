@@ -1,0 +1,18 @@
+[{
+		  "VacationTypeID":1,
+		 
+		  "VacationType": "Paid"
+		}
+		,
+		{
+		  "VacationTypeID":2,
+		  
+		  "VacationType": "Loss of Pay"
+		}
+		,
+		
+		{
+		  "VacationTypeID":3,
+		  
+		  "VacationType": "Compensatory"
+		}]

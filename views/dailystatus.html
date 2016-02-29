@@ -1,0 +1,77 @@
+﻿<form name="dailystatussave">
+    <div id="dailystatuscontainer">
+        <div>
+            <label>Date</label>
+            <label>Project</label>
+            <label>Activity Type</label>
+            <label>Time Spend</label>
+        </div>
+        <div>
+            <select name="date" class="daily_status_dropdown" data-ng-model="dateList[7]" ng-options="option as option|date:'dd/MM/yyyy' for option in dateList" id="date">
+                <option value="">Select...</option>
+            </select>
+            <select name="projectName" class="daily_status_dropdown" data-ng-model="projectName" ng-options="option.ProjectID as option.ProjectName for option in project" id="projectName">
+                <option value="">Select...</option>
+            </select>
+            <select name="activityType" class="daily_status_dropdown" data-ng-model="activityType" ng-options="option.ActivityTypeID as option.ActivityType for option in activity" id="activityType">
+                <option value="">Select...</option>
+            </select>
+
+            <select name="hour" class="daily_status_dropdown" data-ng-model="hourList[8]" ng-options="option as option for option in hourList" id="hour">
+                <option value=""></option>
+            </select><span>hr</span>
+
+            <select name="min" class="daily_status_dropdown" data-ng-model="minList[0].value" ng-options="option.value as option.label for option in minList" id="min">
+                <option value=""></option>
+            </select><span>min</span>
+        </div>
+        <div>
+            <label class="daily_status_label1">Activity Description</label>
+        </div>
+        <div>
+            <textarea type="text" ng-model="activitydescription" rows="4" cols="50"></textarea>
+        </div>
+        <div class="buttondiv"><input class="savebutton" type="button" value="Save" /></div>
+    </div>
+</form>
+
+
+<div id="daily_status_list">
+    <div class="Table">
+        <div class="Heading">
+            <div class="Cell">
+                <p>Activity Date</p>
+            </div>
+            <div class="Cell">
+                <p>Project Name</p>
+            </div>
+            <div class="Cell">
+                <p>Activity Type</p>
+            </div>
+            <div class="Cell">
+                <p>Time Spend</p>
+            </div>
+            <div class="Cell">
+                <p>Activity Description</p>
+            </div>
+        </div>
+        <div class="Row" ng-repeat="dailystatus in dailystatuslist">
+            <div class="Cell" >
+                <p>{{dailystatus.ActivityDate}}</p>
+            </div>
+            <div class="Cell">
+                <p>{{dailystatus.ProjectName}}</p>
+            </div>
+            <div class="Cell">
+                <p>{{dailystatus.ActivityType}}</p>
+            </div>
+            <div class="Cell">
+                <p>{{dailystatus.Hour}} hr {{dailystatus.Min}} min</p>
+            </div>
+            <div class="Cell">
+                <p>{{dailystatus.Description}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
