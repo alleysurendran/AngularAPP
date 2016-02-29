@@ -1,8 +1,13 @@
 ﻿
 
-angularApp.controller('VacationController', function ($scope, $http, $rootScope) {
-   
+angularApp.controller('VacationController',['$scope', '$http', '$rootScope', '$state','LoginVaildationService', function ($scope, $http, $rootScope, $state,userSession) {
+
     $rootScope.sidebar = true;
+
+    //******************Redirect to login page if the user is not logged in*******************//
+    if (!userSession.isLogged) {
+        $state.go('login');
+    }
 
     $http.get('./shared/json/VacationTypes.JSON')
      .then(function (response) {
@@ -41,6 +46,6 @@ angularApp.controller('VacationController', function ($scope, $http, $rootScope)
     }
 
 
-});
+}]);
 
 

@@ -1,7 +1,7 @@
 [{
 		  "EmployeeID":1,
-          "Name": "alley",
-          "Email": "alley@burst.com",
+          "Name": "Alley",
+          "Email": "alley@qburst.com",
           "Password": "qburst",
           "IsAdmin": true,
           "Total Vacation Allowed": 20
@@ -9,8 +9,8 @@
 		,
 		{
 		  "EmployeeID":2,
-          "Name": "remya",
-          "Email": "remya@burst.com",
+          "Name": "Remya",
+          "Email": "remya@qburst.com",
           "Password": "qburst@123",
           "IsAdmin": false,
           "Total Vacation Allowed": 20
@@ -19,9 +19,9 @@
 		
 		{
 		  "EmployeeID":3,
-          "Name": "divya",
-          "Email": "divya@burst.com",
-          "Password": "qbtech@123",
+          "Name": "Divya",
+          "Email": "divya@qburst.com",
+          "Password": "qbtech",
           "IsAdmin": false,
           "Total Vacation Allowed": 20
 		}]
