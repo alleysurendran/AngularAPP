@@ -1,9 +1,13 @@
 ﻿
+angularApp.controller('VacationController',['$scope', '$http', '$rootScope', '$state','LoginVaildationService', function ($scope, $http, $rootScope, $state,userSession) {
 
-angularApp.controller('VacationController', function ($scope, $http, $rootScope) {
-   
     //To show sidemenu
     $rootScope.sidebar = true;
+
+    //******************Redirect to login page if the user is not logged in*******************//
+    if (!userSession.isLogged) {
+        $state.go('login');
+    }
 
     //To populate VacationTypes Dropdown
     $http.get('./shared/json/VacationTypes.JSON')
@@ -45,6 +49,6 @@ angularApp.controller('VacationController', function ($scope, $http, $rootScope)
     }
 
 
-});
+}]);
 
 

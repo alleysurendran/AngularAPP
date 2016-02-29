@@ -1,21 +1,20 @@
 ﻿angularApp.controller('DailyStatusController', ['$state', '$scope', '$http', '$rootScope', 'LoginVaildationService', 'LogoutService', function ($state, $scope, $http, $rootScope, userSession, userLogout) {
 
     //******************************To show side menu*****************************************//
-    $rootScope.sidebar = true;
+        $rootScope.sidebar = true;
 
-    //*******************To set Sign Out Link and User Name in Header************************//
-        if (userSession.isLogged) {
-        $rootScope.showUser = true;
-        $rootScope.userName = userSession.username;
-        }
-        
-    //*******************To populate ActivityType Dropdown**************************//
+    //******************Redirect to login page if the user is not logged in*******************//
+    if (!userSession.isLogged) {
+        $state.go('login');
+    }
+
+    //************************To populate ActivityType Dropdown******************************//
     $http.get('./shared/json/ActivityType.JSON')
     .then(function (response) {
         $scope.activity = response.data;
     });
 
-    //**************************To populate Hour Dropdown**************************//
+    //********************************To populate Hour Dropdown*****************************//
     $scope.hourList = hourList();
     function hourList() {
         var myObjects = [];
@@ -25,13 +24,13 @@
         return myObjects;
     };
 
-    //********************To populate ProjectNames Dropdown**************************//
+    //*************************To populate ProjectNames Dropdown*****************************//
     $http.get('./shared/json/ProjectNames.JSON')
     .then(function (response) {
         $scope.project = response.data;
     });
 
-    //*************************To populate Minute Dropdown**************************//
+    //*****************************To populate Minute Dropdown*******************************//
     $scope.minList = [
     { value: 0, label: "00" },
     { value: 15, label: "15" },
@@ -39,13 +38,13 @@
     { value: 45, label: "45" }
     ];
 
-    //*************************To populate Date Dropdown**************************//
+    //******************************To populate Date Dropdown*******************************//
     $scope.dateList = getDateList();
 
     function getDateList() {
         var myObjects = [];
         var today = new Date(), tempdate = null, temp_date, temp_month, temp_year, calculated_date;
-        for (var i = 7; i >=0; i--) {
+        for (var i = 7; i >= 0; i--) {
             tempdate = new Date(today);
             tempdate.setDate(today.getDate() - i);
             temp_date = tempdate.getDate();
@@ -57,7 +56,7 @@
         return myObjects;
     };
 
-    //*************************To fill Daily Status List**************************//
+    //******************************To fill Daily Status List******************************//
     $http.get('./shared/json/DailyStatus.JSON')
     .then(function (response) {
         $scope.dailystatuslist = response.data;

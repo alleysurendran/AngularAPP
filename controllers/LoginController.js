@@ -1,5 +1,10 @@
 ﻿angularApp.controller('LoginController', ['$rootScope', '$scope', '$http', '$state', 'LoginVaildationService', function ($rootScope, $scope, $http, $state, User) {
 
+    
+    if (!User.isLogged) {
+        $rootScope.showUser = { 'visibility': 'hidden' };
+    }
+    $rootScope.bodybackground = { 'background': 'none' };
     $scope.validateUser = function () {
         $http.get('./shared/json/Employee.JSON')
     .then(function (response) {
@@ -14,7 +19,8 @@
                 isValidUser = true;
                 $rootScope.userName = User.username;
                 $rootScope.sidebar = true;
-                $rootScope.showUser = true;
+                $rootScope.showUser = { 'visibility': 'visible' };
+                $rootScope.bodybackground = { 'background': ' ' };
                 $state.go('dashboard');
                 break;
             }
