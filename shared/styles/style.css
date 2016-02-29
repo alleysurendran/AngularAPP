@@ -276,11 +276,12 @@ a, a:visited, a.hover, a:active {
 }
 
 #loginContent {
-    margin-left: -141px;
+   margin-left: -144px;
     width: 327px;
     height: 290px;
     background-color: aliceblue;
     border: groove;
+    margin-top: 44px;
 }
 
 .error {
