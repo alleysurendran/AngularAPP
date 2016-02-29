@@ -2,8 +2,10 @@
 
 angularApp.controller('VacationController', function ($scope, $http, $rootScope) {
    
+    //To show sidemenu
     $rootScope.sidebar = true;
 
+    //To populate VacationTypes Dropdown
     $http.get('./shared/json/VacationTypes.JSON')
      .then(function (response) {
          $scope.vacationTypes = response.data;
@@ -11,6 +13,7 @@ angularApp.controller('VacationController', function ($scope, $http, $rootScope)
 
      });
 
+    //To populate Employee Dropdown
     $http.get('./shared/json/Employee.JSON')
      .then(function (response) {
          $scope.employees = response.data;
@@ -18,6 +21,7 @@ angularApp.controller('VacationController', function ($scope, $http, $rootScope)
 
      });
 
+    //Gets all Vacation details
     $http.get('./shared/json/Vacation.JSON')
     .then(function (response) {
         $scope.vacations = response.data;
