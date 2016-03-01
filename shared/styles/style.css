@@ -384,7 +384,6 @@ a, a:visited, a.hover, a:active {
     outline:none;
 }
 
-<<<<<<< HEAD
 .val_msg{
 
     color:red;
@@ -394,10 +393,6 @@ a, a:visited, a.hover, a:active {
 
  /* Search panel style starts*/
     .form-wrapper {
-=======
-/* Search panel style starts*/
-.form-wrapper {
->>>>>>> 4c8b3b11ee3917760eed45a5ac6e611518e8f265
     width: 344px;
     padding: 8px;
     margin: 20px auto;
