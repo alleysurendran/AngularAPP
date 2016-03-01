@@ -1,5 +1,4 @@
 ﻿
-
 angularApp.service('JSONService', function ($http) {
 
     var jsonResult = {};
@@ -10,8 +9,6 @@ angularApp.service('JSONService', function ($http) {
            jsonResult = response.data;
        });
         return jsonResult;
-
     }
-
     return jsonResult;
 });
