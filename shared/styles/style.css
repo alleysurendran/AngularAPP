@@ -291,30 +291,9 @@ a, a:visited, a.hover, a:active {
 
 
 /*********************************Login page End*******************************************/
-table.gridtable {
-    width: 990px;
-    color: #333333;
-    border-width: 1px;
-    border-color: #AAA;
-    border-collapse: collapse;
-}
 
-    table.gridtable th {
-        border-width: 1px;
-        padding: 8px;
-        border-style: solid;
-        border-color: #AAA;
-        background-color: #81A2C4;
-        color: white;
-    }
 
-    table.gridtable td {
-        border-width: 1px;
-        padding: 8px;
-        border-style: solid;
-        border-color: #AAA;
-        background-color: #ffffff;
-    }
+/*********************************Vacation page *******************************************/
 
 .vacation_Outterdiv {
     margin: 20px 20px 20px 20px;
@@ -392,7 +371,15 @@ table.gridtable {
     display: inline-block;
     font-size: 14px;
     border-radius: 8px;
+    outline:none;
 }
+
+.val_msg{
+
+    color:red;
+}
+
+/*********************************Vacation page End*******************************************/
 
  /* Search panel style starts*/
     .form-wrapper {
