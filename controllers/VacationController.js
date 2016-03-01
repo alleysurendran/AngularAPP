@@ -1,5 +1,5 @@
 ﻿
-angularApp.controller('VacationController',['$scope', '$http', '$rootScope', '$state','LoginVaildationService', function ($scope, $http, $rootScope, $state,userSession) {
+angularApp.controller('VacationController',['$scope', '$http', '$rootScope', '$state','LoginVaildationService','JSONService' , function ($scope, $http, $rootScope, $state,userSession,jsonService) {
 
     //To show sidemenu
     $rootScope.sidebar = true;
@@ -9,10 +9,15 @@ angularApp.controller('VacationController',['$scope', '$http', '$rootScope', '$s
         $state.go('login');
     }
 
+    //GetAllVacations();
+
+    $scope.employee = {};
+    $scope.employee.vacationMode = 1;
+
     //To populate VacationTypes Dropdown
     $http.get('./shared/json/VacationTypes.JSON')
      .then(function (response) {
-         $scope.vacationTypes = response.data;
+         $scope.employee.vacationTypes = response.data;
 
 
      });
@@ -26,12 +31,9 @@ angularApp.controller('VacationController',['$scope', '$http', '$rootScope', '$s
      });
 
     //Gets all Vacation details
-    $http.get('./shared/json/Vacation.JSON')
-    .then(function (response) {
-        $scope.vacations = response.data;
+    $scope.vacations = jsonService.GetJsonValue('./shared/json/Vacation.JSON');
 
-
-    });
+    
 
     $scope.GetVacationType = function (vacationTypeID) {
 
@@ -46,6 +48,42 @@ angularApp.controller('VacationController',['$scope', '$http', '$rootScope', '$s
 
             });
 
+    }
+
+    $scope.SaveVacation = function ()
+    {
+       debugger
+        $scope.submitted = true;
+        if ($scope.frmVacationRequest.$valid) {
+
+            $http.get('./shared/json/Vacation.JSON')
+         .then(function (response) {
+             
+             response.data.push({
+                 "VacationID": 1,
+                 "EmployeeID": 1,
+                 "Noofdays": $scope.noOfDays,
+                 "VacationFrom": $scope.vacationFrom,
+                 "VacationTo": $scope.vacationTo,
+                 "VacationType": $scope.employee.vacationMode,
+                 "SendRequestTo": $scope.requestTo.Name,
+                 "SendCopyToID": 2,
+                 "Comments": $scope.comments,
+                 "Status": "Pending",
+                 "Remarks": ""
+             });
+            
+             $scope.vacations = response.data;
+
+             
+
+
+         });
+           
+            
+            
+            
+        }
     }
 
 

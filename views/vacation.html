@@ -27,19 +27,51 @@
                     <td class="vacation_table_cell">Type of Vacation</td>
                     <td class="vacation_table_cell">Send Request To</td>
                 </tr>
-                <tr>
-                    <td><input type="text" ng-model="noOfDays" class="vacation_days" /></td>
-                    <td><input type="text" data-datepicker="{theme: 'flat'}" data-ng-model="vacationFrom" /></td>
-                    <td><input type="text" data-datepicker="{theme: 'flat'}" data-ng-model="vacationTo" /></td>
+                <tr >
                     <td>
-                        <select name="vacationType" class="vacation_dropdown" data-ng-model="vacationType" ng-options="c.VacationTypeID as c.VacationType for c in vacationTypes" id="vacationType">
-                            <option value="">Select...</option>
-                        </select>
+                        <input type="text" ng-model="noOfDays" name="daysCount" class="vacation_days" required />
+
                     </td>
                     <td>
-                        <select name="requestTo" data-ng-model="requestTo" class="vacation_dropdown" ng-options="c.EmployeeID as c.Name for c in employees" id="requestTo">
+                        <input type="text" data-datepicker="{theme: 'flat'}" data-ng-model="vacationFrom" name="vacationFrom" required />
+                        
+                        
+                        
+                    </td>
+                    <td>
+                        <input type="text" data-datepicker="{theme: 'flat'}" data-ng-model="vacationTo" name="vacationTo" required />
+                        
+                        
+                           
+                    </td>
+                    <td>
+                        <select name="vacationType" class="vacation_dropdown" data-ng-model="employee.vacationMode" ng-options="option.VacationTypeID as option.VacationType for option in employee.vacationTypes" id="vacationType"></select>
+                    </td>
+                    <td>
+                        <select name="requestTo" data-ng-model="requestTo" class="vacation_dropdown" ng-options="option.EmployeeID as option.Name for option in employees" id="requestTo" required>
                             <option value="">Select...</option>
                         </select>
+                        
+                       
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span ng-show="frmVacationRequest.daysCount.$error.required && (frmVacationRequest.daysCount.$dirty || submitted)" class="val_msg">This field is required.</span>
+                    </td>
+                    <td>
+                        <span ng-show="frmVacationRequest.vacationFrom.$error.required && (frmVacationRequest.vacationFrom.$dirty || submitted)" class="val_msg">This field required.</span>
+
+                    </td>
+
+                    <td>
+
+                        <span ng-show="frmVacationRequest.vacationTo.$error.required && (frmVacationRequest.vacationTo.$dirty || submitted)" class="val_msg">This field is required.</span>
+                    </td>
+                    <td></td>
+                    <td>
+                        <span ng-show="frmVacationRequest.requestTo.$error.required && (frmVacationRequest.requestTo.$dirty || submitted)" class="val_msg">This field is required.</span>
+
                     </td>
                 </tr>
             </table>
@@ -54,11 +86,13 @@
             <div class="MT_Twenty">
                 <div>Comments</div>
                 <div class="MT_Ten">
-                    <textarea ng-model="comments" class="vacation_comments"></textarea>
+                    <textarea ng-model="comments" name="comments" class="vacation_comments" required></textarea>
+                    <br/>
+                    <span ng-show="frmVacationRequest.comments.$error.required && (frmVacationRequest.comments.$dirty || submitted)" class="val_msg">This field is required.</span>
                 </div>
             </div>
             <div class="MT_Twenty">
-                <button type="button" class="vacation_submitbtn" ng-click="">Submit</button>
+                <button type="button" class="vacation_submitbtn" ng-click="SaveVacation()">Submit</button>
             </div>
         </div>
 
