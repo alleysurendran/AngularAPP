@@ -18,6 +18,7 @@
                 User.isLogged = true;
                 User.username = data[i].Name;
                 User.isadmin = data[i].IsAdmin;
+                User.userID = data[i].EmployeeID;
                 isValidUser = true;
                 $rootScope.userName = User.username;
                 $rootScope.sidebar = true;
@@ -30,6 +31,7 @@
         if (!isValidUser) {
             User.isLogged = false;
             User.username = '';
+            User.userID = 0;
             $scope.showerror = true;
         }
 

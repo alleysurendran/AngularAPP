@@ -1,7 +1,7 @@
-﻿angularApp.controller('DailyStatusController', ['$state', '$scope', '$http', '$rootScope', 'LoginVaildationService', 'LogoutService', function ($state, $scope, $http, $rootScope, userSession, userLogout) {
+﻿angularApp.controller('DailyStatusController', ['$filter', '$state', '$scope', '$http', '$rootScope', 'LoginVaildationService', 'LogoutService', function ($filter, $state, $scope, $http, $rootScope, userSession, userLogout) {
 
     //******************************To show side menu*****************************************//
-        $rootScope.sidebar = true;
+    $rootScope.sidebar = true;
 
     //******************Redirect to login page if the user is not logged in*******************//
     if (!userSession.isLogged) {
@@ -25,11 +25,32 @@
     };
 
     //*************************To populate ProjectNames Dropdown*****************************//
-    $http.get('./shared/json/ProjectNames.JSON')
-    .then(function (response) {
-        $scope.project = response.data;
-    });
-
+    //$http.get('./shared/json/ProjectNames.JSON')
+    //.then(function (response) {
+    //    $scope.project = response.data;
+    //});
+    var myObjects = [];
+    var projectList = [];
+    if (userSession.isLogged) {
+        $http.get('./shared/json/ProjectAllocation.JSON')
+        .then(function (response) {
+            var newTemp = $filter("filter")(response.data, { EmployeeID: userSession.userID });
+            angular.forEach(newTemp, function (value, key) {
+                myObjects.push(value.ProjectID);
+            });
+        });
+        $http.get('./shared/json/ProjectNames.JSON')
+               .then(function (projectNames) {
+                   angular.forEach(projectNames.data, function (filterObj, filterKey) {
+                       angular.forEach(myObjects, function (value1, key1) {
+                           if (value1 == filterObj.ProjectID) {
+                               projectList.push(filterObj);
+                           }
+                       })
+                   })
+               });
+        $scope.project = projectList;
+    }
     //*****************************To populate Minute Dropdown*******************************//
     $scope.minList = [
     { value: 0, label: "00" },
@@ -61,4 +82,14 @@
     .then(function (response) {
         $scope.dailystatuslist = response.data;
     });
+
+    //**********************************Button click event*********************************//
+    $scope.saveDailyStatus = function () {
+        $scope.submitted = true;
+        if ($scope.dailystatusform.$valid) {
+
+            //code
+        }
+    }
+
 }]);

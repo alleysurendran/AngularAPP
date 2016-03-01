@@ -1,5 +1,5 @@
 ﻿<h2 class="daily_status_heading">Daily Status</h2>
-<form name="dailystatussave">
+<form name="dailystatusform">
     <div id="dailystatuscontainer">
         <div>
             <label>Date</label>
@@ -11,12 +11,13 @@
             <select name="date" class="daily_status_dropdown" data-ng-model="dateList[7]" ng-options="option as option|date:'dd/MM/yyyy' for option in dateList" id="date">
                 <option value="">Select...</option>
             </select>
-            <select name="projectName" class="daily_status_dropdown" data-ng-model="projectName" ng-options="option.ProjectID as option.ProjectName for option in project" id="projectName">
+            <select name="projectName" class="daily_status_dropdown" data-ng-model="project[0].ProjectID" ng-options="option.ProjectID as option.ProjectName for option in project" id="projectName">
+                
+            </select>
+            <select name="activityType" class="daily_status_dropdown" data-ng-model="activityType" ng-options="option.ActivityTypeID as option.ActivityType for option in activity" id="activityType" required>
                 <option value="">Select...</option>
             </select>
-            <select name="activityType" class="daily_status_dropdown" data-ng-model="activityType" ng-options="option.ActivityTypeID as option.ActivityType for option in activity" id="activityType">
-                <option value="">Select...</option>
-            </select>
+
 
             <select name="hour" class="daily_status_dropdown" data-ng-model="hourList[8]" ng-options="option as option for option in hourList" id="hour">
                 <option value=""></option>
@@ -27,12 +28,16 @@
             </select><span>min</span>
         </div>
         <div>
+            <span ng-show="dailystatusform.activityType.$error.required && (dailystatusform.activityType.$dirty || submitted)" class="error_msg">This field is required.</span>
+           
+        </div>
+        <div>
             <label class="daily_status_label1">Activity Description</label>
         </div>
         <div>
             <textarea type="text" ng-model="activitydescription" rows="4" cols="50"></textarea>
         </div>
-        <div class="buttondiv"><input class="savebutton" type="button" value="Save" /></div>
+        <div class="buttondiv"><input class="savebutton" type="button" value="Save" ng-click="saveDailyStatus()" /></div>
     </div>
 </form>
 
