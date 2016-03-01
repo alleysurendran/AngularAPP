@@ -1,5 +1,4 @@
 ﻿
-
 angularApp.service('JSONService', function ($http) {
 
     var jsonResult = {};

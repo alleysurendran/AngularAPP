@@ -15,20 +15,13 @@ angularApp.controller('VacationController',['$scope', '$http', '$rootScope', '$s
     $scope.employee.vacationMode = 1;
 
     //To populate VacationTypes Dropdown
-    $http.get('./shared/json/VacationTypes.JSON')
-     .then(function (response) {
-         $scope.employee.vacationTypes = response.data;
+    $scope.employee.vacationTypes = jsonService.GetJsonValue('./shared/json/VacationTypes.JSON');
 
-
-     });
+   
 
     //To populate Employee Dropdown
-    $http.get('./shared/json/Employee.JSON')
-     .then(function (response) {
-         $scope.employees = response.data;
-
-
-     });
+    $scope.employees = jsonService.GetJsonValue('./shared/json/Employee.JSON');
+   
 
     //Gets all Vacation details
     $scope.vacations = jsonService.GetJsonValue('./shared/json/Vacation.JSON');
