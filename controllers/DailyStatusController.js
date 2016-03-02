@@ -1,4 +1,4 @@
-﻿angularApp.controller('DailyStatusController', ['$filter', '$state', '$scope', '$http', '$rootScope', 'LoginVaildationService', 'LogoutService', function ($filter, $state, $scope, $http, $rootScope, userSession, userLogout) {
+﻿angularApp.controller('DailyStatusController', ['$filter', '$state', '$scope', '$http', '$rootScope', 'LoginVaildationService', 'LogoutService','JSONService', function ($filter, $state, $scope, $http, $rootScope, userSession, userLogout,jsonService) {
 
     //******************************To show side menu*****************************************//
     $rootScope.sidebar = true;
@@ -78,17 +78,19 @@
     };
 
     //******************************To fill Daily Status List******************************//
-    $http.get('./shared/json/DailyStatus.JSON')
-    .then(function (response) {
-        $scope.dailystatuslist = response.data;
-    });
+    
+        $scope.dailystatuslist = jsonService.GetJsonValue('./shared/json/DailyStatus.JSON');
 
     //**********************************Button click event*********************************//
+        var dailyStatusList = [];
     $scope.saveDailyStatus = function () {
         $scope.submitted = true;
         if ($scope.dailystatusform.$valid) {
+            dailyStatusList = jsonService.GetJsonValue('./shared/json/DailyStatus.JSON');
 
-            //code
+            dailyStatusList.push({
+            });
+
         }
     }
 

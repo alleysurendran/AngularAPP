@@ -47,7 +47,7 @@
 }
 
 #section {
-    width: 78%;
+    width: 75%;
     float: right;
     padding: 10px;
     background: white;
@@ -118,7 +118,7 @@ a, a:visited, a.hover, a:active {
 #dailystatuscontainer label {
     display: inline-block;
     width: 92px;
-    padding-right: 100px;
+    padding-right: 95px;
     padding-top: 10px;
     padding-bottom: 10px;
     padding-left: 25px;
@@ -175,7 +175,7 @@ a, a:visited, a.hover, a:active {
 }
 
 #dailystatuscontainer .daily_status_dropdown {
-    width: 165px;
+    width: 157px;
     margin-right: 28px;
     margin-left: 25px;
 }
@@ -455,7 +455,7 @@ a, a:visited, a.hover, a:active {
 
 #welcome_message {
     margin: 170px;
-    margin-left: 300px;
+    margin-left: 255px;
     font-size: -webkit-xxx-large;
     color: cornflowerblue;
 }
