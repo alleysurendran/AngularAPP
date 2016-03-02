@@ -9,8 +9,8 @@ angularApp.controller('CustomerController', ['$scope', '$filter', '$http', '$roo
     //******************************To show side menu*****************************************//
     $rootScope.sidebar = true;
     var promise = jsonService.GetJsonValue('./shared/json/Customer.JSON');
-    promise.then(function (data) {
-       $scope.customerDetails =data;
+    promise.then(function (result) {
+       $scope.customerDetails =result.data;
     });
 
 }]);
