@@ -393,6 +393,7 @@ a, a:visited, a.hover, a:active {
     outline:none;
 }
 
+
 .val_msg{
 
     color:red;
@@ -400,8 +401,10 @@ a, a:visited, a.hover, a:active {
 
 /*********************************Vacation page End*******************************************/
 
+
 /* Search panel style starts*/
 .form-wrapper {
+
     width: 344px;
     padding: 8px;
     margin: 20px auto;
