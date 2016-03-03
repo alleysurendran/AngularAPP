@@ -15,8 +15,8 @@
         
     },
     {
-        "VacationID":1,
-        "EmployeeID": 1,
+        "VacationID": 1,
+        "EmployeeID": 2,
         "Noofdays": 2,
         "VacationFrom": "23/5/2015",
         "VacationTo": "25/5/2015",
@@ -28,9 +28,23 @@
         "Remarks": "Approved"
     },
 
-    {
+     {
         "VacationID":1,
-        "EmployeeID": 1,
+        "EmployeeID": 2,
+        "Noofdays": 2,
+        "VacationFrom": "23/9/2015",
+        "VacationTo": "25/9/2015",
+        "VacationType": "Paid",
+        "SendRequestTo": "John",
+        "SendCopyToID": 2,
+        "Comments": "Fever",
+        "Status": "Approved",
+        "Remarks": "Approved"
+    },
+
+    {
+        "VacationID": 1,
+        "EmployeeID": 2,
         "Noofdays": 2,
         "VacationFrom": "17/1/2016",
         "VacationTo": "18/1/2016",
@@ -38,6 +52,49 @@
         "SendRequestTo": "Anoop",
         "SendCopyToID": 2,
         "Comments": "Cousins marriage",
+        "Status": "Approved",
+        "Remarks": "Approved"
+    },
+
+    {
+        "VacationID": 1,
+        "EmployeeID": 1,
+        "Noofdays": 2,
+        "VacationFrom": "17/6/2016",
+        "VacationTo": "18/6/2016",
+        "VacationType": "Compensatory",
+        "SendRequestTo": "Anoop",
+        "SendCopyToID": 2,
+        "Comments": "Cousins marriage",
+        "Status": "Approved",
+        "Remarks": "Approved"
+    },
+
+    {
+        "VacationID":1,
+        "EmployeeID": 3,
+        "Noofdays": 2,
+        "VacationFrom": "12/8/2014",
+        "VacationTo": "14/8/2014",
+        "VacationType": "Paid",
+        "SendRequestTo": "Deepika",
+        "SendCopyToID": 2,
+        "Comments": "Trip to Munnar",
+        "Status": "Pending",
+        "Remarks": ""
+
+        
+    },
+    {
+        "VacationID":1,
+        "EmployeeID": 3,
+        "Noofdays": 2,
+        "VacationFrom": "23/5/2015",
+        "VacationTo": "25/5/2015",
+        "VacationType": "Loss of Pay",
+        "SendRequestTo": "John",
+        "SendCopyToID": 2,
+        "Comments": "Fever",
         "Status": "Approved",
         "Remarks": "Approved"
     }
