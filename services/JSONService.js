@@ -1,19 +1,18 @@
 ﻿
 
-angularApp.service('JSONService', function ($http, $q) {
+angularApp.service('JSONService', function ($http) {
 
-    var jsonResult = $q.defer();
-    function ReturnResult(filePath) {
-        var jsonArray = [];
-        $http.get(filePath).then(function (data) {
-            jsonResult.resolve(data);
-        });
+    this.GetCustomerList = function () {
+        return $http.get('./shared/json/Customer.JSON')
+        .then(
+            function (response) {
+                return response.data;
+            },
+            function (errResponse) {
+                console.error('Error fetching booked meeting rooms');
+            }
+        );
     }
-    this.GetJsonValue = function (filepath) {
-        ReturnResult(filepath);
-        return jsonResult.promise;
-    };
-   
   
 });
 
