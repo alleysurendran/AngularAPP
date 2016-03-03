@@ -1,4 +1,4 @@
-﻿angularApp.controller('DailyStatusController', ['$filter', '$state', '$scope', '$http', '$rootScope', 'LoginVaildationService', 'LogoutService','JSONService', function ($filter, $state, $scope, $http, $rootScope, userSession, userLogout,jsonService) {
+﻿angularApp.controller('DailyStatusController', ['$filter', '$state', '$scope', '$http', '$rootScope', 'LoginVaildationService', 'LogoutService', 'JSONService', 'UtilService', function ($filter, $state, $scope, $http, $rootScope, userSession, userLogout, jsonService, utilService) {
 
     //******************************To show side menu*****************************************//
     $rootScope.sidebar = true;
@@ -8,90 +8,45 @@
         $state.go('login');
     }
 
-    //************************To populate ActivityType Dropdown******************************//
-    $http.get('./shared/json/ActivityType.JSON')
-    .then(function (response) {
-        $scope.activity = response.data;
-    });
-
-    //********************************To populate Hour Dropdown*****************************//
-    $scope.hourList = hourList();
-    function hourList() {
-        var myObjects = [];
-        for (var i = 0; i <= 24; i++) {
-            myObjects.push(i);
-        }
-        return myObjects;
-    };
-
-    //*************************To populate ProjectNames Dropdown*****************************//
-    //$http.get('./shared/json/ProjectNames.JSON')
-    //.then(function (response) {
-    //    $scope.project = response.data;
-    //});
-    var myObjects = [];
-    var projectList = [];
-    if (userSession.isLogged) {
-        $http.get('./shared/json/ProjectAllocation.JSON')
-        .then(function (response) {
-            var newTemp = $filter("filter")(response.data, { EmployeeID: userSession.userID });
-            angular.forEach(newTemp, function (value, key) {
-                myObjects.push(value.ProjectID);
-            });
+    //To populate ActivityType Dropdown//
+    jsonService.GetActivityType()
+        .then(function (data) {
+            alert(data);
+            $scope.activity = data;
         });
-        $http.get('./shared/json/ProjectNames.JSON')
-               .then(function (projectNames) {
-                   angular.forEach(projectNames.data, function (filterObj, filterKey) {
-                       angular.forEach(myObjects, function (value1, key1) {
-                           if (value1 == filterObj.ProjectID) {
-                               projectList.push(filterObj);
-                           }
-                       })
-                   })
-               });
-        $scope.project = projectList;
-    }
-    //*****************************To populate Minute Dropdown*******************************//
-    $scope.minList = [
-    { value: 0, label: "00" },
-    { value: 15, label: "15" },
-    { value: 30, label: "30" },
-    { value: 45, label: "45" }
-    ];
 
-    //******************************To populate Date Dropdown*******************************//
-    $scope.dateList = getDateList();
+    //To populate Hour Dropdown//
+    $scope.hourList = utilService.GetHourList();
 
-    function getDateList() {
-        var myObjects = [];
-        var today = new Date(), tempdate = null, temp_date, temp_month, temp_year, calculated_date;
-        for (var i = 7; i >= 0; i--) {
-            tempdate = new Date(today);
-            tempdate.setDate(today.getDate() - i);
-            temp_date = tempdate.getDate();
-            temp_month = tempdate.getMonth() + 1;
-            temp_year = tempdate.getFullYear();
-            calculated_date = Date.parse(temp_month + "/" + temp_date + "/" + temp_year);
-            myObjects.push(calculated_date);
-        }
-        return myObjects;
-    };
+    //To populate ProjectNames Dropdown//    
+    $scope.project = utilService.GetAllocatedProjectList();
 
-    //******************************To fill Daily Status List******************************//
-    
-        $scope.dailystatuslist = jsonService.GetJsonValue('./shared/json/DailyStatus.JSON');
+    //To populate Minute Dropdown//
+    $scope.minList = utilService.GetMinuteList();
 
-    //**********************************Button click event*********************************//
-        var dailyStatusList = [];
+    //To populate Date Dropdown//
+    $scope.dateList = utilService.GetDateList();
+
+    //To fill Daily Status List//
+    jsonService.GetDailyStatusList()
+        .then(function (data) {
+            alert(data);
+            $scope.dailystatuslist = data;
+        });
+    //alert(jsonService.GetDailyStatusList());
+    //alert($scope.dailystatuslist);
+
+    //Button click event//
+    //var dailyStatusList = [];
     $scope.saveDailyStatus = function () {
         $scope.submitted = true;
-        if ($scope.dailystatusform.$valid) {
-            dailyStatusList = jsonService.GetJsonValue('./shared/json/DailyStatus.JSON');
+        //if ($scope.dailystatusform.$valid) {
+        //dailyStatusList = jsonService.GetJsonValue('./shared/json/DailyStatus.JSON');
 
-            dailyStatusList.push({
-            });
+        //dailyStatusList.push({
+        //  });
 
-        }
+        // }
     }
 
 }]);
