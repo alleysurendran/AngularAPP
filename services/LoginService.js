@@ -1,4 +1,5 @@
 ﻿angularApp.factory('LoginVaildationService', [function () {
+    alert('hello');
     var usersession = {
         isLogged: false,
         username: '',

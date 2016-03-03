@@ -1,6 +1,4 @@
 ﻿angularApp.controller('LoginController', ['$rootScope', '$scope', '$http', '$state', 'LoginVaildationService', function ($rootScope, $scope, $http, $state, User) {
-
-    
     if (!User.isLogged) {
         $rootScope.showUser = { 'visibility': 'hidden' };
     }
