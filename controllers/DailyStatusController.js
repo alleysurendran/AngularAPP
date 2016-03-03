@@ -9,11 +9,10 @@
     }
 
     //To populate ActivityType Dropdown//
-    jsonService.GetActivityType()
-        .then(function (data) {
-            alert(data);
-            $scope.activity = data;
-        });
+    jsonService.GetActivityType().then(
+          function (data) {
+              $scope.activity = data;
+          })
 
     //To populate Hour Dropdown//
     $scope.hourList = utilService.GetHourList();
@@ -28,16 +27,13 @@
     $scope.dateList = utilService.GetDateList();
 
     //To fill Daily Status List//
-    jsonService.GetDailyStatusList()
-        .then(function (data) {
-            alert(data);
-            $scope.dailystatuslist = data;
-        });
-    //alert(jsonService.GetDailyStatusList());
-    //alert($scope.dailystatuslist);
+
+    jsonService.GetDailyStatusList().then(
+          function(data){
+              $scope.dailystatuslist = data;
+          })
 
     //Button click event//
-    //var dailyStatusList = [];
     $scope.saveDailyStatus = function () {
         $scope.submitted = true;
         //if ($scope.dailystatusform.$valid) {
