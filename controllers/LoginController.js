@@ -1,4 +1,4 @@
-﻿angularApp.controller('LoginController', ['$rootScope', '$scope', '$http', '$state','$q', 'LoginVaildationService','JSONService', function ($rootScope, $scope, $http, $state,$q, user,json) {
+﻿angularApp.controller('LoginController', ['$rootScope', '$scope', '$state','$q', 'LoginVaildationService','JSONService', function ($rootScope, $scope,  $state,$q, user,json) {
     var userDetails = user.getStatus();
     var userSession = {
         isLogged: false,
@@ -22,7 +22,6 @@
          function (response) {
              var data = response;
              isValidUser = IsValidUser(data);
-             alert(isValidUser);
          })
          );
         
