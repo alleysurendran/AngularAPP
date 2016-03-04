@@ -1,5 +1,4 @@
-﻿angularApp.service('UtilService', [ '$state','$rootScope', 'LoginVaildationService', '$filter', 'JSONService', function ($state,$rootScope, userSession, $filter, jsonService) {
-
+﻿﻿angularApp.service('UtilService', [ '$state','$rootScope', 'LoginVaildationService', '$filter', 'JSONService', function ($state,$rootScope, userSession, $filter, jsonService) {
     this.GetDateList = function () {
         var myObjects = [];
         var today = new Date(), tempdate = null, temp_date, temp_month, temp_year, calculated_date;
@@ -14,7 +13,7 @@
         }
 
         return myObjects;
-    };
+    }
 
     this.GetMinuteList = function () {
         return ([
@@ -23,7 +22,7 @@
             { value: 30, label: "30" },
             { value: 45, label: "45" }
         ])
-    };
+    }
 
     this.GetHourList = function () {
         var myObjects = [];
@@ -31,6 +30,17 @@
             myObjects.push(i);
         }
         return myObjects;
+    }
+
+
+    this.GetYearList = function () {
+
+        var yearsList = [];
+        for (var i = new Date().getFullYear() ; i >= 2008; i--) {
+            yearsList.push(i)
+        }
+        return yearsList;
+
     };
 
     this.AvoidUnAuthorisedAccess= function()

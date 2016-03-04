@@ -1,5 +1,4 @@
-﻿
-angularApp.controller('CustomerController', ['$scope', '$filter', '$http', '$state','$rootScope','$q', 'LoginVaildationService', 'JSONService','UtilService' ,function ($scope, $filter, $http,$state, $rootScope,$q, user, jsonService,utilService) {
+﻿angularApp.controller('CustomerController', ['$scope', '$filter', '$http', '$state', '$rootScope', '$q', 'LoginVaildationService', 'JSONService', 'UtilService', function ($scope, $filter, $http, $state, $rootScope, $q, user, jsonService, utilService) {
     //Redirect to login when user is not authorised
     var isValid = $q.defer();
     isValid.resolve(
@@ -13,4 +12,3 @@ angularApp.controller('CustomerController', ['$scope', '$filter', '$http', '$sta
         );
 
 }]);
-

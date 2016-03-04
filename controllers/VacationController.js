@@ -1,5 +1,5 @@
 ﻿
-angularApp.controller('VacationController',['$scope', '$filter', '$http', '$rootScope', '$state','LoginVaildationService','JSONService' , function ($scope, $filter, $http, $rootScope, $state,userSession,jsonService) {
+angularApp.controller('VacationController', ['$scope', '$filter', '$http', '$rootScope', '$state', 'LoginVaildationService', 'JSONService', 'UtilService', function ($scope, $filter, $http, $rootScope, $state, userSession, jsonService, utilService) {
 
     //To show sidemenu
     $rootScope.sidebar = true;
@@ -9,121 +9,131 @@ angularApp.controller('VacationController',['$scope', '$filter', '$http', '$root
         $state.go('login');
     }
 
-    $scope.employee = {};
-    $scope.employee.vacationMode = 1;
+    //To set the default value in vacation type dropdown.
+    $scope.vacationMode = 1;
 
-    
-
-   
 
     //To populate VacationTypes Dropdown
-    $http.get('./shared/json/VacationTypes.JSON')
-    .then(function (response) {
-        $scope.employee.vacationTypes = response.data;
-    });
+    jsonService.GetVacationTypes().then(
+         function (data) {
+             $scope.vacationTypes = data;
+         })
 
+  
 
     //To populate Employee Dropdown
-    $http.get('./shared/json/Employee.JSON')
-    .then(function (response) {
-        $scope.employees = response.data;
-    });
+    jsonService.GetEmployeeList().then(
+         function (data) {
+             $scope.employees = data;
+         })
 
-   
-        //Gets all Vacation details
-        $http.get('./shared/json/Vacation.JSON')
-       .then(function (response) {
-           $scope.vacations = $filter("filter")(response.data, { EmployeeID: userSession.userID });
+  
 
-       });
-   
+    //To populate year dropdown
+    $scope.yearList = utilService.GetYearList();
+
+
+    //To make current year as selected value in the year list dropdown
+    $scope.yearSelection = new Date().getFullYear();
+
+
+    FilterVacationsByYear(new Date().getFullYear());
+
     
-    //To populate year dropdown and to make current year as selected value
 
-        $scope.year = {};
-        $scope.year.selected = new Date().getFullYear();
-       
-        $scope.year.yearList = GetYearList();
-
-        function GetYearList() {
-
-        var yearsList = [];
-        for (var i = new Date().getFullYear() ; i >= 2008; i--)
-        {
-            yearsList.push(i)
-        }
-        return yearsList;
-
-    }
-
-   
-    
-        FilterVacationsByYear(new Date().getFullYear());
-
-       //Code to filter vacations by year
-        function FilterVacationsByYear(year){
-           
-         $http.get('./shared/json/Vacation.JSON')
-                   .success(function (data) {
+    //Code to list vacations filtered by year
+    function FilterVacationsByYear(year){
+           var filteredVacations = [];
+           jsonService.GetAllVacations().then(
+            function (data) {
                        
-                       var allVacations = $filter("filter")(data, { EmployeeID: userSession.userID });
-                       var filteredVacations = [];
-                       angular.forEach(allVacations, function (value, key) {
+                var allVacations = $filter("filter")(data, { EmployeeID: userSession.userID });
+                
+                angular.forEach(allVacations, function (value, key) {
+                         
+                    if (value.VacationFrom.indexOf(year) != -1)
+                    {
+                       filteredVacations.push(value);
+                    }
+                });
 
-                           
-                             if (value.VacationFrom.indexOf(year) != -1)
-                            {
-                                
-                                filteredVacations.push(value);
-                            }
-                       });
-
-                       $scope.vacations = filteredVacations;
-                   });
-
-
+                $scope.vacations = filteredVacations;
+                if (year == new Date().getFullYear()) {
+                    GetRemainingVacationsCount(filteredVacations);
+                    GetLossOfPayCount(filteredVacations);
+                }
+                
+            });
+           
+          
         }
-
+         // To get year wise filtered vacations on drop down change event
         $scope.GetFilteredVacations = function (year) {
 
             FilterVacationsByYear(year)
         };
 
+        
+
+        function GetRemainingVacationsCount(filteredVacations)
+        {
+                var vacationCount = 0;
+                angular.forEach(filteredVacations, function (value, key) {
+                
+                    if(value.VacationType=="Paid")
+                    { vacationCount = vacationCount + value.Noofdays }
+                });
+
+               $scope.remainingVacationCount = 20 - vacationCount;
+           
+        }
+
+        function GetLossOfPayCount(filteredVacations)
+        {
+            var lopCount = 0;
+            angular.forEach(filteredVacations, function (value, key) {
+
+                if (value.VacationType == "Loss of Pay")
+                { lopCount = lopCount + value.Noofdays }
+            });
+
+            $scope.noOfLossOfPayTaken = lopCount;
+
+        }
+
 
     //Code to save vacations.
     $scope.SaveVacation = function ()
     {
-       debugger
+       
         $scope.submitted = true;
         if ($scope.frmVacationRequest.$valid) {
-
-            $http.get('./shared/json/Vacation.JSON')
-         .then(function (response) {
-             
-             response.data.push({
+            
+            jsonService.GetAllVacations().then(
+            function (data) {
+               // var obj = JSON.parse(data);
+                
+               
+                data.push({
                  "VacationID": 1,
                  "EmployeeID": 1,
                  "Noofdays": $scope.noOfDays,
                  "VacationFrom": $scope.vacationFrom,
                  "VacationTo": $scope.vacationTo,
-                 "VacationType": $scope.employee.vacationMode,
-                 "SendRequestTo": $scope.requestTo.Name,
+                 "VacationType": $scope.vacationMode,
+                 "SendRequestTo": $scope.requestTo,
                  "SendCopyToID": 2,
                  "Comments": $scope.comments,
                  "Status": "Pending",
                  "Remarks": ""
              });
-            
-             $scope.vacations = response.data;
-
-             
+                alert(data);
+                $scope.vacations = data;
 
 
          });
            
-            
-            
-            
+       
         }
     }
 
