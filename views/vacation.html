@@ -99,6 +99,12 @@
 
         <h2>My History</h2>
 
+        <div style="float:right;padding-bottom:20px">
+
+            <span>Year:</span>
+            <select name="year" ng-model="year.selected" ng-options="year for year in year.yearList" ng-change="GetFilteredVacations(year.selected)"></select>
+        </div>
+
         <div id="vacation_list">
             <div class="Table">
                 <div class="Heading">
