@@ -1,5 +1,4 @@
-﻿angularApp.service('UtilService', ['$http', '$state','$rootScope', 'LoginVaildationService', '$filter', 'JSONService', function ($http, $state,$rootScope, userSession, $filter, jsonService) {
-
+﻿﻿angularApp.service('UtilService', [ '$state','$rootScope', 'LoginVaildationService', '$filter', 'JSONService', function ($state,$rootScope, userSession, $filter, jsonService) {
     this.GetDateList = function () {
         var myObjects = [];
         var today = new Date(), tempdate = null, temp_date, temp_month, temp_year, calculated_date;
@@ -14,7 +13,7 @@
         }
 
         return myObjects;
-    };
+    }
 
     this.GetMinuteList = function () {
         return ([
@@ -23,7 +22,7 @@
             { value: 30, label: "30" },
             { value: 45, label: "45" }
         ])
-    };
+    }
 
     this.GetHourList = function () {
         var myObjects = [];
@@ -31,7 +30,8 @@
             myObjects.push(i);
         }
         return myObjects;
-    };
+    }
+
 
     this.GetYearList = function () {
 
@@ -43,34 +43,8 @@
 
     };
 
-    this.GetAllocatedProjectList = function () {
-        var myObjects = [];
-        var projectList = [];
-        if (userSession.isLogged) {
-            $http.get('./shared/json/ProjectAllocation.JSON')
-            .then(function (response) {
-                var newTemp = $filter("filter")(response.data, { EmployeeID: userSession.userID });
-                angular.forEach(newTemp, function (value, key) {
-                    myObjects.push(value.ProjectID);
-                });
-            });
-            $http.get('./shared/json/ProjectNames.JSON')
-            .then(function (projectNames) {
-                       angular.forEach(projectNames.data, function (filterObj, filterKey) {
-                           angular.forEach(myObjects, function (value1, key1) {
-                               if (value1 == filterObj.ProjectID) {
-                                   projectList.push(filterObj);
-                               }
-                           });
-                       });
-
-                   });
-        }
-        return projectList;
-    };
     this.AvoidUnAuthorisedAccess= function()
     {
-        alert('redirect to login');
         var userDetails = userSession.getStatus();
         if (userDetails.isLogged) {
             $rootScope.userName = userDetails.userName;

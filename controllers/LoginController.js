@@ -1,4 +1,4 @@
-﻿angularApp.controller('LoginController', ['$rootScope', '$scope', '$http', '$state','$q', 'LoginVaildationService','JSONService', function ($rootScope, $scope, $http, $state,$q, user,json) {
+﻿﻿angularApp.controller('LoginController', ['$rootScope', '$scope', '$state','$q', 'LoginVaildationService','JSONService', function ($rootScope, $scope,  $state,$q, user,json) {
     var userDetails = user.getStatus();
     var userSession = {
         isLogged: false,
@@ -12,7 +12,7 @@
         $rootScope.showUser = { 'visibility': 'hidden' };
         $rootScope.bodybackground = { 'background': 'none' };
         $rootScope.showUser = { 'visibility': 'hidden' };
-       // $state.go('login');
+        // $state.go('login');
     }
     var isValidUser = false;
     var empList = $q.defer();
@@ -22,10 +22,9 @@
          function (response) {
              var data = response;
              isValidUser = IsValidUser(data);
-             alert(isValidUser);
          })
          );
-        
+
         empList.promise.then(function () {
             if (!isValidUser) {
                 userSession.isLogged = false;
@@ -38,8 +37,7 @@
 
     };
 
-    function IsValidUser(data)
-    {
+    function IsValidUser(data) {
         var len = data.length;
         for (var i = 0; i < len; i++) {
             if ((data[i].Email == $scope.username && data[i].Password == $scope.password)) {
@@ -63,7 +61,6 @@
 
     $rootScope.sidebar = false;
     $scope.showerror = false;
-           
-    
-}]);
 
+
+}]);

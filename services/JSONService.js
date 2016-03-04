@@ -9,10 +9,11 @@ angularApp.service('JSONService', function ($http) {
                return response.data;
            },
            function (errResponse) {
-               console.error('Error fetching daily status');
+               console.error('Error fetching daily status.');
            }
        );
     }
+
     this.GetActivityType = function () {
         return $http.get('./shared/json/ActivityType.JSON')
         .then(
@@ -20,7 +21,7 @@ angularApp.service('JSONService', function ($http) {
                 return response.data;
             },
             function (errResponse) {
-                console.error('Error fetching activity types');
+                console.error('Error fetching activity types.');
             }
         );
     }
@@ -32,7 +33,31 @@ angularApp.service('JSONService', function ($http) {
                 return response.data;
             },
             function (errResponse) {
-                console.error('Error fetching customer list');
+                console.error('Error fetching customer details.');
+            }
+        );
+    }
+
+    this.GetProjectAllocationList = function () {
+        return $http.get('./shared/json/ProjectAllocation.JSON')
+        .then(
+            function (response) {
+                return response.data;
+            },
+            function (errResponse) {
+                console.error('Error fetching project allocation details.');
+            }
+        );
+    }
+
+    this.GetProjectNames = function () {
+        return $http.get('./shared/json/ProjectNames.JSON')
+        .then(
+            function (response) {
+                return response.data;
+            },
+            function (errResponse) {
+                console.error('Error fetching project details.');
             }
         );
     }
