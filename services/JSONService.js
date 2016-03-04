@@ -1,7 +1,5 @@
 ﻿
 angularApp.service('JSONService', function ($http) {
-
-
     this.GetDailyStatusList = function () {
         return $http.get('./shared/json/DailyStatus.JSON')
        .then(
