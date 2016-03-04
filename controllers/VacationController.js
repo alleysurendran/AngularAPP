@@ -127,7 +127,7 @@ angularApp.controller('VacationController', ['$scope', '$filter', '$http', '$roo
                  "Status": "Pending",
                  "Remarks": ""
              });
-                alert(data);
+                
                 $scope.vacations = data;
 
 
