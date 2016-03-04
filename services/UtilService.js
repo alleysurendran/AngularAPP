@@ -33,6 +33,16 @@
         return myObjects;
     };
 
+    this.GetYearList = function () {
+
+        var yearsList = [];
+        for (var i = new Date().getFullYear() ; i >= 2008; i--) {
+            yearsList.push(i)
+        }
+        return yearsList;
+
+    };
+
     this.GetAllocatedProjectList = function () {
         var myObjects = [];
         var projectList = [];

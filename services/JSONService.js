@@ -37,6 +37,43 @@ angularApp.service('JSONService', function ($http) {
         );
     }
 
+
+    this.GetVacationTypes = function () {
+        return $http.get('./shared/json/VacationTypes.JSON')
+        .then(
+            function (response) {
+                return response.data;
+            },
+            function (errResponse) {
+                console.error('Error fetching vacation types');
+            }
+        );
+    }
+
+    this.GetEmployeeList = function () {
+        return $http.get('./shared/json/Employee.JSON')
+        .then(
+            function (response) {
+                return response.data;
+            },
+            function (errResponse) {
+                console.error('Error fetching employee list');
+            }
+        );
+    }
+
+    this.GetAllVacations = function () {
+        return $http.get('./shared/json/Vacation.JSON')
+        .then(
+            function (response) {
+                return response.data;
+            },
+            function (errResponse) {
+                console.error('Error fetching vacations');
+            }
+        );
+    }
+
 });
 
 

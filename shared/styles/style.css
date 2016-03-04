@@ -327,7 +327,7 @@ a, a:visited, a.hover, a:active {
 }
 
 .vacation_table {
-    width: 960px;
+    width: 915px;
     border: 1px solid #AAA;
     background-color: #EFF4F9;
     padding: 20px 20px 20px 20px;
@@ -397,6 +397,11 @@ a, a:visited, a.hover, a:active {
 .val_msg{
 
     color:red;
+}
+
+.vacation_yearSelect{
+
+    float:right;padding-bottom:20px;
 }
 
 /*********************************Vacation page End*******************************************/

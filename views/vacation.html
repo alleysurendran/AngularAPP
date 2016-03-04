@@ -6,12 +6,12 @@
             <div>
 
                 <div class="vaction_remain_text">
-                    <label>No of Vacation Remaining</label>
+                    <label>No of Vacation Remaining&nbsp;</label>
                     <span>{{remainingVacationCount}}</span>
 
                 </div>
                 <div class="vaction_remain_text">
-                    <label>No of Loss of Pay Taken</label>
+                    <label>No of Loss of Pay Taken&nbsp;</label>
                     <span>{{noOfLossOfPayTaken}}</span>
 
                 </div>
@@ -45,7 +45,7 @@
                            
                     </td>
                     <td>
-                        <select name="vacationType" class="vacation_dropdown" data-ng-model="employee.vacationMode" ng-options="option.VacationTypeID as option.VacationType for option in employee.vacationTypes" id="vacationType"></select>
+                        <select name="vacationType" class="vacation_dropdown" data-ng-model="vacationMode" ng-options="option.VacationTypeID as option.VacationType for option in vacationTypes" id="vacationType"></select>
                     </td>
                     <td>
                         <select name="requestTo" data-ng-model="requestTo" class="vacation_dropdown" ng-options="option.EmployeeID as option.Name for option in employees" id="requestTo" required>
@@ -99,10 +99,10 @@
 
         <h2>My History</h2>
 
-        <div style="float:right;padding-bottom:20px">
+        <div class="vacation_yearSelect">
 
             <span>Year:</span>
-            <select name="year" ng-model="year.selected" ng-options="year for year in year.yearList" ng-change="GetFilteredVacations(year.selected)"></select>
+            <select name="year" ng-model="yearSelection" ng-options="year for year in yearList" ng-change="GetFilteredVacations(yearSelection)"></select>
         </div>
 
         <div id="vacation_list">
