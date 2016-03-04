@@ -1,6 +1,6 @@
 ﻿
-angularApp.controller('CustomerController', ['$scope', '$filter', '$http', '$rootScope', 'LoginVaildationService', 'JSONService', function ($scope, $filter, $http, $rootScope, userSession, jsonService) {
-
+angularApp.controller('CustomerController', ['$scope', '$filter', '$http', '$state','$rootScope', 'LoginVaildationService', 'JSONService', function ($scope, $filter, $http,$state, $rootScope, user, jsonService) {
+    var userSession = user.getStatus();
     //******************Redirect to login page if the user is not logged in*******************//
     if (!userSession.isLogged) {
         $state.go('login');

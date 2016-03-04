@@ -3,11 +3,11 @@
     var logout = {};
 
     logout.clearData = function () {
-        userSession.isLogged = false;
-        userSession.username = '';
-        userSession.isadmin = false;
-        //$state.go('login');
-        return userSession;
+        if (localStorage.getItem("loggedInUser") != null) {
+            localStorage.removeItem('loggedInUser');
+            return null
+        }
+        return null;
     }
     return logout;
     
