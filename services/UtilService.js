@@ -1,4 +1,4 @@
-﻿angularApp.service('UtilService', ['$http', 'LoginVaildationService', '$filter', 'JSONService', function ($http, userSession, $filter, jsonService) {
+﻿angularApp.service('UtilService', ['$q', '$http', 'LoginVaildationService', '$filter', 'JSONService', function ($q, $http, userSession, $filter, jsonService) {
 
     this.GetDateList = function () {
         var myObjects = [];
@@ -14,7 +14,7 @@
         }
 
         return myObjects;
-    };
+    }
 
     this.GetMinuteList = function () {
         return ([
@@ -23,7 +23,7 @@
             { value: 30, label: "30" },
             { value: 45, label: "45" }
         ])
-    };
+    }
 
     this.GetHourList = function () {
         var myObjects = [];
@@ -31,31 +31,20 @@
             myObjects.push(i);
         }
         return myObjects;
-    };
+    }
 
-    this.GetAllocatedProjectList = function () {
-        var myObjects = [];
-        var projectList = [];
-        if (userSession.isLogged) {
-            $http.get('./shared/json/ProjectAllocation.JSON')
-            .then(function (response) {
-                var newTemp = $filter("filter")(response.data, { EmployeeID: userSession.userID });
-                angular.forEach(newTemp, function (value, key) {
-                    myObjects.push(value.ProjectID);
-                });
-            });
-            $http.get('./shared/json/ProjectNames.JSON')
-            .then(function (projectNames) {
-                       angular.forEach(projectNames.data, function (filterObj, filterKey) {
-                           angular.forEach(myObjects, function (value1, key1) {
-                               if (value1 == filterObj.ProjectID) {
-                                   projectList.push(filterObj);
-                               }
-                           });
-                       });
+    this.GetDailyStatusById = function () {
+        return $http.get('./shared/json/DailyStatus.JSON')
+       .then(
+           function (response) {
+               return response.data;
+           },
+           function (errResponse) {
+               console.error('Error fetching booked meeting rooms');
+           }
+       );
+    }
 
-                   });
-        }
-        return projectList;
-    };
+    
+
 }]);
