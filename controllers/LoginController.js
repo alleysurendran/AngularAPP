@@ -1,42 +1,67 @@
-﻿angularApp.controller('LoginController', ['$rootScope', '$scope', '$http', '$state', 'LoginVaildationService', function ($rootScope, $scope, $http, $state, User) {
-    if (!User.isLogged) {
-        $rootScope.showUser = { 'visibility': 'hidden' };
-    }
-
+﻿angularApp.controller('LoginController', ['$rootScope', '$scope', '$http', '$state', '$q', 'LoginVaildationService', 'JSONService', function ($rootScope, $scope, $http, $state, $q, user, json) {
+    var userDetails = user.getStatus();
+    var userSession = {
+        isLogged: false,
+        userName: '',
+        userId: 0,
+        isAdmin: false
+    };
     $rootScope.bodybackground = { 'background': 'none' };
-
+    $rootScope.showUser = { 'visibility': 'hidden' };
+    if (!userDetails.isLogged) {
+        $rootScope.showUser = { 'visibility': 'hidden' };
+        $rootScope.bodybackground = { 'background': 'none' };
+        $rootScope.showUser = { 'visibility': 'hidden' };
+        // $state.go('login');
+    }
+    var isValidUser = false;
+    var empList = $q.defer();
     $scope.validateUser = function () {
-        $http.get('./shared/json/Employee.JSON')
-    .then(function (response) {
-        var data = response.data;
+        empList.resolve(
+        json.EmployeeList().then(
+         function (response) {
+             var data = response;
+             isValidUser = IsValidUser(data);
+             alert(isValidUser);
+         })
+         );
+
+        empList.promise.then(function () {
+            if (!isValidUser) {
+                userSession.isLogged = false;
+                userSession.userName = '';
+                userSession.userId = 0;
+                user.setStatus($scope.userSession);
+                $scope.showerror = true;
+            }
+        });
+
+    };
+
+    function IsValidUser(data) {
         var len = data.length;
-        var isValidUser = false;
         for (var i = 0; i < len; i++) {
             if ((data[i].Email == $scope.username && data[i].Password == $scope.password)) {
-                User.isLogged = true;
-                User.username = data[i].Name;
-                User.isadmin = data[i].IsAdmin;
-                User.userID = data[i].EmployeeID;
+                userSession.isLogged = true;
+                $rootScope.userName = userSession.userName = data[i].Name;
+                userSession.isAdmin = data[i].IsAdmin;
+                userSession.userId = data[i].EmployeeID;
+                localStorage.setItem("loggedInUser", JSON.stringify(userSession));
+                user.setStatus(userSession);
                 isValidUser = true;
-                $rootScope.userName = User.username;
                 $rootScope.sidebar = true;
+                $rootScope.isLoggedIn = true;
                 $rootScope.showUser = { 'visibility': 'visible' };
                 $rootScope.bodybackground = { 'background': ' ' };
                 $state.go('dashboard');
                 break;
             }
         }
-        if (!isValidUser) {
-            User.isLogged = false;
-            User.username = '';
-            User.userID = 0;
-            $scope.showerror = true;
-        }
-
-    });
-    };
+        return isValidUser;
+    }
 
     $rootScope.sidebar = false;
     $scope.showerror = false;
-}]);
 
+
+}]);

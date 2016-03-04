@@ -21,7 +21,7 @@ angularApp.service('JSONService', function ($http) {
                 return response.data;
             },
             function (errResponse) {
-                console.error('Error fetching activity type.');
+                console.error('Error fetching activity types.');
             }
         );
     }
@@ -61,6 +61,19 @@ angularApp.service('JSONService', function ($http) {
             }
         );
     }
+
+    this.EmployeeList = function () {
+        return $http.get('./shared/json/Employee.JSON')
+        .then(
+            function (response) {
+                return response.data;
+            },
+            function (errResponse) {
+                console.error('Error fetching employee list');
+            }
+        );
+    }
+
 });
 
 

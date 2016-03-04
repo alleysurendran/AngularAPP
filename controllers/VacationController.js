@@ -1,5 +1,5 @@
 ﻿
-angularApp.controller('VacationController',['$scope', '$http', '$rootScope', '$state','LoginVaildationService','JSONService' , function ($scope, $http, $rootScope, $state,userSession,jsonService) {
+angularApp.controller('VacationController',['$scope', '$filter', '$http', '$rootScope', '$state','LoginVaildationService','JSONService' , function ($scope, $filter, $http, $rootScope, $state,userSession,jsonService) {
 
     //To show sidemenu
     $rootScope.sidebar = true;
@@ -9,63 +9,88 @@ angularApp.controller('VacationController',['$scope', '$http', '$rootScope', '$s
         $state.go('login');
     }
 
-    //GetAllVacations();
-
     $scope.employee = {};
     $scope.employee.vacationMode = 1;
 
+    
+
+   
+
     //To populate VacationTypes Dropdown
-    //$scope.employee.vacationTypes = jsonService.GetJsonValue('./shared/json/VacationTypes.JSON');
-
     $http.get('./shared/json/VacationTypes.JSON')
-           .then(function (response) {
-
-               $scope.employee.vacationTypes = response.data;
-           });
-
-   
-
-    //To populate Employee Dropdown
-  // $scope.employees = jsonService.GetJsonValue('./shared/json/Employee.JSON');
-
-    $http.get('./shared/json/Employee.JSON')
-           .then(function (response) {
-
-               $scope.employees = response.data;
-           });
-   
-
-    //Gets all Vacation details
-  //  $scope.vacations = jsonService.GetJsonValue('./shared/json/Vacation.JSON');
-
-
-    $scope.vacations = {};
-
-    var promise = jsonService.GetJsonValue();
-    promise.then(function (data) {
-        $scope.vacations = data;
+    .then(function (response) {
+        $scope.employee.vacationTypes = response.data;
     });
 
 
+    //To populate Employee Dropdown
+    $http.get('./shared/json/Employee.JSON')
+    .then(function (response) {
+        $scope.employees = response.data;
+    });
 
+   
+        //Gets all Vacation details
+        $http.get('./shared/json/Vacation.JSON')
+       .then(function (response) {
+           $scope.vacations = $filter("filter")(response.data, { EmployeeID: userSession.userID });
 
+       });
+   
     
+    //To populate year dropdown and to make current year as selected value
 
-    $scope.GetVacationType = function (vacationTypeID) {
+        $scope.year = {};
+        $scope.year.selected = new Date().getFullYear();
+       
+        $scope.year.yearList = GetYearList();
 
-        $http.get('./shared/json/VacationTypes.JSON')
-            .success(function (data) {
-                var objArr = angular.fromJson(data).filter(function (item) {
-                    if (item.VacationTypeID === vacationTypeID) {
-                        return true;
-                    }
-                });
-                console.log(objArr[0].VacationType);
+        function GetYearList() {
 
-            });
+        var yearsList = [];
+        for (var i = new Date().getFullYear() ; i >= 2008; i--)
+        {
+            yearsList.push(i)
+        }
+        return yearsList;
 
     }
 
+   
+    
+        FilterVacationsByYear(new Date().getFullYear());
+
+       //Code to filter vacations by year
+        function FilterVacationsByYear(year){
+           
+         $http.get('./shared/json/Vacation.JSON')
+                   .success(function (data) {
+                       
+                       var allVacations = $filter("filter")(data, { EmployeeID: userSession.userID });
+                       var filteredVacations = [];
+                       angular.forEach(allVacations, function (value, key) {
+
+                           
+                             if (value.VacationFrom.indexOf(year) != -1)
+                            {
+                                
+                                filteredVacations.push(value);
+                            }
+                       });
+
+                       $scope.vacations = filteredVacations;
+                   });
+
+
+        }
+
+        $scope.GetFilteredVacations = function (year) {
+
+            FilterVacationsByYear(year)
+        };
+
+
+    //Code to save vacations.
     $scope.SaveVacation = function ()
     {
        debugger

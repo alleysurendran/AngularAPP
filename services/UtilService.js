@@ -1,4 +1,5 @@
-﻿angularApp.service('UtilService', ['$q', '$http', 'LoginVaildationService', '$filter', 'JSONService', function ($q, $http, userSession, $filter, jsonService) {
+﻿
+angularApp.service('UtilService', ['$state','$rootScope', '$http', 'LoginVaildationService', '$filter', 'JSONService', function ($state,$rootScope, $http, userSession, $filter, jsonService) {
 
     this.GetDateList = function () {
         var myObjects = [];
@@ -45,6 +46,20 @@
        );
     }
 
-    
-
+    this.AvoidUnAuthorisedAccess= function()
+    {
+        var userDetails = userSession.getStatus();
+        if (userDetails.isLogged) {
+            $rootScope.userName = userDetails.userName;
+            $rootScope.showUser = { 'visibility': 'visible' };
+            $rootScope.sidebar = true;
+            return true;
+        }
+        else
+        {
+            $state.go('login');
+            return false;
+        }
+       
+    }
 }]);
