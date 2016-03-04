@@ -5,12 +5,13 @@
         $state.go('login');
     }*/
     $scope.logout = function () {
+        var isValid = $q.defer();
+        isValid.resolve(
+           userLogout.clearData()
+        );
         isValid.promise.then(
            $state.go('login')
      );
     };
-    var isValid = $q.defer();
-    isValid.resolve(
-       userLogout.clearData()
-    );
+   
 }]);
