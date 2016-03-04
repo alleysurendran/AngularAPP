@@ -1,19 +1,16 @@
 ﻿
-angularApp.controller('CustomerController', ['$scope', '$filter', '$http', '$state','$rootScope', 'LoginVaildationService', 'JSONService', function ($scope, $filter, $http,$state, $rootScope, user, jsonService) {
-    var userSession = user.getStatus();
-    //******************Redirect to login page if the user is not logged in*******************//
-    if (!userSession.isLogged) {
-        $state.go('login');
-    }
-
-    //******************************To show side menu*****************************************//
-    $rootScope.sidebar = true;
-
-    jsonService.GetCustomerList().then(
-          function(data){
-              $scope.customerDetails = data;
-          })
-
+angularApp.controller('CustomerController', ['$scope', '$filter', '$http', '$state','$rootScope','$q', 'LoginVaildationService', 'JSONService','UtilService' ,function ($scope, $filter, $http,$state, $rootScope,$q, user, jsonService,utilService) {
+    //Redirect to login when user is not authorised
+    var isValid = $q.defer();
+    isValid.resolve(
+       utilService.AvoidUnAuthorisedAccess()
+    );
+    isValid.promise.then(
+         jsonService.GetCustomerList().then(
+         function (data) {
+             $scope.customerDetails = data;
+         })
+        );
 
 }]);
 

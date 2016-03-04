@@ -1,5 +1,4 @@
 ﻿angularApp.controller('LoginController', ['$rootScope', '$scope', '$http', '$state','$q', 'LoginVaildationService','JSONService', function ($rootScope, $scope, $http, $state,$q, user,json) {
-    alert('login');
     var userDetails = user.getStatus();
     var userSession = {
         isLogged: false,
@@ -13,7 +12,7 @@
         $rootScope.showUser = { 'visibility': 'hidden' };
         $rootScope.bodybackground = { 'background': 'none' };
         $rootScope.showUser = { 'visibility': 'hidden' };
-        $state.go('login');
+       // $state.go('login');
     }
     var isValidUser = false;
     var empList = $q.defer();
