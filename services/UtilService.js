@@ -34,19 +34,17 @@ angularApp.service('UtilService', ['$state','$rootScope', '$http', 'LoginVaildat
         return myObjects;
     }
 
-    this.GetDailyStatusById = function () {
-        return $http.get('./shared/json/DailyStatus.JSON')
-       .then(
-           function (response) {
-               return response.data;
-           },
-           function (errResponse) {
-               console.error('Error fetching booked meeting rooms');
-           }
-       );
-    }
+    this.GetYearList = function () {
 
-    this.AvoidUnAuthorisedAccess= function()
+        var yearsList = [];
+        for (var i = new Date().getFullYear() ; i >= 2008; i--) {
+            yearsList.push(i)
+        }
+        return yearsList;
+
+    };
+
+        this.AvoidUnAuthorisedAccess= function()
     {
         var userDetails = userSession.getStatus();
         if (userDetails.isLogged) {
