@@ -1,12 +1,4 @@
-﻿angularApp.controller('DailyStatusController', ['$q', '$filter', '$state', '$scope', '$http', '$rootScope', 'LoginVaildationService', 'LogoutService', 'JSONService', 'UtilService', function ($q, $filter, $state, $scope, $http, $rootScope, userSession, userLogout, jsonService, utilService) {
-
-    //******************************To show side menu*****************************************//
-    //$rootScope.sidebar = true;
-
-    //******************Redirect to login page if the user is not logged in*******************//
-    //if (!userSession.isLogged) {
-    //    $state.go('login');
-    //}
+﻿angularApp.controller('DailyStatusController', ['$q', '$filter', '$scope', 'LoginVaildationService', 'JSONService', 'UtilService', function ($q, $filter, $scope, userSession, jsonService, utilService) {
 
     var isValid = $q.defer();
     isValid.resolve(
@@ -15,6 +7,7 @@
     isValid.promise.then(
         ToPerform()
         );
+
     function ToPerform() {
         //To populate ActivityType Dropdown//
         jsonService.GetActivityType().then(
@@ -89,30 +82,33 @@
             $scope.submitted = true;
             if ($scope.dailystatusform.$valid) {
                 jsonService.GetDailyStatusList().then(
-             function (data) {
+                    function (data) {
+                        data.push({
+                            "DailyStatusID": 5,
+                            "EmployeeID": userSession.userID,
+                            "ActivityDate": $scope.selectedDate,
+                            "ProjectName": $scope.selectedProject.ProjectName,
+                            "ActivityType": $scope.activityType.ActivityType,
+                            "Hour": $scope.selectedHour,
+                            "Min": $scope.selectedMinute.label,
+                            "Description": $scope.activitydescription
+                        });
+                        $scope.dailystatuslist = data;
+                        $scope.submitted = false;
+                        $scope.dailystatusform.activityType.$dirty = false;
+                        $scope.dailystatusform.description.$dirty = false;
+                        $scope.selectedDate = $scope.dateList[7];
+                        $scope.selectedProject = $scope.project[0];
+                        $scope.selectedHour = $scope.hourList[8];
+                        $scope.selectedMinute = $scope.minList[0];
+                        $scope.activitydescription = null;
+                        jsonService.GetActivityType().then(
+                        function (data) {
+                            $scope.activity = data;
+                        })
 
-                 data.push({
-                     "DailyStatusID": 5,
-                     "EmployeeID": userSession.userID,
-                     "ActivityDate": $scope.selectedDate,
-                     "ProjectName": $scope.selectedProject.ProjectName,
-                     "ActivityType": $scope.activityType.ActivityType,
-                     "Hour": $scope.selectedHour,
-                     "Min": $scope.selectedMinute.label,
-                     "Description": $scope.activitydescription
-                 });
-                 $scope.dailystatuslist = data;
-                 $scope.selectedDate = $scope.dateList[7];
-                 $scope.selectedProject = $scope.project[0];
-                 $scope.selectedHour = $scope.hourList[8];
-                 $scope.selectedMinute = $scope.minList[0];
-                 $scope.activitydescription = '';
-                 jsonService.GetActivityType().then(
-              function (data) {
-                  $scope.activity = data;
-              })
-
-             })
+                       
+                    })
             }
         };
     }
