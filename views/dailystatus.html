@@ -25,7 +25,7 @@
         </div>
 
         <div>
-            <span ng-show="dailystatusform.activityType.$error.required && (dailystatusform.activityType.$dirty || submitted)" class="error_msg" data-ng-attr-id="activityError">This field is required.</span>
+            <span ng-show="dailystatusform.activityType.$error.required && (dailystatusform.activityType.$dirty || submitted)" class="error_msg" >This field is required.</span>
         </div>
 
         <div>
@@ -33,7 +33,10 @@
         </div>
 
         <div>
-            <textarea type="text" ng-model="activitydescription" rows="4" cols="50"></textarea>
+            <textarea name="description" type="text" ng-model="activitydescription" rows="4" cols="50" required></textarea>
+        </div>
+        <div>
+            <span id="activeDes" ng-show="dailystatusform.description.$error.required && (dailystatusform.description.$dirty || submitted)" class="error_msg">This field is required.</span>
         </div>
         <div class="buttondiv"><input class="savebutton" type="button" value="Save" ng-click="saveDailyStatus()" /></div>
     </div>
@@ -59,7 +62,7 @@
                 <p>Activity Description</p>
             </div>
         </div>
-        <div class="Row" ng-repeat="dailystatus in dailystatuslist">
+        <div class="Row" ng-repeat="dailystatus in dailystatuslist | orderBy: 'dailystatus.ActivityDate':true">
             <div class="Cell">
                 <p>{{dailystatus.ActivityDate|date:'dd/MM/yyyy'}}</p>
             </div>

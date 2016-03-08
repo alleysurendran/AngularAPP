@@ -147,7 +147,7 @@ a, a:visited, a.hover, a:active {
     margin-top: 20px;
     margin-left: -8px;
     margin-bottom: 17px;
-   margin-right: 2%;
+    margin-right: 2%;
     padding-right: 2px;
 }
 
@@ -203,9 +203,14 @@ a, a:visited, a.hover, a:active {
 
 .error_msg {
     width: 165px;
-    margin-left: 187px;
+    margin-left: 172px;
     padding-left: 281px;
     color: red;
+}
+
+#activeDes {
+    margin-left: 25px;
+    padding-left: 1px;
 }
 /***************************** Table Style *******************************/
 .Table {
@@ -390,18 +395,17 @@ a, a:visited, a.hover, a:active {
     display: inline-block;
     font-size: 14px;
     border-radius: 8px;
-    outline:none;
+    outline: none;
 }
 
 
-.val_msg{
-
-    color:red;
+.val_msg {
+    color: red;
 }
 
-.vacation_yearSelect{
-
-    float:right;padding-bottom:20px;
+.vacation_yearSelect {
+    float: right;
+    padding-bottom: 20px;
 }
 
 /*********************************Vacation page End*******************************************/
@@ -409,7 +413,6 @@ a, a:visited, a.hover, a:active {
 
 /* Search panel style starts*/
 .form-wrapper {
-
     width: 344px;
     padding: 8px;
     margin: 20px auto;
