@@ -91,7 +91,6 @@
         function GetAllDailyStatusList() {
             var employeeArray = [];
             var alldailystatus = [];
-            var dailystatus = [];
 
             var empList = $q.defer();
             var statusList = $q.defer();
@@ -107,7 +106,6 @@
                 .then(function () {
                     statusList.resolve(jsonService.GetDailyStatusList().then(
                       function (data) {
-                          dailystatus = data;
                           angular.forEach(data, function (value, key) {
                               angular.forEach(employeeArray, function (empvalue, empkey) {
                                   if (value.EmployeeID == empvalue.EmployeeID) {
