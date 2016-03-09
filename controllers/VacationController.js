@@ -1,16 +1,7 @@
 ﻿
 angularApp.controller('VacationController', ['$q', '$filter', '$state', '$scope', '$http', '$rootScope', 'LoginVaildationService', 'LogoutService', 'JSONService', 'UtilService', function ($q, $filter, $state, $scope, $http, $rootScope, userSession, userLogout, jsonService, utilService) {
 
-    //To show sidemenu
-   // $rootScope.sidebar = true;
-
-    //******************Redirect to login page if the user is not logged in*******************//
-   // if (!userSession.isLogged) {
-  //      $state.go('login');
-    // }
-
    
-
     var isValid = $q.defer();
     isValid.resolve(
        utilService.AvoidUnAuthorisedAccess()
@@ -23,7 +14,7 @@ angularApp.controller('VacationController', ['$q', '$filter', '$state', '$scope'
     function ToPerform() {
 
         //To set the default value in vacation type dropdown.
-        $scope.vacationMode = 1;
+        $scope.vacationMode = "Paid";
 
 
         //To populate VacationTypes Dropdown
@@ -66,9 +57,10 @@ angularApp.controller('VacationController', ['$q', '$filter', '$state', '$scope'
                          filteredVacations.push(value);
                      }
                  });
-
+                 
                  $scope.vacations = filteredVacations;
                  if (year == new Date().getFullYear()) {
+                     $scope.currentYearVacations = filteredVacations;
                      GetRemainingVacationsCount(filteredVacations);
                      GetLossOfPayCount(filteredVacations);
                  }
@@ -84,7 +76,7 @@ angularApp.controller('VacationController', ['$q', '$filter', '$state', '$scope'
         };
 
 
-
+        //Code to get remaining vacation count
         function GetRemainingVacationsCount(filteredVacations) {
             var vacationCount = 0;
             angular.forEach(filteredVacations, function (value, key) {
@@ -97,6 +89,7 @@ angularApp.controller('VacationController', ['$q', '$filter', '$state', '$scope'
 
         }
 
+        //Code to get the count of loss of pays taken.
         function GetLossOfPayCount(filteredVacations) {
             var lopCount = 0;
             angular.forEach(filteredVacations, function (value, key) {
@@ -116,27 +109,24 @@ angularApp.controller('VacationController', ['$q', '$filter', '$state', '$scope'
             $scope.submitted = true;
             if ($scope.frmVacationRequest.$valid) {
 
-                jsonService.GetAllVacations().then(
-                function (data) {
-                    debugger
+            
+                var data = $scope.currentYearVacations;
                     data.push({
                         "VacationID": 1,
                         "EmployeeID": 2,
                         "Noofdays": $scope.noOfDays,
                         "VacationFrom": $scope.vacationFrom,
                         "VacationTo": $scope.vacationTo,
-                        "VacationType": $scope.vacationMode.VacationType,
+                        "VacationType": $scope.vacationMode,
                         "SendRequestTo": $scope.requestTo,
-                        "SendCopyToID": 2,
+                        "SendCopyToID": "",
                         "Comments": $scope.comments,
                         "Status": "Pending",
-                        "Remarks": ""
+                        "Remarks": "Pending"
                     });
-
+                    $scope.currentYearVacations = data;
                     $scope.vacations = data;
 
-
-                });
 
 
             }

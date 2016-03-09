@@ -17,7 +17,6 @@
                 </div>
 
 
-
             </div>
             <table>
                 <tr>
@@ -27,28 +26,25 @@
                     <td class="vacation_table_cell">Type of Vacation</td>
                     <td class="vacation_table_cell">Send Request To</td>
                 </tr>
-                <tr >
+                <tr>
                     <td>
                         <input type="text" ng-model="noOfDays" name="daysCount" class="vacation_days" required />
 
                     </td>
                     <td>
                         <input type="text" data-datepicker="{theme: 'flat'}" data-ng-model="vacationFrom" name="vacationFrom" required />
-                        
-                        
+                      
                         
                     </td>
                     <td>
-                        <input type="text" data-datepicker="{theme: 'flat'}" data-ng-model="vacationTo" name="vacationTo" required />
-                        
-                        
-                           
+                        <input type="text" data-datepicker="{theme: 'flat'}" data-ng-model="vacationTo" name="vacationTo" required  />
+                                           
                     </td>
                     <td>
-                        <select name="vacationType" class="vacation_dropdown" data-ng-model="vacationMode" ng-options="option.VacationTypeID as option.VacationType for option in vacationTypes" id="vacationType"></select>
+                        <select name="vacationType" class="vacation_dropdown" data-ng-model="vacationMode" ng-options="option.VacationType as option.VacationType for option in vacationTypes" id="vacationType"></select>
                     </td>
                     <td>
-                        <select name="requestTo" data-ng-model="requestTo" class="vacation_dropdown" ng-options="option.EmployeeID as option.Name for option in employees" id="requestTo" required>
+                        <select name="requestTo" data-ng-model="requestTo" class="vacation_dropdown" ng-options="option.Name as option.Name for option in employees" id="requestTo" required>
                             <option value="">Select...</option>
                         </select>
                         
