@@ -1,4 +1,4 @@
-﻿angularApp.factory('LogoutService', ['$rootScope', '$state','$q', 'LoginVaildationService', 'UtilService', function ($rootScope, $state,$q, userSession, utilService) {
+﻿angularApp.factory('LogoutService', ['$q', 'UtilService', function ($q, utilService) {
 
     var logout = {};
     var isCleared = $q.defer();

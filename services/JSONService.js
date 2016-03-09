@@ -1,5 +1,5 @@
 ﻿
-angularApp.service('JSONService', function ($http) {
+angularApp.service('JSONService', function ($http, $filter) {
     this.GetDailyStatusList = function () {
         return $http.get('./shared/json/DailyStatus.JSON')
        .then(
@@ -102,6 +102,19 @@ angularApp.service('JSONService', function ($http) {
         .then(
             function (response) {
                 return response.data;
+            },
+            function (errResponse) {
+                console.error('Error fetching vacations');
+            }
+        );
+    }
+
+    this.GetDailyStatusById = function (data) {
+        return $http.get('./shared/json/DailyStatus.JSON')
+        .then(
+            function (response) {
+                var tempData = $filter("filter")(response.data, { EmployeeID: data });
+                return tempData;
             },
             function (errResponse) {
                 console.error('Error fetching vacations');
