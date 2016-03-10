@@ -90,15 +90,17 @@ ul {
         padding-bottom: 10px;
     }
 
+        .menu li a:hover {
+            text-decoration: underline;
+        }
+
 a, a:visited, a.hover, a:active {
     text-decoration: none;
     color: inherit;
     cursor: pointer;
 }
 
-.menu li {
-    padding-bottom: 10px;
-}
+
 
 #middle {
     width: 100%;
@@ -112,25 +114,8 @@ a, a:visited, a.hover, a:active {
     IE6-9 *;
 }
 
-.menu li a:hover {
-    text-decoration: underline;
-}
+
 /***********************************Daily Status Style********************************/
-#dailystatuscontainer label {
-    display: inline-block;
-    width: 92px;
-    padding-right: 92px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 25px;
-}
-
-#dailystatuscontainer .daily_status_label1 {
-    display: inline-grid;
-    width: 200px;
-    padding-top: 30px;
-}
-
 #dailystatuscontainer {
     margin-left: 20px;
     margin-top: 20px;
@@ -144,6 +129,64 @@ a, a:visited, a.hover, a:active {
     margin-left: 10px;
 }
 
+    #dailystatuscontainer label {
+        display: inline-block;
+        width: 92px;
+        padding-right: 92px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 25px;
+    }
+
+
+
+    #dailystatuscontainer .buttondiv {
+        width: 100%;
+        text-align: center;
+        padding-top: 20px;
+    }
+
+    #dailystatuscontainer .savebutton {
+        background-color: #0066A6;
+        border: none;
+        color: white;
+        padding: 6px 15px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 14px;
+        border-radius: 8px;
+        outline: none;
+    }
+
+    #dailystatuscontainer textarea {
+        margin-right: 28px;
+        margin-left: 25px;
+    }
+
+    #dailystatuscontainer .daily_status_label1 {
+        display: inline-grid;
+        width: 200px;
+        padding-top: 30px;
+    }
+
+.daily_status_dropdown {
+    width: 157px;
+    margin-right: 28px;
+    margin-left: 25px;
+}
+
+#hour {
+    width: 48px;
+    margin-right: 8px;
+}
+
+#min {
+    width: 48px;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
 .daily_status_list {
     margin-top: 20px;
     margin-left: 10px;
@@ -152,48 +195,6 @@ a, a:visited, a.hover, a:active {
     padding-right: 2px;
 }
 
-
-
-#dailystatuscontainer .buttondiv {
-    width: 100%;
-    text-align: center;
-    padding-top: 20px;
-}
-
-#dailystatuscontainer .savebutton {
-    background-color: #0066A6;
-    border: none;
-    color: white;
-    padding: 6px 15px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 14px;
-    border-radius: 8px;
-    outline: none;
-}
-
-#dailystatuscontainer .daily_status_dropdown {
-    width: 157px;
-    margin-right: 28px;
-    margin-left: 25px;
-}
-
-#dailystatuscontainer #hour {
-    width: 48px;
-    margin-right: 8px;
-}
-
-#dailystatuscontainer #min {
-    width: 48px;
-    margin-left: 8px;
-    margin-right: 8px;
-}
-
-#dailystatuscontainer textarea {
-    margin-right: 28px;
-    margin-left: 25px;
-}
 
 .daily_status_heading {
     padding-top: 17px;
@@ -291,6 +292,10 @@ a, a:visited, a.hover, a:active {
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#7db9e8',GradientType=0 ); /* IE6-9 */
 }
 
+    .Heading .Cell p {
+        color: white;
+    }
+
 .Row {
     display: table-row;
 }
@@ -306,9 +311,7 @@ a, a:visited, a.hover, a:active {
     border-collapse: collapse;
 }
 
-.Heading .Cell p {
-    color: white;
-}
+
 
 /***************************************Login page************************************/
 #login {

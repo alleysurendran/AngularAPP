@@ -38,14 +38,13 @@
         Getprojectlist();
 
         function Getprojectlist() {
-            var myObjects = [];
-            var projectList = [];
+            var projectallocationlist = [];
+            $scope.project = [];
 
             var isProjectAllocation = $q.defer();
             var isProjectName = $q.defer();
 
             isProjectName.promise.then(function () {
-                $scope.project = projectList;
                 $scope.selectedProject = $scope.project[0];
             })
 
@@ -54,7 +53,7 @@
                 .then(function (response) {
                     var newTemp = $filter("filter")(response, { EmployeeID: userDetails.userId });
                     angular.forEach(newTemp, function (value, key) {
-                        myObjects.push(value.ProjectID);
+                        projectallocationlist.push(value.ProjectID);
                     });
                 })
                 );
@@ -64,9 +63,9 @@
                     jsonService.GetProjectNames()
                     .then(function (projectNames) {
                         angular.forEach(projectNames, function (filterObj, filterKey) {
-                            angular.forEach(myObjects, function (value1, key1) {
+                            angular.forEach(projectallocationlist, function (value1, key1) {
                                 if (value1 == filterObj.ProjectID) {
-                                    projectList.push(filterObj);
+                                    $scope.project.push(filterObj);
                                 }
                             })
                         })
