@@ -30,7 +30,7 @@
                 userSession.isLogged = false;
                 userSession.userName = '';
                 userSession.userId = 0;
-                user.setStatus($scope.userSession);
+                user.setStatus(userSession);
                 $scope.showerror = true;
             }
         });

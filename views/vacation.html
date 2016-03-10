@@ -123,7 +123,7 @@
                         <p>Remarks</p>
                     </div>
                 </div>
-                <div class="Row" ng-repeat="vacation in vacations">
+                <div class="Row" ng-repeat="vacation in vacations" ng-show="vacations.length">
                     <div class="Cell">
                         <p>{{vacation.VacationFrom}} - {{vacation.VacationTo}}</p>
                     </div>
@@ -145,6 +145,12 @@
                         <p>{{vacation.Remarks}}</p>
                     </div>
                 </div>
+                
+            </div>
+            <div class="noRecords" ng-show="!vacations.length">
+
+                <p> No Records</p>
+
             </div>
         </div>
 

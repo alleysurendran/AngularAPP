@@ -1,14 +1,6 @@
 ﻿angularApp.service('LoginVaildationService', function () {
     var userSession;
-   /* if (localStorage.getItem("loggedInUser") == null) {
-        userSession = {
-            isLogged: false,
-            userName: '',
-            userId: 0,
-            isAdmin: false
-        };
-    }*/
-
+   
     return {
         getStatus: function () {
 
