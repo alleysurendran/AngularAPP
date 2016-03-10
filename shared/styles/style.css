@@ -152,10 +152,7 @@ a, a:visited, a.hover, a:active {
     padding-right: 2px;
 }
 
-#vacation_list {
-    margin-top: 20px;
-    margin-bottom: 17px;
-}
+
 
 #dailystatuscontainer .buttondiv {
     width: 100%;
@@ -265,6 +262,10 @@ a, a:visited, a.hover, a:active {
     border-width: 1px;
 }
 
+#searchdiv {
+    float: right;
+    margin-right: 12px;
+}
 /**********************************Daily Status style End*****************************/
 /***************************** Table Style *******************************/
 .Table {
@@ -308,10 +309,6 @@ a, a:visited, a.hover, a:active {
 .Heading .Cell p {
     color: white;
 }
-
-
-
-
 
 /***************************************Login page************************************/
 #login {
@@ -462,6 +459,11 @@ a, a:visited, a.hover, a:active {
 .vacation_yearSelect {
     float: right;
     padding-bottom: 20px;
+}
+
+#vacation_list {
+    margin-top: 20px;
+    margin-bottom: 17px;
 }
 
 /*********************************Vacation page End*******************************************/

@@ -5,7 +5,7 @@
                 <a ng-click="tab = 1">My Activities</a>
             </li>
             <li ng-class="{active:tab===2}">
-                <a ng-click="tab = 2">All User Activities</a>
+                <a ng-click="tab = 2">All Employee Activities</a>
             </li>
         </ul>
     </section>
@@ -98,7 +98,10 @@
 </div>
 <div ng-show="tab === 2" class="dailystatusblock">
     <div ng-class="{'tabstyle': isAdmin}">
-        <h2 class="daily_status_heading">All User Activities</h2>
+        <div class="form-wrapper" id="searchdiv">
+            <input type="text" id="search" placeholder="Search Employee" required ng-model="searchText">
+        </div>
+        <h2 class="daily_status_heading">All Employee Activities</h2>
         <div class="daily_status_list">
             <div class="Table">
                 <div class="Heading">
@@ -121,12 +124,12 @@
                         <p>Activity Description</p>
                     </div>
                 </div>
-                <div class="Row" ng-repeat="dailystatus in alldailystatuslist | orderBy: 'dailystatus.ActivityDate':true">
+                <div class="Row" ng-repeat="dailystatus in alldailystatuslist | orderBy: 'dailystatus.ActivityDate':true | filter: searchText">
                     <div class="Cell">
                         <p>{{dailystatus.Name}}</p>
                     </div>
                     <div class="Cell">
-                        <p>{{dailystatus.ActivityDate|date:'dd/MM/yyyy'}}</p>
+                        <p>{{dailystatus.ActivityDate}}</p>
                     </div>
                     <div class="Cell">
                         <p>{{dailystatus.ProjectName}}</p>

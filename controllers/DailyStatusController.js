@@ -15,6 +15,7 @@
             $scope.showtab = true;
             $scope.isAdmin = true;
         }
+
         //To populate ActivityType Dropdown//
         jsonService.GetActivityType().then(
               function (data) {
@@ -35,34 +36,31 @@
 
         //To populate ProjectNames Dropdown//    
         Getprojectlist();
-        
 
         function Getprojectlist() {
             var myObjects = [];
             var projectList = [];
 
-            var projAlloc = $q.defer();
-            var projname = $q.defer();
+            var isProjectAllocation = $q.defer();
+            var isProjectName = $q.defer();
 
-            projname.promise.then(function () {
+            isProjectName.promise.then(function () {
                 $scope.project = projectList;
                 $scope.selectedProject = $scope.project[0];
             })
 
-            projAlloc.resolve(
+            isProjectAllocation.resolve(
                 jsonService.GetProjectAllocationList()
                 .then(function (response) {
-                    var userDetails = userSession.getStatus();
                     var newTemp = $filter("filter")(response, { EmployeeID: userDetails.userId });
                     angular.forEach(newTemp, function (value, key) {
                         myObjects.push(value.ProjectID);
                     });
-
                 })
                 );
 
-            projAlloc.promise.then(function () {
-                projname.resolve(
+            isProjectAllocation.promise.then(function () {
+                isProjectName.resolve(
                     jsonService.GetProjectNames()
                     .then(function (projectNames) {
                         angular.forEach(projectNames, function (filterObj, filterKey) {
@@ -84,60 +82,68 @@
                   $scope.dailystatuslist = data;
               })
 
-        
+
         //To fill Daily Status List of all employees//
         GetAllDailyStatusList();
 
         function GetAllDailyStatusList() {
-            var employeeArray = [];
+            var employee = [];
             var alldailystatus = [];
 
-            var empList = $q.defer();
-            var statusList = $q.defer();
+            var isEmployeeList = $q.defer();
+            var isStatusList = $q.defer();
 
-            empList.resolve(
+            isEmployeeList.resolve(
                 jsonService.GetEmployeeList().then(
                 function (data) {
-                    employeeArray = data;
+                    employee = data;
                 })
                 )
 
-            empList.promise
+            isEmployeeList.promise
                 .then(function () {
-                    statusList.resolve(jsonService.GetDailyStatusList().then(
+                    isStatusList.resolve(jsonService.GetDailyStatusList().then(
                       function (data) {
                           angular.forEach(data, function (value, key) {
-                              angular.forEach(employeeArray, function (empvalue, empkey) {
+                              angular.forEach(employee, function (empvalue, empkey) {
                                   if (value.EmployeeID == empvalue.EmployeeID) {
                                       alldailystatus.push(angular.extend({}, value, { "Name": empvalue.Name }));
-                              }
+                                  }
                               })
                           })
 
                       })
                 )
-                    statusList.promise.then($scope.alldailystatuslist = alldailystatus);
+                    isStatusList.promise.then($scope.alldailystatuslist = alldailystatus);
                 });
         }
 
 
-        //Button click event//
+        //Saving Daily Status//
         $scope.saveDailyStatus = function () {
             $scope.submitted = true;
             if ($scope.dailystatusform.$valid) {
-                data = $scope.dailystatuslist;
-                data.push({
+                $scope.dailystatuslist.push({
                     "DailyStatusID": 5,
-                    "EmployeeID": userSession.userID,
-                    "ActivityDate": $scope.selectedDate,
+                    "EmployeeID": userDetails.userId,
+                    "ActivityDate": $filter('date')($scope.selectedDate, 'dd/MM/yyyy'),
                     "ProjectName": $scope.selectedProject.ProjectName,
                     "ActivityType": $scope.activityType.ActivityType,
                     "Hour": $scope.selectedHour,
                     "Min": $scope.selectedMinute.label,
                     "Description": $scope.activitydescription
                 });
-
-                $scope.dailystatuslist = data;
+                $scope.alldailystatuslist.push({
+                    "DailyStatusID": 5,
+                    "EmployeeID": userSession.userID,
+                    "ActivityDate": $filter('date')($scope.selectedDate, 'dd/MM/yyyy'),
+                    "ProjectName": $scope.selectedProject.ProjectName,
+                    "ActivityType": $scope.activityType.ActivityType,
+                    "Hour": $scope.selectedHour,
+                    "Min": $scope.selectedMinute.label,
+                    "Description": $scope.activitydescription,
+                    "Name": userDetails.userName
+                });
                 $scope.submitted = false;
                 $scope.dailystatusform.activityType.$dirty = false;
                 $scope.dailystatusform.description.$dirty = false;
@@ -150,7 +156,7 @@
                 function (data) {
                     $scope.activity = data;
                 })
-                
+
             }
         };
     }
