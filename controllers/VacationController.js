@@ -13,6 +13,9 @@ angularApp.controller('VacationController', ['$q', '$filter', '$state', '$scope'
 
     function ToPerform() {
 
+        $scope.vacationFrom = '';
+        $scope.vacationTo = '';
+
         //To set the default value in vacation type dropdown.
         $scope.vacationMode = "Paid";
 
@@ -127,10 +130,29 @@ angularApp.controller('VacationController', ['$q', '$filter', '$state', '$scope'
                     $scope.currentYearVacations = data;
                     $scope.vacations = data;
 
+                    $scope.submitted = false;
+                   
+                    
+                   //code to reset form after submission
+                    $scope.frmVacationRequest.daysCount.$dirty = false;
+                    $scope.frmVacationRequest.comments.$dirty = false;
+                    $scope.frmVacationRequest.vacationFrom.$dirty = false;
+                    $scope.frmVacationRequest.vacationTo.$dirty = false;
+                    $scope.noOfDays = null;
+                    $scope.comments = null;
+                    $scope.vacationMode = "Paid";
+                    $scope.requestTo = 0;
+                    $scope.vacationFrom = '';
+                    $scope.vacationTo = '';
+
+                    
 
 
             }
         }
+
+
+       
     }
 
 }]);
