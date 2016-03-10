@@ -311,8 +311,6 @@ a, a:visited, a.hover, a:active {
     border-collapse: collapse;
 }
 
-
-
 /***************************************Login page************************************/
 #login {
     padding-left: 35%;
@@ -469,6 +467,17 @@ a, a:visited, a.hover, a:active {
     margin-bottom: 17px;
 }
 
+.noRecords{
+    display: table;
+    width: 100%;
+    border-width: 2px;
+    background-color: #EFF4F9;
+    border: groove;
+    border-collapse: collapse;
+    height:50px; 
+}
+
+.noRecords p{text-align:center;}
 /*********************************Vacation page End*******************************************/
 
 
