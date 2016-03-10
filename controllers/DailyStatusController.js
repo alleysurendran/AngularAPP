@@ -133,6 +133,8 @@
                     "Min": $scope.selectedMinute.label,
                     "Description": $scope.activitydescription
                 });
+
+                //To save in all employee list
                 $scope.alldailystatuslist.push({
                     "DailyStatusID": 5,
                     "EmployeeID": userSession.userID,

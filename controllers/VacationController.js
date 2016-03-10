@@ -13,6 +13,8 @@ angularApp.controller('VacationController', ['$q', '$filter', '$state', '$scope'
 
     function ToPerform() {
 
+        $scope.vacationFrom = '';
+        $scope.vacationTo = '';
         //To set the default value in vacation type dropdown.
         $scope.vacationMode = "Paid";
 
