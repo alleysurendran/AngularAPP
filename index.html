@@ -29,7 +29,7 @@
             <div id="nav" ng-show="sidebar">
                 <div class="menu">
                     <ul>
-                        <li><a ui-sref="#">Dashboard</a></li>
+                        <li><a ui-sref="dashboard">Dashboard</a></li>
                         <li><a ui-sref="customer">Customer</a></li>
                         <li><a ui-sref="dailystatus">Daily Status</a></li>
                         <li><a ui-sref="vacation">Vacation</a></li>
@@ -59,6 +59,13 @@
     <!-- Modules -->
     <script src="./app.js"></script>
     <script src="./config.js"></script>
+
+    <!-- Services -->
+    <script src="./services/LoginService.js"></script>
+    <script src="./services/LogoutService.js"></script>
+    <script src="./services/JSONService.js"></script>
+    <script src="./services/UtilService.js"></script>
+
     <!-- Controllers -->
     <script src="./controllers/DashboardController.js"></script>   
     <script src="./controllers/VacationController.js"></script>
@@ -66,9 +73,8 @@
     <script src="./controllers/DailyStatusController.js"></script>
     <script src="./controllers/LoginController.js"></script>
     <script src="./controllers/HeaderController.js"></script>
-    <!-- Services -->
-    <script src="./services/LoginService.js"></script>
-    <script src="./services/LogoutService.js"></script>
+
+
 
 </body>
 </html>

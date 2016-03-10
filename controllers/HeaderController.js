@@ -1,16 +1,17 @@
-﻿angularApp.controller('HeaderController', ['$scope','$state', 'LoginVaildationService', 'LogoutService', function ($scope,$state, userSession, userLogout) {
-    //if (userSession.isLogged)
-    //{
-    //    $scope.userName = userSession.username;
-    //    $scope.showUser = { 'visibility': 'visible' };
-    //}
-    //if (!userSession.isLogged) {
-    //    //$scope.userName = userSession.username;
-    //    $scope.showUser = { 'visibility': 'hidden' };
-    //}
-    $scope.logout =  function () {
-        userLogout.clearData();
-        //$scope.showUser = { 'visibility': 'hidden' };
-            $state.go('login');
+﻿angularApp.controller('HeaderController', ['$scope', '$state', '$q', 'LoginVaildationService', 'LogoutService', 'UtilService', function ($scope, $state, $q, userSession, userLogout, utilService) {
+
+    /*var user = userSession.getStatus();
+    if (!user.isLogged) {
+        $state.go('login');
+    }*/
+    $scope.logout = function () {
+        var isValid = $q.defer();
+        isValid.resolve(
+           userLogout.clearData()
+        );
+        isValid.promise.then(
+           $state.go('login')
+     );
     };
+   
 }]);

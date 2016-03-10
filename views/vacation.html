@@ -6,16 +6,15 @@
             <div>
 
                 <div class="vaction_remain_text">
-                    <label>No of Vacation Remaining</label>
+                    <label>No of Vacation Remaining&nbsp;</label>
                     <span>{{remainingVacationCount}}</span>
 
                 </div>
                 <div class="vaction_remain_text">
-                    <label>No of Loss of Pay Taken</label>
+                    <label>No of Loss of Pay Taken&nbsp;</label>
                     <span>{{noOfLossOfPayTaken}}</span>
 
                 </div>
-
 
 
             </div>
@@ -28,18 +27,47 @@
                     <td class="vacation_table_cell">Send Request To</td>
                 </tr>
                 <tr>
-                    <td><input type="text" ng-model="noOfDays" class="vacation_days" /></td>
-                    <td><input type="text" data-datepicker="{theme: 'flat'}" data-ng-model="vacationFrom" /></td>
-                    <td><input type="text" data-datepicker="{theme: 'flat'}" data-ng-model="vacationTo" /></td>
                     <td>
-                        <select name="vacationType" class="vacation_dropdown" data-ng-model="vacationType" ng-options="c.VacationTypeID as c.VacationType for c in vacationTypes" id="vacationType">
-                            <option value="">Select...</option>
-                        </select>
+                        <input type="text" ng-model="noOfDays" name="daysCount" class="vacation_days" required />
+
                     </td>
                     <td>
-                        <select name="requestTo" data-ng-model="requestTo" class="vacation_dropdown" ng-options="c.EmployeeID as c.Name for c in employees" id="requestTo">
+                        <input type="text" data-datepicker="{theme: 'flat'}" data-ng-model="vacationFrom" name="vacationFrom" required />
+                      
+                        
+                    </td>
+                    <td>
+                        <input type="text" data-datepicker="{theme: 'flat'}" data-ng-model="vacationTo" name="vacationTo" required  />
+                                           
+                    </td>
+                    <td>
+                        <select name="vacationType" class="vacation_dropdown" data-ng-model="vacationMode" ng-options="option.VacationType as option.VacationType for option in vacationTypes" id="vacationType"></select>
+                    </td>
+                    <td>
+                        <select name="requestTo" data-ng-model="requestTo" class="vacation_dropdown" ng-options="option.Name as option.Name for option in employees" id="requestTo" required>
                             <option value="">Select...</option>
                         </select>
+                        
+                       
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span ng-show="frmVacationRequest.daysCount.$error.required && (frmVacationRequest.daysCount.$dirty || submitted)" class="val_msg">This field is required.</span>
+                    </td>
+                    <td>
+                        <span ng-show="frmVacationRequest.vacationFrom.$error.required && (frmVacationRequest.vacationFrom.$dirty || submitted)" class="val_msg">This field required.</span>
+
+                    </td>
+
+                    <td>
+
+                        <span ng-show="frmVacationRequest.vacationTo.$error.required && (frmVacationRequest.vacationTo.$dirty || submitted)" class="val_msg">This field is required.</span>
+                    </td>
+                    <td></td>
+                    <td>
+                        <span ng-show="frmVacationRequest.requestTo.$error.required && (frmVacationRequest.requestTo.$dirty || submitted)" class="val_msg">This field is required.</span>
+
                     </td>
                 </tr>
             </table>
@@ -54,16 +82,24 @@
             <div class="MT_Twenty">
                 <div>Comments</div>
                 <div class="MT_Ten">
-                    <textarea ng-model="comments" class="vacation_comments"></textarea>
+                    <textarea ng-model="comments" name="comments" class="vacation_comments" required></textarea>
+                    <br/>
+                    <span ng-show="frmVacationRequest.comments.$error.required && (frmVacationRequest.comments.$dirty || submitted)" class="val_msg">This field is required.</span>
                 </div>
             </div>
             <div class="MT_Twenty">
-                <button type="button" class="vacation_submitbtn" ng-click="">Submit</button>
+                <button type="button" class="vacation_submitbtn" ng-click="SaveVacation()">Submit</button>
             </div>
         </div>
 
 
         <h2>My History</h2>
+
+        <div class="vacation_yearSelect">
+
+            <span>Year:</span>
+            <select name="year" ng-model="yearSelection" ng-options="year for year in yearList" ng-change="GetFilteredVacations(yearSelection)"></select>
+        </div>
 
         <div id="vacation_list">
             <div class="Table">
@@ -87,7 +123,7 @@
                         <p>Remarks</p>
                     </div>
                 </div>
-                <div class="Row" ng-repeat="vacation in vacations">
+                <div class="Row" ng-repeat="vacation in vacations" ng-show="vacations.length">
                     <div class="Cell">
                         <p>{{vacation.VacationFrom}} - {{vacation.VacationTo}}</p>
                     </div>
@@ -95,7 +131,9 @@
                         <p>{{vacation.Noofdays}}</p>
                     </div>
                     <div class="Cell">
+
                         <p>{{vacation.VacationType}}</p>
+                       
                     </div>
                     <div class="Cell">
                         <p>{{vacation.SendRequestTo}}</p>
@@ -107,6 +145,12 @@
                         <p>{{vacation.Remarks}}</p>
                     </div>
                 </div>
+                
+            </div>
+            <div class="noRecords" ng-show="!vacations.length">
+
+                <p> No Records</p>
+
             </div>
         </div>
 
