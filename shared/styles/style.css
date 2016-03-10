@@ -1,4 +1,4 @@
-﻿#header {
+#header {
     color: white;
     text-align: center;
     height: 100px;
@@ -135,7 +135,7 @@ a, a:visited, a.hover, a:active {
         padding-right: 92px;
         padding-top: 10px;
         padding-bottom: 10px;
-        padding-left: 25px;
+        padding-left: 30px;
     }
 
 
@@ -161,7 +161,7 @@ a, a:visited, a.hover, a:active {
 
     #dailystatuscontainer textarea {
         margin-right: 28px;
-        margin-left: 25px;
+        margin-left: 30px;
     }
 
     #dailystatuscontainer .daily_status_label1 {
@@ -173,7 +173,7 @@ a, a:visited, a.hover, a:active {
 .daily_status_dropdown {
     width: 157px;
     margin-right: 28px;
-    margin-left: 25px;
+    margin-left: 30px;
 }
 
 #hour {
@@ -261,12 +261,18 @@ a, a:visited, a.hover, a:active {
     border: solid;
     background-color: rgba(226, 229, 224, 0.5);
     border-width: 1px;
+    margin-left: -29px;
 }
 
 #searchdiv {
     float: right;
     margin-right: 12px;
 }
+
+#dailystatusview{
+    margin-left: -30px;
+}
+
 /**********************************Daily Status style End*****************************/
 /***************************** Table Style *******************************/
 .Table {
