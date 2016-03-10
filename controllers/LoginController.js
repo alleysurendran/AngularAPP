@@ -1,20 +1,27 @@
-﻿﻿angularApp.controller('LoginController', ['$rootScope', '$scope', '$state','$q', 'LoginVaildationService','JSONService', function ($rootScope, $scope,  $state,$q, user,json) {
+﻿angularApp.controller('LoginController', ['$rootScope', '$scope', '$state', '$q', 'LoginVaildationService', 'JSONService', function ($rootScope, $scope, $state, $q, user, json) {
+
     var userDetails = user.getStatus();
+
+    var isValidUser = false;
     var userSession = {
         isLogged: false,
         userName: '',
         userId: 0,
         isAdmin: false
     };
-    $rootScope.bodybackground = { 'background': 'none' };
-    $rootScope.showUser = { 'visibility': 'hidden' };
+
+    $rootScope.sidebar = false;
+    $scope.showerror = false;
+
+    hideBackground();
+
     if (!userDetails.isLogged) {
-        $rootScope.showUser = { 'visibility': 'hidden' };
-        $rootScope.bodybackground = { 'background': 'none' };
-        $rootScope.showUser = { 'visibility': 'hidden' };
-        // $state.go('login');
+        hideBackground();
     }
-    var isValidUser = false;
+    else {
+        showSideBar();
+    }
+
     var empList = $q.defer();
     $scope.validateUser = function () {
         empList.resolve(
@@ -47,20 +54,27 @@
                 userSession.userId = data[i].EmployeeID;
                 localStorage.setItem("loggedInUser", JSON.stringify(userSession));
                 user.setStatus(userSession);
-                isValidUser = true;
-                $rootScope.sidebar = true;
-                $rootScope.isLoggedIn = true;
-                $rootScope.showUser = { 'visibility': 'visible' };
-                $rootScope.bodybackground = { 'background': ' ' };
-                $state.go('dashboard');
+                showSideBar();
                 break;
             }
         }
         return isValidUser;
     }
 
-    $rootScope.sidebar = false;
-    $scope.showerror = false;
 
+
+    function showSideBar() {
+        isValidUser = true;
+        $rootScope.sidebar = true;
+        $rootScope.isLoggedIn = true;
+        $rootScope.showUser = { 'visibility': 'visible' };
+        $rootScope.bodybackground = { 'background': ' ' };
+        $state.go('dashboard');
+    }
+
+    function hideBackground() {
+        $rootScope.showUser = { 'visibility': 'hidden' };
+        $rootScope.bodybackground = { 'background': 'none' };
+    }
 
 }]);
