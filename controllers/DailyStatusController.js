@@ -41,7 +41,7 @@
         $scope.dateList = utilService.GetDateList();
         $scope.selectedDate = $scope.dateList[7];
 
-        //To populate ProjectNames Dropdown//    
+        //To populate ProjectNames Dropdown based on current user//    
         GetSpecificProjectList();
 
         function GetSpecificProjectList() {
@@ -58,7 +58,7 @@
             });
         }
 
-        //To fill Daily Status List of a current user// 
+        //To fill Daily Status List of current user// 
         GetDailyStatusList();
         function GetDailyStatusList() {
 
