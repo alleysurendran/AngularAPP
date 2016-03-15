@@ -62,19 +62,6 @@ angularApp.service('JSONService', function ($http, $filter) {
         );
     }
 
-    this.EmployeeList = function () {
-        return $http.get('./shared/json/Employee.JSON')
-        .then(
-            function (response) {
-                return response.data;
-            },
-            function (errResponse) {
-                console.error('Error fetching employee list');
-            }
-        );
-    }
-
-
     this.GetVacationTypes = function () {
         return $http.get('./shared/json/VacationTypes.JSON')
         .then(
@@ -109,7 +96,18 @@ angularApp.service('JSONService', function ($http, $filter) {
                 console.error('Error fetching vacations');
             }
         );
-    }    
+    }
+    this.GetCountryList = function () {
+        return $http.get('./shared/json/Country.JSON')
+        .then(
+            function (response) {
+                return response.data;
+            },
+            function (errResponse) {
+                console.error('Error fetching country');
+            }
+        );
+    }
 });
 
 
