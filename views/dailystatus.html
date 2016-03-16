@@ -75,7 +75,7 @@
                         <p>Activity Description</p>
                     </div>
                 </div>
-                <div class="Row" ng-repeat="dailystatus in dailystatuslist | orderBy: 'dailystatus.ActivityDate':true">
+                <div class="Row" ng-repeat="dailystatus in dailystatuslist | orderBy: 'dailystatus.ActivityDate':true" ng-show="dailystatuslist.length">
                     <div class="Cell">
                         <p>{{dailystatus.ActivityDate|date:'dd/MM/yyyy'}}</p>
                     </div>
@@ -92,6 +92,9 @@
                         <p>{{dailystatus.Description}}</p>
                     </div>
                 </div>
+            </div>
+            <div class="noRecords" ng-show="!dailystatuslist.length">
+                <p>No Records</p>
             </div>
         </div>
     </div>
@@ -124,7 +127,7 @@
                         <p>Activity Description</p>
                     </div>
                 </div>
-                <div class="Row" ng-repeat="dailystatus in alldailystatuslist | orderBy: 'dailystatus.ActivityDate':true | filter: searchText">
+                <div class="Row" ng-repeat="dailystatus in dailystatusFilter = (alldailystatuslist | orderBy: 'dailystatus.ActivityDate':true | filter: searchText)" ng-show="dailystatusFilter.length">
                     <div class="Cell">
                         <p>{{dailystatus.Name}}</p>
                     </div>
@@ -144,6 +147,9 @@
                         <p>{{dailystatus.Description}}</p>
                     </div>
                 </div>
+            </div>
+            <div class="noRecords" ng-show="!dailystatusFilter.length">
+                <p>No Records</p>
             </div>
         </div>
     </div>

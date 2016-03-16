@@ -23,23 +23,28 @@
             $scope.isAdmin = true;
         }
 
+
         //To populate ActivityType Dropdown//
         activityTypes.then(
             function (data) {
                 $scope.activity = data;
             })
 
+
         //To populate Hour Dropdown//
         $scope.hourList = utilService.GetHourList();
         $scope.selectedHour = $scope.hourList[8];
+
 
         //To populate Minute Dropdown//
         $scope.minList = utilService.GetMinuteList();
         $scope.selectedMinute = $scope.minList[0];
 
+
         //To populate Date Dropdown//
         $scope.dateList = utilService.GetDateList();
         $scope.selectedDate = $scope.dateList[7];
+
 
         //To populate ProjectNames Dropdown based on current user//    
         GetSpecificProjectList();
@@ -58,6 +63,7 @@
             });
         }
 
+
         //To fill Daily Status List of current user// 
         GetDailyStatusList();
         function GetDailyStatusList() {
@@ -74,6 +80,7 @@
                     $scope.dailystatuslist = dailyStatusById;
                 });
         }
+
 
         //To fill Daily Status List of all employees (for admin view)//
         GetAllDailyStatusList();

@@ -269,7 +269,7 @@ a, a:visited, a.hover, a:active {
     margin-right: 12px;
 }
 
-#dailystatusview{
+#dailystatusview {
     margin-left: -30px;
 }
 
@@ -277,7 +277,6 @@ a, a:visited, a.hover, a:active {
 /***************************** Table Style *******************************/
 .Table {
     display: table;
-    /*border: solid;*/
     width: 100%;
     border-width: 2px;
     background-color: #EFF4F9;
@@ -314,8 +313,9 @@ a, a:visited, a.hover, a:active {
     padding-right: 5px;
     width: auto;
     border-color: gainsboro;
-    border-collapse: collapse;
+    /*border-collapse: collapse;*/
 }
+
 
 /***************************************Login page************************************/
 #login {
@@ -473,17 +473,20 @@ a, a:visited, a.hover, a:active {
     margin-bottom: 17px;
 }
 
-.noRecords{
+.noRecords {
     display: table;
     width: 100%;
     border-width: 2px;
     background-color: #EFF4F9;
     border: groove;
     border-collapse: collapse;
-    height:50px; 
+    height: 50px;
+    border-top-width: 0px;
 }
 
-.noRecords p{text-align:center;}
+    .noRecords p {
+        text-align: center;
+    }
 /*********************************Vacation page End*******************************************/
 
 

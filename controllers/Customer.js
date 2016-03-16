@@ -1,5 +1,5 @@
 ﻿
-angularApp.controller('CustomerController', ['$scope', '$filter', '$http', '$state', '$rootScope', '$q', 'LoginVaildationService', 'JSONService', 'UtilService', function ($scope, $filter, $http, $state, $rootScope, $q, user, jsonService, utilService) {
+angularApp.controller('CustomerController', ['$scope', '$filter', '$q', 'JSONService', 'UtilService', function ($scope, $filter, $q, jsonService, utilService) {
     var isValid = $q.defer();
     isValid.resolve(
        utilService.AvoidUnAuthorisedAccess()

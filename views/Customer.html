@@ -1,8 +1,8 @@
 ﻿<div class="form-wrapper">
     <input type="text" id="search" placeholder="Search Customer" required ng-model="searchText">
-   <!-- <input type="submit" value="go" id="submit" ng-click="searchCustomer()">-->
+    <!-- <input type="submit" value="go" id="submit" ng-click="searchCustomer()">-->
 </div>
-<div class="Table" ng-controller="CustomerController">
+<div class="Table">
     <div class="Heading">
         <div class="Cell">
             <p>Customer Name</p>
@@ -23,7 +23,7 @@
             <p>Action</p>
         </div>
     </div>
-    <div class="Row" ng-repeat="customer in customerDetails | filter: searchText">
+    <div class="Row" ng-repeat="customer in customerFilter=(customerDetails | filter: searchText)" ng-show="customerFilter.length">
         <div class="Cell">
             <p>{{customer.CustomerName}}</p>
         </div>
@@ -40,8 +40,13 @@
             <p>{{customer.AccountEmail}}</p>
         </div>
         <div class="Cell">
-            <p><a href="#" ng-click="EditCustomer()">Edit</a>
-            <a href="#" ng-click="DeleteCustomer()" style="margin-left:3px;">Delete</a></p>
+            <p>
+                <a href="#" ng-click="EditCustomer()">Edit</a>
+                <a href="#" ng-click="DeleteCustomer()" style="margin-left:3px;">Delete</a>
+            </p>
         </div>
     </div>
+</div>
+<div class="noRecords" ng-show="!customerFilter.length">
+    <p>No Records</p>
 </div>
