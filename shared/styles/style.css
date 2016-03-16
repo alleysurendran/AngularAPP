@@ -135,7 +135,7 @@ a, a:visited, a.hover, a:active {
         padding-right: 92px;
         padding-top: 10px;
         padding-bottom: 10px;
-        padding-left: 25px;
+        padding-left: 30px;
     }
 
 
@@ -161,7 +161,7 @@ a, a:visited, a.hover, a:active {
 
     #dailystatuscontainer textarea {
         margin-right: 28px;
-        margin-left: 25px;
+        margin-left: 30px;
     }
 
     #dailystatuscontainer .daily_status_label1 {
@@ -173,7 +173,7 @@ a, a:visited, a.hover, a:active {
 .daily_status_dropdown {
     width: 157px;
     margin-right: 28px;
-    margin-left: 25px;
+    margin-left: 30px;
 }
 
 #hour {
@@ -261,17 +261,22 @@ a, a:visited, a.hover, a:active {
     border: solid;
     background-color: rgba(226, 229, 224, 0.5);
     border-width: 1px;
+    margin-left: -29px;
 }
 
 #searchdiv {
     float: right;
     margin-right: 12px;
 }
+
+#dailystatusview {
+    margin-left: -30px;
+}
+
 /**********************************Daily Status style End*****************************/
 /***************************** Table Style *******************************/
 .Table {
     display: table;
-    /*border: solid;*/
     width: 100%;
     border-width: 2px;
     background-color: #EFF4F9;
@@ -308,8 +313,9 @@ a, a:visited, a.hover, a:active {
     padding-right: 5px;
     width: auto;
     border-color: gainsboro;
-    border-collapse: collapse;
+    /*border-collapse: collapse;*/
 }
+
 
 /***************************************Login page************************************/
 #login {
@@ -355,7 +361,7 @@ a, a:visited, a.hover, a:active {
 }
 
 #loginContent {
-    margin-left: -144px;
+    margin-left: -171px;
     width: 327px;
     height: 290px;
     background-color: aliceblue;
@@ -467,17 +473,20 @@ a, a:visited, a.hover, a:active {
     margin-bottom: 17px;
 }
 
-.noRecords{
+.noRecords {
     display: table;
     width: 100%;
     border-width: 2px;
     background-color: #EFF4F9;
     border: groove;
     border-collapse: collapse;
-    height:50px; 
+    height: 50px;
+    border-top-width: 0px;
 }
 
-.noRecords p{text-align:center;}
+    .noRecords p {
+        text-align: center;
+    }
 /*********************************Vacation page End*******************************************/
 
 

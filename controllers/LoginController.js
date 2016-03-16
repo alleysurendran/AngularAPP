@@ -21,11 +21,11 @@
     else {
         showSideBar();
     }
-    
+
     var empList = $q.defer();
     $scope.validateUser = function () {
         empList.resolve(
-        json.EmployeeList().then(
+        json.GetEmployeeList().then(
          function (response) {
              var data = response;
              isValidUser = IsValidUser(data);
@@ -61,7 +61,7 @@
         return isValidUser;
     }
 
-   
+
 
     function showSideBar() {
         isValidUser = true;
