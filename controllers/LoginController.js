@@ -1,6 +1,6 @@
-angularApp.controller('LoginController', ['$filter', '$rootScope', '$scope', '$state', '$q', 'LoginVaildationService', 'JSONService', function ($filter, $rootScope, $scope, $state, $q, user, json) {
+angularApp.controller('LoginController', ['$rootScope', '$scope', '$state', '$q', 'LoginVaildationService', 'JSONService', function ($rootScope, $scope, $state, $q, user, json) {
 
-   var userDetails = user.getStatus();
+    var userDetails = user.getStatus();
 
     var isValidUser = false;
     var userSession = {
@@ -25,7 +25,7 @@ angularApp.controller('LoginController', ['$filter', '$rootScope', '$scope', '$s
     var empList = $q.defer();
     $scope.validateUser = function () {
         empList.resolve(
-        json.GetEmployeeList().then(
+        json.EmployeeList().then(
          function (response) {
              var data = response;
              isValidUser = IsValidUser(data);
@@ -45,23 +45,23 @@ angularApp.controller('LoginController', ['$filter', '$rootScope', '$scope', '$s
     };
 
     function IsValidUser(data) {
-        var currentUser = $filter("filter")(data, { Email: $scope.username, Password: $scope.password });
-        if (currentUser.length != 0) {
-            userSession.isLogged = true;
-            $rootScope.userName = userSession.userName = currentUser[0].Name;
-            userSession.isAdmin = currentUser[0].IsAdmin;
-            userSession.userId = currentUser[0].EmployeeID;
-            user.setStatus(userSession);
-            showSideBar();
-            return true;
+        var len = data.length;
+        for (var i = 0; i < len; i++) {
+            if ((data[i].Email == $scope.username && data[i].Password == $scope.password)) {
+                userSession.isLogged = true;
+                $rootScope.userName = userSession.userName = data[i].Name;
+                userSession.isAdmin = data[i].IsAdmin;
+                userSession.userId = data[i].EmployeeID;
+                localStorage.setItem("loggedInUser", JSON.stringify(userSession));
+                user.setStatus(userSession);
+                showSideBar();
+                break;
+            }
         }
-        else{
-            return false;
-        }
-        
+        return isValidUser;
     }
 
-
+   
 
     function showSideBar() {
         isValidUser = true;
