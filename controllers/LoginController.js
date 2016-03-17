@@ -65,13 +65,13 @@ angularApp.controller('LoginController', ['$filter', '$rootScope', '$scope', '$s
         isValidUser = true;
         $rootScope.sidebar = true;
         $rootScope.isLoggedIn = true;
-        $rootScope.showUser = { 'visibility': 'visible' };
+        $rootScope.showUser = true;
         $rootScope.bodybackground = { 'background': ' ' };
         $state.go('dashboard');
     }
 
     function hideBackground() {
-        $rootScope.showUser = { 'visibility': 'hidden' };
+        $rootScope.showUser = false;
         $rootScope.bodybackground = { 'background': 'none' };
     }
 
