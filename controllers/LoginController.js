@@ -1,8 +1,5 @@
 angularApp.controller('LoginController', ['$filter', '$rootScope', '$scope', '$state', '$q', 'LoginVaildationService', 'JSONService', function ($filter, $rootScope, $scope, $state, $q, user, json) {
 
-    $rootScope.sidebar = false;
-    $scope.showerror = false;
-
     var userDetails = user.getStatus();
 
     var isValidUser = false;
@@ -12,8 +9,8 @@ angularApp.controller('LoginController', ['$filter', '$rootScope', '$scope', '$s
         userId: 0,
         isAdmin: false
     };
-
-
+    $rootScope.sidebar = false;
+    $scope.showerror = false;
 
     hideBackground();
 
