@@ -39,6 +39,9 @@ angularApp.controller('LoginController', ['$filter', '$rootScope', '$scope', '$s
                 user.setStatus(userSession);
                 $scope.showerror = true;
             }
+            else{
+                showSideBar();
+            }
         });
 
     };
