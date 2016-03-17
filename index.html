@@ -20,7 +20,7 @@
 
     <div id="header" ng-controller="HeaderController">
         <h1>Angular Training App</h1>
-        <div class="welcome" ng-style="showUser"><span >Welcome&nbsp;{{userName}}!</span>
+        <div class="welcome" ng-if="showUser"><span >Welcome&nbsp;{{userName}}!</span>
         <a href="#" ng-click="logout()">Sign Out</a></div>
     </div>
 
