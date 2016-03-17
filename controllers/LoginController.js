@@ -14,7 +14,10 @@ angularApp.controller('LoginController', ['$filter', '$rootScope', '$scope', '$s
 
     hideBackground();
 
-    if (userDetails.isLogged) {
+    if (!userDetails.isLogged) {
+        hideBackground();
+    }
+    else {
         showSideBar();
     }
 
