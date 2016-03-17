@@ -1,5 +1,7 @@
 angularApp.controller('LoginController', ['$filter', '$rootScope', '$scope', '$state', '$q', 'LoginVaildationService', 'JSONService', function ($filter, $rootScope, $scope, $state, $q, user, json) {
 
+    $rootScope.sidebar = false;
+    $scope.showerror = false;
     var userDetails = user.getStatus();
 
     var isValidUser = false;
@@ -9,15 +11,11 @@ angularApp.controller('LoginController', ['$filter', '$rootScope', '$scope', '$s
         userId: 0,
         isAdmin: false
     };
-    $rootScope.sidebar = false;
-    $scope.showerror = false;
+    
 
-    hideBackground();
+   hideBackground();
 
-    if (!userDetails.isLogged) {
-        hideBackground();
-    }
-    else {
+    if (userDetails.isLogged) {
         showSideBar();
     }
 
@@ -53,6 +51,7 @@ angularApp.controller('LoginController', ['$filter', '$rootScope', '$scope', '$s
             $rootScope.userName = userSession.userName = currentUser[0].Name;
             userSession.isAdmin = currentUser[0].IsAdmin;
             userSession.userId = currentUser[0].EmployeeID;
+            localStorage.setItem("loggedInUser", JSON.stringify(userSession));
             user.setStatus(userSession);
             showSideBar();
             return true;
