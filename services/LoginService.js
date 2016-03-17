@@ -1,7 +1,23 @@
-﻿angularApp.service('LoginVaildationService', function ($cookies) {
+﻿angularApp.service('LoginVaildationService', function () {
     var userSession;
-
+   
     return {
+        getStatus: function () {
+
+            if (localStorage.getItem("loggedInUser") != null) {
+                var loddedInUser = localStorage.getItem("loggedInUser");
+                return JSON.parse(loddedInUser);
+            }
+            else {
+                return  userSession = {
+                        isLogged: false,
+                        userName: '',
+                        userId: 0,
+                        isAdmin: false
+                    };
+            }
+
+        },
         setStatus: function (value) {
             userSession =
                 {
@@ -10,21 +26,7 @@
                     userId: value.userId,
                     isAdmin: value.isAdmin
                 };
-            $cookies.putObject("userSession", userSession);
-        },
-        getStatus: function () {
-            if ($cookies.getObject("userSession") != null) {
-                var loddedInUser = $cookies.getObject("userSession");
-                return loddedInUser;
-            }
-            else {
-                return userSession = {
-                    isLogged: false,
-                    userName: '',
-                    userId: 0,
-                    isAdmin: false
-                };
-            }
+
         }
     };
 
