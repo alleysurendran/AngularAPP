@@ -1,4 +1,7 @@
-angularApp.controller('LoginController', ['$rootScope', '$scope', '$state', '$q', 'LoginVaildationService', 'JSONService', function ($rootScope, $scope, $state, $q, user, json) {
+angularApp.controller('LoginController', ['$filter', '$rootScope', '$scope', '$state', '$q', 'LoginVaildationService', 'JSONService', function ($filter, $rootScope, $scope, $state, $q, user, json) {
+
+    $rootScope.sidebar = false;
+    $scope.showerror = false;
 
     var userDetails = user.getStatus();
 
@@ -10,22 +13,18 @@ angularApp.controller('LoginController', ['$rootScope', '$scope', '$state', '$q'
         isAdmin: false
     };
 
-    $rootScope.sidebar = false;
-    $scope.showerror = false;
+
 
     hideBackground();
 
-    if (!userDetails.isLogged) {
-        hideBackground();
-    }
-    else {
+    if (userDetails.isLogged) {
         showSideBar();
     }
-    
+
     var empList = $q.defer();
     $scope.validateUser = function () {
         empList.resolve(
-        json.EmployeeList().then(
+        json.GetEmployeeList().then(
          function (response) {
              var data = response;
              isValidUser = IsValidUser(data);
@@ -45,23 +44,20 @@ angularApp.controller('LoginController', ['$rootScope', '$scope', '$state', '$q'
     };
 
     function IsValidUser(data) {
-        var len = data.length;
-        for (var i = 0; i < len; i++) {
-            if ((data[i].Email == $scope.username && data[i].Password == $scope.password)) {
-                userSession.isLogged = true;
-                $rootScope.userName = userSession.userName = data[i].Name;
-                userSession.isAdmin = data[i].IsAdmin;
-                userSession.userId = data[i].EmployeeID;
-                localStorage.setItem("loggedInUser", JSON.stringify(userSession));
-                user.setStatus(userSession);
-                showSideBar();
-                break;
-            }
+        var currentUser = $filter("filter")(data, { Email: $scope.username, Password: $scope.password });
+        if (currentUser.length != 0) {
+            userSession.isLogged = true;
+            $rootScope.userName = userSession.userName = currentUser[0].Name;
+            userSession.isAdmin = currentUser[0].IsAdmin;
+            userSession.userId = currentUser[0].EmployeeID;
+            user.setStatus(userSession);
+            showSideBar();
+            return true;
         }
         return isValidUser;
     }
 
-   
+
 
     function showSideBar() {
         isValidUser = true;
