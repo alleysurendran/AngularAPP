@@ -54,7 +54,10 @@ angularApp.controller('LoginController', ['$filter', '$rootScope', '$scope', '$s
             showSideBar();
             return true;
         }
-        return isValidUser;
+        else{
+            return false;
+        }
+        
     }
 
 
