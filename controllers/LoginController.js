@@ -52,7 +52,7 @@
                 $rootScope.userName = userSession.userName = data[i].Name;
                 userSession.isAdmin = data[i].IsAdmin;
                 userSession.userId = data[i].EmployeeID;
-                localStorage.setItem("loggedInUser", JSON.stringify(userSession));
+                //localStorage.setItem("loggedInUser", JSON.stringify(userSession));
                 user.setStatus(userSession);
                 showSideBar();
                 break;
