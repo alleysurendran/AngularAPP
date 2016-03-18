@@ -1,1 +1,1 @@
-var angularApp = angular.module('angularApp', ['ui.router', 'datepicker']);
+var angularApp = angular.module('angularApp', ['ui.router', 'datepicker', 'ngCookies']);

@@ -5,27 +5,23 @@
     <title>Angular Training App</title>
 
     <link rel="stylesheet" href="shared/styles/style.css" type="text/css">
-   
     <link rel="stylesheet" href="shared/styles/datepicker.css" type="text/css">
+
     <script src="./libraries/jquery-1.11.2.min.js"></script>
     <script src="./libraries/moment.min.js"></script>
     <script src="./libraries/Angular.min.js"></script>
     <script src="./libraries/datepicker.js"></script>
 </head>
-<body ng-app="angularApp" >
-
+<body ng-app="angularApp">
     <div id="container">
-        
-
-
-    <div id="header" ng-controller="HeaderController">
-        <h1>Angular Training App</h1>
-        <div class="welcome" ng-style="showUser"><span >Welcome&nbsp;{{userName}}!</span>
-        <a href="#" ng-click="logout()">Sign Out</a></div>
-    </div>
-
-    <div id="middle" ng-style="bodybackground">
-       
+        <div id="header" ng-controller="HeaderController">
+            <h1>Angular Training App</h1>
+            <div class="welcome" ng-if="showUser">
+                <span>Welcome&nbsp;{{userName}}!</span>
+                <a href="#" ng-click="logout()">Sign Out</a>
+            </div>
+        </div>
+        <div id="middle" ng-style="bodybackground">
             <div id="nav" ng-show="sidebar">
                 <div class="menu">
                     <ul>
@@ -36,25 +32,17 @@
                     </ul>
                 </div>
             </div>
-
             <div id="section">
                 <div ui-view></div>
-
             </div>
-
             <div id="footer">
                 <p> Copyright © AngularTraning</p>
-
             </div>
-
-        
         </div>
-
-        
-
     </div>
-    
+
     <script src="./libraries/angular-ui-router.min.js"></script>
+    <script src="./libraries/angular-cookies.min.js"></script>
 
     <!-- Modules -->
     <script src="./app.js"></script>
@@ -67,14 +55,11 @@
     <script src="./services/UtilService.js"></script>
 
     <!-- Controllers -->
-    <script src="./controllers/DashboardController.js"></script>   
+    <script src="./controllers/DashboardController.js"></script>
     <script src="./controllers/VacationController.js"></script>
     <script src="./controllers/Customer.js"></script>
     <script src="./controllers/DailyStatusController.js"></script>
     <script src="./controllers/LoginController.js"></script>
     <script src="./controllers/HeaderController.js"></script>
-
-
-
 </body>
 </html>

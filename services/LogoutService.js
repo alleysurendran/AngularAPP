@@ -1,22 +1,12 @@
-﻿angularApp.factory('LogoutService', ['$q', 'UtilService', function ($q, utilService) {
+﻿angularApp.factory('LogoutService', ['$q', 'UtilService', '$cookies', function ($q, utilService, $cookies) {
 
     var logout = {};
     var isCleared = $q.defer();
     logout.clearData = function () {
-        
-        if (localStorage.getItem("loggedInUser") != null) {
-            isCleared.resolve(
-                 localStorage.removeItem('loggedInUser')
-            );
-            isCleared.promise.then(
-                utilService.AvoidUnAuthorisedAccess()
-            )
-            return null
+        if ($cookies.getObject("userSession") != null) {
+            $cookies.remove("userSession");
+            utilService.AvoidUnAuthorisedAccess();
         }
-        return null;
     }
     return logout;
-    
-
-    
 }]);

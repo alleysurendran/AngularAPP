@@ -1,7 +1,7 @@
 angularApp.config(function ($stateProvider, $urlRouterProvider) {
-    
+
     $urlRouterProvider.otherwise('/');
-    
+
     $stateProvider
         .state('dashboard', {
             url: '/dashboard',
@@ -13,11 +13,11 @@ angularApp.config(function ($stateProvider, $urlRouterProvider) {
             templateUrl: 'views/login.html',
             controller: 'LoginController'
         })
-        
+
         .state('vacation', {
             url: '/vacation',
             templateUrl: 'views/vacation.html',
-      		controller : 'VacationController'
+            controller: 'VacationController'
         })
         .state('dailystatus', {
             url: '/dailystatus',
@@ -27,16 +27,15 @@ angularApp.config(function ($stateProvider, $urlRouterProvider) {
         .state('customer', {
             url: '/customer',
             templateUrl: 'views/Customer.html',
-        controller: 'CustomerController'
-         });
-        
-        
+            controller: 'CustomerController'
+        });
+
+
 });
 
-angularApp.run(['$rootScope', '$state', function ($rootScope, $state) {
-    //$rootScope.sidebar.show = false;
+angularApp.run(['$state', function ($state) {
     $state.go('login');
-    
+
 }]);
 
 
