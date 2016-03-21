@@ -131,11 +131,11 @@ a, a:visited, a.hover, a:active {
 
     #dailystatuscontainer label {
         display: inline-block;
-        width: 92px;
+        width: 91px;
         padding-right: 92px;
         padding-top: 10px;
         padding-bottom: 10px;
-        padding-left: 30px;
+        padding-left: 27px;
     }
 
 
@@ -160,8 +160,8 @@ a, a:visited, a.hover, a:active {
     }
 
     #dailystatuscontainer textarea {
-        margin-right: 28px;
-        margin-left: 30px;
+        margin-right: 27px;
+        margin-left: 27px;
     }
 
     #dailystatuscontainer .daily_status_label1 {
@@ -172,19 +172,19 @@ a, a:visited, a.hover, a:active {
 
 .daily_status_dropdown {
     width: 157px;
-    margin-right: 28px;
-    margin-left: 30px;
+    margin-right: 27px;
+    margin-left: 27px;
 }
 
 #hour {
     width: 48px;
-    margin-right: 8px;
+    margin-right: 6px;
 }
 
 #min {
     width: 48px;
     margin-left: 8px;
-    margin-right: 8px;
+    margin-right: 6px;
 }
 
 .daily_status_list {
