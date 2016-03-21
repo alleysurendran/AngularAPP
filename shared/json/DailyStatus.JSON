@@ -7,7 +7,7 @@
     "ActivityTypeID": 1,
     "Hour": "8",
     "Min": "00",
-    "Description": "Created funtion to get details."
+    "Description": "Created function to get details."
   },
   {
     "DailyStatusID": 2,
@@ -37,6 +37,6 @@
     "ActivityTypeID": 1,
     "Hour": "8",
     "Min": "45",
-    "Description": "Created funtion to get details."
+    "Description": "Created function to get details."
   }
 ]
