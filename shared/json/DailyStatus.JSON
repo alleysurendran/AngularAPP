@@ -1,0 +1,42 @@
+﻿[
+  {
+    "DailyStatusID": 1,
+    "EmployeeID": 3,
+    "ActivityDate": "13/11/2015",
+    "ProjectID": 3,
+    "ActivityTypeID": 1,
+    "Hour": "8",
+    "Min": "00",
+    "Description": "Created function to get details."
+  },
+  {
+    "DailyStatusID": 2,
+    "EmployeeID": 3,
+    "ActivityDate": "12/11/2015",
+    "ProjectID": 3,
+    "ActivityTypeID": 6,
+    "Hour": "7",
+    "Min": "45",
+    "Description": "Fixed bug #24."
+  },
+  {
+    "DailyStatusID": 3,
+    "EmployeeID": 1,
+    "ActivityDate": "11/01/2016",
+    "ProjectID": 2,
+    "ActivityTypeID": 5,
+    "Hour": "8",
+    "Min": "00",
+    "Description": "Doing developer testing."
+  },
+  {
+    "DailyStatusID": 4,
+    "EmployeeID": 2,
+    "ActivityDate": "10/02/2016",
+    "ProjectID": 1,
+    "ActivityTypeID": 1,
+    "Hour": "8",
+    "Min": "45",
+    "Description": "Created function to get details."
+  }
+]

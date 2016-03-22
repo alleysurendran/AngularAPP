@@ -1,0 +1,156 @@
+﻿<div id="dailystatusview">
+    <section ng-show="showtab">
+        <ul ng-init="tab = 1">
+            <li ng-class="{active:tab===1}">
+                <a ng-click="tab = 1">My Activities</a>
+            </li>
+            <li ng-class="{active:tab===2}">
+                <a ng-click="tab = 2">All Employee Activities</a>
+            </li>
+        </ul>
+    </section>
+</div>
+<div ng-show="tab === 1" class="dailystatusblock">
+    <div ng-class="{'tabstyle': isAdmin}">
+        <div><h2 class="daily_status_heading">Daily Status</h2></div>
+        <form name="dailystatusform">
+            <div id="dailystatuscontainer">
+                <div>
+                    <label>Date</label>
+                    <label>Project</label>
+                    <label>Activity Type</label>
+                    <label>Time Spend</label>
+                </div>
+                <div>
+                    <select data-ng-options="option as option|date:'dd/MM/yyyy' for option in dateList" class="daily_status_dropdown" data-ng-model="selectedDate"></select>
+
+                    <select ng-options="option.ProjectName for option in project" class="daily_status_dropdown" ng-model="selectedProject"></select>
+
+                    <select name="activityType" class="daily_status_dropdown" data-ng-model="activityType" ng-options="option.ActivityType for option in activity" id="activityType" required>
+                        <option value="">Select...</option>
+                    </select>
+
+                    <select name="hour" class="daily_status_dropdown" data-ng-model="selectedHour" data-ng-options="option as option for option in hourList" id="hour"></select>
+                    <span>hr</span>
+
+                    <select name="min" class="daily_status_dropdown" data-ng-model="selectedMinute" ng-options="option.label for option in minList" id="min"></select>
+                    <span>min</span>
+                </div>
+
+                <div>
+                    <span ng-show="dailystatusform.activityType.$error.required && (dailystatusform.activityType.$dirty || submitted)" class="error_msg">This field is required.</span>
+                </div>
+
+                <div>
+                    <label class="daily_status_label1">Activity Description</label>
+                </div>
+
+                <div>
+                    <textarea name="description" type="text" ng-model="activitydescription" rows="4" cols="50" required></textarea>
+                </div>
+                <div>
+                    <span id="activeDes" ng-show="dailystatusform.description.$error.required && (dailystatusform.description.$dirty || submitted)" class="error_msg">This field is required.</span>
+                </div>
+                <div class="buttondiv"><input class="savebutton" type="button" value="Save" ng-click="saveDailyStatus()" /></div>
+            </div>
+        </form>
+
+        <h2 class="daily_status_heading">My History</h2>
+        <div class="daily_status_list">
+            <div class="Table">
+                <div class="Heading">
+                    <div class="Cell">
+                        <p>Activity Date</p>
+                    </div>
+                    <div class="Cell">
+                        <p>Project Name</p>
+                    </div>
+                    <div class="Cell">
+                        <p>Activity Type</p>
+                    </div>
+                    <div class="Cell">
+                        <p>Time Spend</p>
+                    </div>
+                    <div class="Cell">
+                        <p>Activity Description</p>
+                    </div>
+                </div>
+                <div class="Row" ng-repeat="dailystatus in dailystatuslist | orderBy: 'dailystatus.ActivityDate':true" ng-show="dailystatuslist.length">
+                    <div class="Cell">
+                        <p>{{dailystatus.ActivityDate|date:'dd/MM/yyyy'}}</p>
+                    </div>
+                    <div class="Cell">
+                        <p>{{dailystatus.ProjectName}}</p>
+                    </div>
+                    <div class="Cell">
+                        <p>{{dailystatus.ActivityType}}</p>
+                    </div>
+                    <div class="Cell">
+                        <p>{{dailystatus.Hour}} hr {{dailystatus.Min}} min</p>
+                    </div>
+                    <div class="Cell">
+                        <p>{{dailystatus.Description}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="noRecords" ng-show="!dailystatuslist.length">
+                <p>No Records</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div ng-show="tab === 2" class="dailystatusblock">
+    <div ng-class="{'tabstyle': isAdmin}">
+        <div class="form-wrapper" id="searchdiv">
+            <input type="text" id="search" placeholder="Search Employee" required ng-model="searchText">
+        </div>
+        <h2 class="daily_status_heading">All Employee Activities</h2>
+        <div class="daily_status_list">
+            <div class="Table">
+                <div class="Heading">
+                    <div class="Cell">
+                        <p>Employee Name</p>
+                    </div>
+                    <div class="Cell">
+                        <p>Activity Date</p>
+                    </div>
+                    <div class="Cell">
+                        <p>Project Name</p>
+                    </div>
+                    <div class="Cell">
+                        <p>Activity Type</p>
+                    </div>
+                    <div class="Cell">
+                        <p>Time Spend</p>
+                    </div>
+                    <div class="Cell">
+                        <p>Activity Description</p>
+                    </div>
+                </div>
+                <div class="Row" ng-repeat="dailystatus in dailystatusFilter = (alldailystatuslist | orderBy: 'dailystatus.ActivityDate':true | filter: searchText)" ng-show="dailystatusFilter.length">
+                    <div class="Cell">
+                        <p>{{dailystatus.Name}}</p>
+                    </div>
+                    <div class="Cell">
+                        <p>{{dailystatus.ActivityDate}}</p>
+                    </div>
+                    <div class="Cell">
+                        <p>{{dailystatus.ProjectName}}</p>
+                    </div>
+                    <div class="Cell">
+                        <p>{{dailystatus.ActivityType}}</p>
+                    </div>
+                    <div class="Cell">
+                        <p>{{dailystatus.Hour}} hr {{dailystatus.Min}} min</p>
+                    </div>
+                    <div class="Cell">
+                        <p>{{dailystatus.Description}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="noRecords" ng-show="!dailystatusFilter.length">
+                <p>No Records</p>
+            </div>
+        </div>
+    </div>
+</div>

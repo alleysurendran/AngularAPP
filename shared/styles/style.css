@@ -1,42 +1,530 @@
 ﻿#header {
+    color: white;
+    text-align: center;
+    height: 100px;
+    background: rgb(151,201,221); /* Old browsers */
+    background: -moz-linear-gradient(top, rgba(151,201,221,1) 27%, rgba(179,221,229,1) 60%, rgba(179,221,229,1) 60%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(151,201,221,1) 27%,rgba(179,221,229,1) 60%,rgba(179,221,229,1) 60%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(151,201,221,1) 27%,rgba(179,221,229,1) 60%,rgba(179,221,229,1) 60%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#97c9dd', endColorstr='#b3dde5',GradientType=0 ); /* IE6-9 */
+}
+
+    #header h1 {
+        margin: 0px;
+        padding-top: 30px;
+    }
+
+#container {
+    width: 100%;
+    background: white;
+}
+
+.welcome {
+    float: right;
+    padding-right: 30px;
+}
+
+    .welcome span {
+        margin-right: 35px;
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    .welcome a {
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+#nav {
+    width: 200px;
+    float: left;
+    padding: 5px;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    height: 100%;
+    line-height: 30px;
+}
+
+#section {
+    width: 75%;
+    float: right;
+    padding: 10px;
+    background: white;
+    padding-left: 54px;
+    min-height: 500px;
+}
+
+#footer {
     background-color: #97C9DD;
     color: white;
-    /*background-image: url('../../images/header.jpg');*/
+    clear: both;
     text-align: center;
-    padding: 50px;
+    padding: 5px;
+    height: 30px;
+    background: rgb(151,201,221); /* Old browsers */
+    background: -moz-linear-gradient(top, rgba(151,201,221,1) 27%, rgba(179,221,229,1) 60%, rgba(179,221,229,1) 60%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(151,201,221,1) 27%,rgba(179,221,229,1) 60%,rgba(179,221,229,1) 60%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(151,201,221,1) 27%,rgba(179,221,229,1) 60%,rgba(179,221,229,1) 60%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#97c9dd', endColorstr='#b3dde5',GradientType=0 ); /* IE6-9 */
 }
-#nav {
-    line-height:30px;
-    background-color:#81A2C4;
-    height:300px;
-    width:200px;
-    float:left;
-    padding:5px; 
-    color:white;
-    font-size:20px;
-    font-weight:bold;
-}
-#section {
-    width:350px;
-    float:left;
-    padding:10px; 
-}
-#footer {
-    background-color:#97C9DD;
-    color:white;
-    clear:both;
-    text-align:center;
-    padding:5px; 
-}
+
+    #footer p {
+        margin: 0px;
+        padding-top: 7px;
+    }
+
 ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
 }
-.menu{
-    margin-left:30px;
-    padding-top:50px;
+
+.menu {
+    margin-left: 30px;
+    padding-top: 50px;
 }
-.menu li{
-    padding-bottom:10px;
+
+    .menu li {
+        padding-bottom: 10px;
+    }
+
+        .menu li a:hover {
+            text-decoration: underline;
+        }
+
+a, a:visited, a.hover, a:active {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+#middle {
+    width: 100%;
+    background-color: #81A2C4;
+    background-color: #0066A6;
+    background: rgb(30,87,153); /* Old browsers */
+    background: -moz-linear-gradient(top, rgba(30,87,153,1) 0%, rgba(41,137,216,1) 45%, rgba(32,124,202,1) 95%, rgba(125,185,232,1) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(30,87,153,1) 0%,rgba(41,137,216,1) 45%,rgba(32,124,202,1) 95%,rgba(125,185,232,1) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(30,87,153,1) 0%,rgba(41,137,216,1) 45%,rgba(32,124,202,1) 95%,rgba(125,185,232,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#7db9e8',GradientType=0 );
+}
+
+/***********************************Daily Status Style********************************/
+#dailystatuscontainer {
+    margin-left: 20px;
+    margin-top: 20px;
+    background-color: #EFF4F9;
+    padding-bottom: 25px;
+    padding-top: 25px;
+    padding-left: 30px;
+    border: groove;
+    padding-right: 25px;
+    margin-right: 9px;
+    margin-left: 10px;
+}
+
+    #dailystatuscontainer label {
+        display: inline-block;
+        width: 91px;
+        padding-right: 92px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 27px;
+    }
+    
+    #dailystatuscontainer .buttondiv {
+        width: 100%;
+        text-align: center;
+        padding-top: 20px;
+    }
+
+    #dailystatuscontainer .savebutton {
+        background-color: #0066A6;
+        border: none;
+        color: white;
+        padding: 6px 15px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 14px;
+        border-radius: 8px;
+        outline: none;
+    }
+
+    #dailystatuscontainer textarea {
+        margin-right: 27px;
+        margin-left: 27px;
+    }
+
+    #dailystatuscontainer .daily_status_label1 {
+        display: inline-grid;
+        width: 200px;
+        padding-top: 30px;
+    }
+
+.daily_status_dropdown {
+    width: 157px;
+    margin-right: 27px;
+    margin-left: 27px;
+}
+
+#hour {
+    width: 48px;
+    margin-right: 6px;
+}
+
+#min {
+    width: 48px;
+    margin-left: 8px;
+    margin-right: 6px;
+}
+
+.daily_status_list {
+    margin-top: 20px;
+    margin-left: 10px;
+    margin-bottom: 17px;
+    margin-right: 12px;
+    padding-right: 2px;
+}
+
+.daily_status_heading {
+    margin-left: 9px;
+}
+
+.error_msg {
+    width: 165px;
+    margin-left: 172px;
+    padding-left: 281px;
+    color: red;
+}
+
+#activeDes {
+    margin-left: 25px;
+    padding-left: 1px;
+}
+
+#dailystatusview {
+    margin-left: -30px;
+}
+
+    #dailystatusview ul {
+        float: left;
+        border-radius: 5px;
+        background-color: rgb(248,248,248);
+        margin-bottom: 12px;
+    }
+
+    #dailystatusview .active {
+        background-color: #0066A6;
+    }
+
+    #dailystatusview li {
+        float: left;
+        background-color: rgb(200,200,200);
+        padding: 5px 19px;
+        margin: 5px 2px 5px 0px;
+        color: black;
+        list-style: none;
+    }
+
+        #dailystatusview li:hover, #dailystatusview li:hover a {
+            background-color: rgb(151,201,221);
+            color: white;
+        }
+
+        #dailystatusview li a {
+            text-decoration: none;
+            color: white;
+            text-shadow: 1px 0px 3px rgb(157, 157, 157);
+        }
+
+        #dailystatusview li:nth-child(1) {
+            border-radius: 4px 0px 0px 4px;
+            margin-left: 1px;
+        }
+
+        #dailystatusview li:nth-child(3) {
+            border-radius: 0px 4px 4px 0px;
+        }
+
+.dailystatusblock {
+    padding-top: 30px;
+}
+
+.tabstyle {
+    border: solid;
+    background-color: rgba(226, 229, 224, 0.5);
+    border-width: 1px;
+    margin-left: -29px;
+}
+
+#searchdiv {
+    float: right;
+    margin-right: 12px;
+}
+
+/**********************************Daily Status style End*****************************/
+
+/***************************** Table Style *******************************/
+.Table {
+    display: table;
+    width: 100%;
+    border-width: 2px;
+    background-color: #EFF4F9;
+    border: groove;
+    border-collapse: collapse;
+}
+
+.Heading {
+    display: table-row;
+    font-weight: bold;
+    text-align: center;
+    border-width: 0px;
+    background-color: #0066A6;
+    background: rgb(30,87,153); /* Old browsers */
+    background: -moz-linear-gradient(top, rgba(30,87,153,1) 0%, rgba(41,137,216,1) 45%, rgba(32,124,202,1) 95%, rgba(125,185,232,1) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(30,87,153,1) 0%,rgba(41,137,216,1) 45%,rgba(32,124,202,1) 95%,rgba(125,185,232,1) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(30,87,153,1) 0%,rgba(41,137,216,1) 45%,rgba(32,124,202,1) 95%,rgba(125,185,232,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#7db9e8',GradientType=0 ); /* IE6-9 */
+}
+
+    .Heading .Cell p {
+        color: white;
+    }
+
+.Row {
+    display: table-row;
+}
+
+.Cell {
+    display: table-cell;
+    border: solid;
+    border-width: thin;
+    padding-left: 5px;
+    padding-right: 5px;
+    width: auto;
+    border-color: gainsboro;
+}
+
+/***************************************Login page************************************/
+#login {
+    padding-left: 35%;
+    padding-right: 40%;
+    padding-bottom: 8%;
+    padding-top: 6%;
+    width: 100px;
+}
+
+#username {
+    padding-left: 5px;
+    margin-top: 15%;
+    margin-bottom: 10%;
+    margin-left: 25%;
+    border-radius: 8px;
+    height: 23px;
+    outline: none;
+}
+
+#password {
+    padding-left: 5px;
+    margin-bottom: 10%;
+    margin-left: 25%;
+    border-radius: 8px;
+    height: 23px;
+    outline: none;
+}
+
+#loginsubmit {
+    margin-left: 36%;
+    background-color: #0066A6;
+    color: white;
+    padding: 5px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    border-radius: 8px;
+    outline: none;
+}
+
+#loginContent {
+    margin-left: -171px;
+    width: 327px;
+    height: 290px;
+    background-color: aliceblue;
+    border: groove;
+    margin-top: 44px;
+}
+
+.error {
+    padding-top: 31px;
+    text-align: center;
+    color: red;
+}
+
+/*********************************Login page End*******************************************/
+
+/*********************************Vacation page *******************************************/
+
+.vacation_Outterdiv {
+    margin: 20px 20px 20px 20px;
+}
+
+.vacation_DateFormat {
+    font-size: 13px;
+}
+
+.vacation_table {
+    width: 915px;
+    border: 1px solid #AAA;
+    background-color: #EFF4F9;
+    padding: 20px 20px 20px 20px;
+}
+
+.PL_twenty {
+    padding-left: 20px;
+}
+
+.vacation_table_cell {
+    width: 210px;
+    height: 50px;
+}
+
+.vacation_table_cell_daysNo {
+    width: 150px;
+    height: 50px;
+}
+
+.vaction_remain_text {
+    height: 50px;
+    width: 400px;
+    float: left;
+}
+
+.vacation_dropdown {
+    width: 130px;
+}
+
+.vacation_days {
+    width: 50px;
+}
+
+.send_copyTo {
+    width: 450px;
+}
+
+.vacation_comments {
+    width: 450px;
+    height: 140px !important;
+}
+
+.MT_Twenty {
+    margin-top: 20px;
+}
+
+.MT_Ten {
+    margin-top: 10px;
+}
+
+.vacation_submitbtn {
+    background-color: #0066A6;
+    border: none;
+    color: white;
+    padding: 8px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    border-radius: 8px;
+    outline: none;
+}
+
+.val_msg {
+    color: red;
+}
+
+.vacation_yearSelect {
+    float: right;
+    padding-bottom: 20px;
+}
+
+#vacation_list {
+    margin-top: 20px;
+    margin-bottom: 17px;
+}
+
+.noRecords {
+    display: table;
+    width: 100%;
+    border-width: 2px;
+    background-color: #EFF4F9;
+    border: groove;
+    border-collapse: collapse;
+    height: 50px;
+    border-top-width: 0px;
+}
+
+    .noRecords p {
+        text-align: center;
+    }
+/*********************************Vacation page End*******************************************/
+
+
+/* Search panel style starts*/
+.form-wrapper {
+    width: 344px;
+    padding: 8px;
+    margin: 20px auto;
+    overflow: hidden;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #dedede #bababa #aaa #bababa;
+    box-shadow: 0 3px 3px rgba(255,255,255,.1), 0 3px 0 #bbb, 0 4px 0 #aaa, 0 5px 5px #444;
+    border-radius: 10px;
+    background-color: #f6f6f6;
+    background-image: linear-gradient(top, #f6f6f6, #eae8e8);
+    float: left;
+}
+
+    .form-wrapper #search {
+        width: 330px;
+        height: 20px;
+        padding: 10px 5px;
+        float: left;
+        font: bold 16px 'lucida sans', 'trebuchet MS', 'Tahoma';
+        border: 1px solid #ccc;
+        box-shadow: 0 1px 1px #ddd inset, 0 1px 0 #fff;
+        border-radius: 3px;
+    }
+
+        .form-wrapper #search:focus {
+            outline: 0;
+            border-color: #aaa;
+            box-shadow: 0 1px 1px #bbb inset;
+        }
+
+        .form-wrapper #search::-webkit-input-placeholder {
+            color: #999;
+            font-weight: normal;
+        }
+
+        .form-wrapper #search:-moz-placeholder {
+            color: #999;
+            font-weight: normal;
+        }
+
+        .form-wrapper #search:-ms-input-placeholder {
+            color: #999;
+            font-weight: normal;
+        }
+
+
+/* Search panel style ends*/
+
+#welcome_message {
+    margin: 170px;
+    margin-left: 255px;
+    font-size: -webkit-xxx-large;
+    color: cornflowerblue;
 }

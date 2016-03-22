@@ -1,0 +1,25 @@
+﻿[{
+    "CustomerID": 1,
+    "CustomerName": "Customer1",
+    "Address": "Address1",
+    "CountryID": 1,
+    "AccountManagerID": 1,
+    "AccountEmail": "manager1@gmail.com"
+  },
+    {
+    "CustomerID": 2,
+    "CustomerName": "Customer2",
+    "Address": "Address2",
+    "CountryID": 1,
+    "AccountManagerID": 2,
+    "AccountEmail": "manager2@gmail.com"
+  },
+  {
+    "CustomerID": 3,
+    "CustomerName": "Customer3",
+    "Address": "Address3",
+    "CountryID": 2,
+    "AccountManagerID": 3,
+    "AccountEmail": "manager3@gmail.com"
+  }
+]
